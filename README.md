@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Edigitify Marketing Site
+
+A Next.js 14 (App Router + TypeScript) marketing experience for Edigitify, inspired by format-3.co. It uses Tailwind CSS, Framer Motion animations, Lenis-powered smooth scrolling, and data-driven sections fed from `/src/data`.
+
+## Stack
+
+- Next.js 14 App Router + TypeScript
+- Tailwind CSS 3 with custom design tokens
+- Framer Motion (route transitions, reveals, hover micro-interactions)
+- Lenis for smooth scrolling (with reduced-motion fallback)
+- Next Fonts + Next/Image everywhere
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Visit `http://localhost:3000`.
+- `npm run lint` to check code quality.
+- `npm run build && npm start` to test the production bundle.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/              # App Router routes, metadata, sitemap/robots
+  components/       # Reusable UI (hero, header, marquee, work cards, etc.)
+  data/             # JSON content powering sections
+  lib/              # Helpers (content loaders, utils)
+public/
+  logo.svg          # Edigitify mark derived from provided asset
+  logos/            # Simple wordmark stand-ins for the marquee
+```
 
-## Learn More
+## Content Model
 
-To learn more about Next.js, take a look at the following resources:
+All homepage/secondary sections pull from static JSON so you can iterate without touching components:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `src/data/work.json` – add/edit case studies (slug, tags, summary, problem/solution, metrics, gallery).
+- `src/data/clients.json` – update marquee logos (name, logo path in `public/logos`, outbound URL).
+- `src/data/awards.json` – vertical recognition list.
+- `src/data/insights.json` – teaser cards on home + /insights anchors.
+- `src/data/cities.json` – world clock strip (city, country, IANA time zone).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+After editing any JSON file, restart the dev server (or re-run `next build`) so static imports refresh.
 
-## Deploy on Vercel
+## Adding New Work Items
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Duplicate an entry inside `src/data/work.json`.
+2. Update `slug`, `title`, `tags`, `summary`, and hero `image` (local asset or allowed remote URL).
+3. Provide `problem`, `solution`, `outcomes[]`, `metrics[]`, and `gallery[]` to drive the detail page sections.
+4. Add any supporting assets under `public/work/` if you prefer local imagery (Next/Image already whitelists Unsplash URLs if you stick with remote images).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The list automatically reflects new records on `/` and the `/work` masonry grid; `/work/[slug]` renders the detailed page based on the slug.
+
+## Updating Awards or Insights
+
+- Add rows to `src/data/awards.json` to show additional recognition. Items fade in automatically.
+- Update `src/data/insights.json` to surface new articles across the home and `/insights` page.
+
+## Smooth Scrolling & Motion
+
+- `SmoothScrollProvider` wires Lenis to `requestAnimationFrame` and pauses when `prefers-reduced-motion` is enabled.
+- Route transitions live inside `src/app/template.tsx` via `AnimatePresence`.
+- Reusable reveal + ticker/marquee components respect reduced-motion preferences.
+
+## Deployment Notes
+
+- SEO metadata + Open Graph are defined in `src/app/layout.tsx`.
+- `src/app/sitemap.ts` and `src/app/robots.ts` keep search bots happy.
+- Keep `next.config.ts` image domains in sync if you introduce new remote assets.
+# Edigitify
