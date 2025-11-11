@@ -1,0 +1,9 @@
+[
+  { "city": "Nashville", "country": "USA", "tz": "America/Chicago" },
+  { "city": "New York", "country": "USA", "tz": "America/New_York" },
+  { "city": "London", "country": "UK", "tz": "Europe/London" },
+  { "city": "Katowice", "country": "Poland", "tz": "Europe/Warsaw" },
+  { "city": "Bratislava", "country": "Slovakia", "tz": "Europe/Bratislava" },
+  { "city": "Plovdiv", "country": "Bulgaria", "tz": "Europe/Sofia" },
+  { "city": "Dubai", "country": "UAE", "tz": "Asia/Dubai" }
+]

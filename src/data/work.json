@@ -1,0 +1,178 @@
+[
+  {
+    "slug": "carehive",
+    "title": "CareHive Precision Health",
+    "tags": ["Strategy", "AI", "Product"],
+    "summary": "A predictive care companion that turns fragmented health journeys into proactive insight for providers and patients alike.",
+    "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1600&q=80",
+    "problem": "Clinicians were drowning in delayed lab signals and manual reporting, leaving patients without timely course corrections.",
+    "solution": "We designed a longitudinal insight graph that merges EHR, wearable, and conversational inputs into one adaptive command surface.",
+    "outcomes": [
+      "4x faster risk-flag routing to care teams",
+      "Dynamic care plans that auto-update with every new signal",
+      "HIPAA-ready governance controls with full auditability"
+    ],
+    "metrics": [
+      { "label": "NPS lift", "value": "+23" },
+      { "label": "Time saved / week", "value": "18 hrs" }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80"
+    ]
+  },
+  {
+    "slug": "natural-history-museum",
+    "title": "Natural History Museum Immersive",
+    "tags": ["Experience", "3D", "Research"],
+    "summary": "Digitally-guided tours and living exhibits that blend archival collections with responsive storytelling.",
+    "image": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80",
+    "problem": "Guests struggled to connect physical galleries with the museum's sprawling digital archive.",
+    "solution": "We choreographed an AR-ready storyline that syncs volumetric captures, proximity beacons, and curator narratives in real time.",
+    "outcomes": [
+      "30% longer dwell time in climate exhibits",
+      "New membership sign-ups woven directly into the tour",
+      "Dynamic CMS tooling that empowers curators to ship stories in hours"
+    ],
+    "metrics": [
+      { "label": "Immersion score", "value": "4.8/5" },
+      { "label": "Visit uplift", "value": "+19%" }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1529429617124-aee711a70412?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
+    ]
+  },
+  {
+    "slug": "dailywire-plus",
+    "title": "DailyWire+ Platform",
+    "tags": ["OTT", "Design", "Engineering"],
+    "summary": "Unified subscription, live community, and media commerce surfaces for the DailyWire+ ecosystem.",
+    "image": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80",
+    "problem": "Viewers bounced between standalone livestreams, podcasts, and stores without a coherent journey.",
+    "solution": "We orchestrated a modular design system with shared identity, synchronized watch parties, and shoppable moments.",
+    "outcomes": [
+      "Subscription conversion up by double digits",
+      "Latency-safe live chat layered on top of video",
+      "Creator tooling that schedules multi-surface drops"
+    ],
+    "metrics": [
+      { "label": "ARPU", "value": "+17%" },
+      { "label": "Watch time", "value": "+28%" }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"
+    ]
+  },
+  {
+    "slug": "masdar-city",
+    "title": "Masdar City Operations Portal",
+    "tags": ["Sustainability", "IoT", "Data"],
+    "summary": "Command-center visualizations that orchestrate clean energy assets across the Masdar innovation district.",
+    "image": "https://images.unsplash.com/photo-1472289065668-ce650ac443d2?auto=format&fit=crop&w=1600&q=80",
+    "problem": "Energy, transit, and research tenants ran disconnected monitoring stacks.",
+    "solution": "We unified IoT, BIM, and ESG data into a single glass pane with scenario planning baked in.",
+    "outcomes": [
+      "Automated exception routing to on-site crews",
+      "Live carbon ledger with investor-ready reporting",
+      "Digital twin sandbox for urban experiments"
+    ],
+    "metrics": [
+      { "label": "Carbon avoided", "value": "38k tons" },
+      { "label": "Ops efficiency", "value": "+31%" }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
+    ]
+  },
+  {
+    "slug": "interblock",
+    "title": "Interblock Arena",
+    "tags": ["3D", "Realtime", "Product"],
+    "summary": "A tactile gaming intelligence layer that merges biometric telemetry with responsive dealer tools.",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
+    "problem": "Dealers and players lacked shared context to manage live experiences at scale.",
+    "solution": "We built a multi-surface control center with haptic prompts, lighting cues, and AI coaching for every table.",
+    "outcomes": [
+      "Frictionless loyalty handoffs mid-session",
+      "Dynamic lighting scenes that react to live odds",
+      "Biometric data distilled into simple readouts"
+    ],
+    "metrics": [
+      { "label": "Table uptime", "value": "99.98%" },
+      { "label": "Session lift", "value": "+22%" }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80"
+    ]
+  },
+  {
+    "slug": "weir-group",
+    "title": "Weir Group Reliability Cloud",
+    "tags": ["Industrial", "AI", "UX"],
+    "summary": "Predictive maintenance workflows that surface risk, cost, and sustainability insights for engineers in the field.",
+    "image": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80",
+    "problem": "Equipment telemetry lived in siloed historian systems without unified risk scoring.",
+    "solution": "We created a reliability brain that pairs ML predictions with human-centered triage and guided work orders.",
+    "outcomes": [
+      "Mean time to repair reduced dramatically",
+      "Automated ESG traceability for every action",
+      "Connected mobile tools that work offline"
+    ],
+    "metrics": [
+      { "label": "MTTR", "value": "-41%" },
+      { "label": "Asset uptime", "value": "+16%" }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80"
+    ]
+  },
+  {
+    "slug": "streamlayer",
+    "title": "StreamLayer Fan OS",
+    "tags": ["Sports", "3D", "Product"],
+    "summary": "Modular fan engagement OS that fuses broadcast, betting, and community overlays without latency.",
+    "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80",
+    "problem": "Rights holders needed a single stack that could personalize live games per viewer.",
+    "solution": "We shipped a layout engine that matches intents (bet, buy, cheer) with interactive overlays in <16ms.",
+    "outcomes": [
+      "Context-aware offers timed to live plays",
+      "Realtime community rooms with mod tooling",
+      "Unified data spine across properties"
+    ],
+    "metrics": [
+      { "label": "Engagement", "value": "+35%" },
+      { "label": "CTR", "value": "+42%" }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?auto=format&fit=crop&w=1200&q=80"
+    ]
+  },
+  {
+    "slug": "awager",
+    "title": "Awager AI Companion",
+    "tags": ["AI", "Strategy", "Mobile"],
+    "summary": "Ethical wagering assistant that contextualizes risk models with just-in-time guidance for responsible play.",
+    "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1600&q=80",
+    "problem": "Players lacked a transparent view into risk signals while regulators demanded stronger safeguards.",
+    "solution": "We paired explainable AI with personal finance heuristics to guide every stake and break moment.",
+    "outcomes": [
+      "Real-time insight feed tuned per jurisdiction",
+      "Companion mode that intervenes before risk spikes",
+      "Shared dashboards for players, compliance, and partners"
+    ],
+    "metrics": [
+      { "label": "Risk alerts", "value": "-62%" },
+      { "label": "Retention", "value": "+14%" }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80"
+    ]
+  }
+]

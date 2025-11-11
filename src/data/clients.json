@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Natural History Museum",
+    "logo": "/logos/natural-history.svg",
+    "url": "https://www.nhm.ac.uk"
+  },
+  {
+    "name": "DailyWire+",
+    "logo": "/logos/dailywire.svg",
+    "url": "https://www.dailywire.com"
+  },
+  {
+    "name": "Interblock",
+    "logo": "/logos/interblock.svg",
+    "url": "https://interblockgaming.com"
+  },
+  {
+    "name": "Masdar City",
+    "logo": "/logos/masdar.svg",
+    "url": "https://masdarcity.ae"
+  },
+  {
+    "name": "Weir Group",
+    "logo": "/logos/weir.svg",
+    "url": "https://www.global.weir"
+  },
+  {
+    "name": "Bentkey",
+    "logo": "/logos/bentkey.svg",
+    "url": "https://www.bentkey.com"
+  },
+  {
+    "name": "StreamLayer",
+    "logo": "/logos/streamlayer.svg",
+    "url": "https://www.streamlayer.io"
+  },
+  {
+    "name": "Awager",
+    "logo": "/logos/awager.svg",
+    "url": "https://awager.ai"
+  }
+]

@@ -1,0 +1,5 @@
+<svg width="220" height="80" viewBox="0 0 220 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="220" height="80" rx="14" fill="#0b0b0b" stroke="#1f1f1f"/>
+  <text x="110" y="46" text-anchor="middle" font-family="'Space Grotesk', 'Inter', sans-serif" font-size="22" letter-spacing="0.35em" fill="#f1f1f1">AWAGER</text>
+  <circle cx="178" cy="40" r="10" stroke="#00f5d4" stroke-width="4"/>
+</svg>

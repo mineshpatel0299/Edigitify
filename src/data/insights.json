@@ -1,0 +1,20 @@
+[
+  {
+    "category": "AI",
+    "title": "From Co-Pilots to Product Partners",
+    "dek": "Why Edigitify builds AI that shares accountability with your team instead of automating them away.",
+    "slug": "co-pilots-to-product-partners"
+  },
+  {
+    "category": "Design",
+    "title": "Motion as a Strategy Layer",
+    "dek": "How purposeful motion behavior increases comprehension and trust across complex digital systems.",
+    "slug": "motion-as-strategy"
+  },
+  {
+    "category": "Research",
+    "title": "Operationalizing Customer Intimacy",
+    "dek": "A playbook for merging ethnography, telemetry, and AI co-creation to unlock new growth loops.",
+    "slug": "operationalizing-customer-intimacy"
+  }
+]

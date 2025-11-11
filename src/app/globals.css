@@ -1,26 +1,98 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #030303;
+  --foreground: #f7f7f2;
+  --muted: #a0a0a0;
+  --accent: #00f5d4;
+  --border: rgba(255, 255, 255, 0.12);
+  --card: #0b0b0b;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  * {
+    @apply border-border;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.01em;
+    min-height: 100vh;
+    scroll-behavior: auto;
+    @apply antialiased;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: #030303;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.section-heading {
+  @apply uppercase tracking-[0.2em] text-xs text-[var(--muted)] font-semibold;
+}
+
+.ring-card {
+  background: radial-gradient(circle at 20% 20%, rgba(0, 245, 212, 0.28), transparent 45%),
+    var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-duration, 28s) linear infinite;
+}
+
+.footer-marquee-track {
+  animation-duration: 18s;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  letter-spacing: 0.4em;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .footer-marquee-track {
+    animation: none;
+    transform: none;
+  }
+}
+
+table.clock-grid {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table.clock-grid td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.75rem 0;
 }
