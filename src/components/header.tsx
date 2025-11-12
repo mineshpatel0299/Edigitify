@@ -41,7 +41,7 @@ export function Header() {
         )}
       >
         <Link href="/" className="flex items-center gap-3 text-sm font-semibold">
-          <Image src="/logos/logom.png" alt="Edigitify" width={70} height={42} className="h-20 w-auto" priority />
+          <Image src="/logos/logom.png" alt="Edigitify" width={70} height={28} className="h-16 w-auto" priority />
          
         </Link>
         <nav className="flex flex-1 items-center justify-end gap-6 text-[13px] uppercase tracking-[0.2em]">

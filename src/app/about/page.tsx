@@ -3,21 +3,21 @@ import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Meet Edigitify — a distributed digital product agency building brave futures.",
+  description: "Learn how Edigitify operates as a digital-integrated marketing partner for modern brands.",
 };
 
 const principles = [
   {
-    title: "Strategy is a team sport",
-    body: "Our strategists, researchers, and technologists sit inside the same war room so every insight ships with an execution path.",
+    title: "We listen, then we launch",
+    body: "Every mandate starts with interviews, data pulls, and alignment workshops so our media and creative investments mirror your business priorities.",
   },
   {
-    title: "Motion tells the story",
-    body: "Deliberate motion design increases comprehension, trust, and emotional connection. Every surface ships with purposeful movement.",
+    title: "Budgets stay accountable",
+    body: "Channels, creatives, and automation are governed by the same pacing and attribution model so stakeholders can see cause and effect in hours, not months.",
   },
   {
-    title: "AI with accountability",
-    body: "We treat AI as a product partner, not a replacement. Human-in-the-loop guardrails come standard in every build.",
+    title: "Partnerships over projects",
+    body: "We embed with your teams, celebrate micro wins, and surface transparent retros so every sprint compounds value.",
   },
 ];
 
@@ -26,9 +26,10 @@ export default function AboutPage() {
     <div className="space-y-12 pb-20">
       <Reveal className="space-y-4">
         <p className="section-heading">About</p>
-        <h1 className="text-5xl font-semibold text-white">Edigitify is a strategic digital product agency for ambitious teams.</h1>
+        <h1 className="text-5xl font-semibold text-white">We are Edigitify — a digital integrating marketing partner from Delhi NCR.</h1>
         <p className="text-white/70">
-          Headquartered in Nashville with satellite studios in New York, London, Katowice, Bratislava, Plovdiv, and Dubai, we help global organizations imagine, design, and ship products that feel inevitable.
+          Our teams plan and execute campaigns that move both hearts and dashboards. We manage budgets across Meta, Google,
+          programmatic, and emerging platforms while scripting creative, automating CRM handoffs, and reporting inside the same workspace.
         </p>
       </Reveal>
       <Reveal delay={0.1} className="grid gap-6 md:grid-cols-3">
@@ -43,10 +44,11 @@ export default function AboutPage() {
       <Reveal delay={0.2} className="rounded-[32px] border border-white/10 p-10">
         <h3 className="text-3xl font-semibold text-white">Team snapshots</h3>
         <p className="mt-4 text-white/70">
-          45 strategists, designers, engineers, technologists, and producers operating as one remote-first pod. We prefer long-term embedded partnerships, shoulder-to-shoulder with client leaders.
+          40+ media planners, creatives, analysts, and automation leads who believe performance and storytelling must operate together.
+          We work hybrid across Delhi NCR with partners spanning healthcare, travel, real estate, retail, and B2B.
         </p>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {["Avg. partnership: 34 months", "Studios across 4 timezones", "50% of work touches AI"].map((stat) => (
+          {["$18M media governed in 2023", "Avg. engagement: 30+ months", "Response time: under 12 hours"].map((stat) => (
             <div key={stat} className="rounded-2xl border border-white/10 p-4 text-sm text-white/70">
               {stat}
             </div>

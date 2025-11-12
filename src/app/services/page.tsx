@@ -3,34 +3,34 @@ import { Reveal } from "@/components/reveal";
 
 const services = [
   {
-    title: "Strategy & Research",
+    title: "Paid Media Architecture",
     copy:
-      "North-star definition, customer development, and venture readiness sprints that clarify what to build and why.",
-    bullets: ["Opportunity mapping", "Product vision decks", "Pilot roadmaps"],
+      "We distribute budgets across Meta, Google, YouTube, programmatic, and affiliates with pacing models that update every few hours.",
+    bullets: ["Channel mix + forecasting", "Creative x audience matrices", "Measurement + MMM setup"],
   },
   {
-    title: "Experience & Brand Design",
+    title: "Performance Creative Studio",
     copy:
-      "Systems-level design that unites motion, spatial, and narrative craft under one modular design language.",
-    bullets: ["Design systems", "Prototyping & motion", "Content choreography"],
+      "Scripted story labs produce reels, films, statics, and UGC while maintaining brand codes and testing frameworks.",
+    bullets: ["Campaign narrative systems", "UGC + influencer ops", "Landing + commerce experiences"],
   },
   {
-    title: "Engineering & AI",
+    title: "Automation & CRM Ops",
     copy:
-      "Full-stack delivery teams shipping modern web, mobile, 3D, and machine learning products with rigor.",
-    bullets: ["Application engineering", "MLOps & data", "Quality & reliability"],
+      "WhatsApp, email, and CRM journeys stitched into sales workflows so leads get context and teams keep clarity.",
+    bullets: ["Lead routing & scoring", "Playbooks for HubSpot/Salesforce", "Service + support automation"],
   },
   {
-    title: "Growth Operations",
+    title: "Analytics & Advisory",
     copy:
-      "Embedded revenue enablement, experimentation, and lifecycle programs tied to business performance.",
-    bullets: ["Experiment sprints", "Lifecycle automation", "Analytics enablement"],
+      "We wire dashboards, revenue modeling, and C-suite rituals that align finance, marketing, and customer ops.",
+    bullets: ["Attribution + incrementality", "Budget governance", "RevOps office hours"],
   },
 ];
 
 export const metadata: Metadata = {
   title: "Services",
-  description: "Strategy, design, engineering, and growth services tailored to venture-grade teams.",
+  description: "Integrated media, creative, automation, and analytics services for ambitious marketing teams.",
 };
 
 export default function ServicesPage() {
@@ -38,9 +38,9 @@ export default function ServicesPage() {
     <div className="space-y-12 pb-20">
       <div className="space-y-4">
         <p className="section-heading">Offerings</p>
-        <h1 className="text-5xl font-semibold text-white">Full-stack teams for every journey stage.</h1>
+        <h1 className="text-5xl font-semibold text-white">Full-stack marketing teams for every growth push.</h1>
         <p className="max-w-3xl text-white/70">
-          Edigitify assembles custom pods that flex between venture creation, product transformation, and long-term platform stewardship. Every engagement blends strategic clarity with hands-on build energy.
+          Edigitify assembles pods that own strategy, execution, and reporting end to end. You get one squad that can brief talent, deploy media, talk to sales, and answer to the board.
         </p>
       </div>
       <div className="grid gap-6 md:grid-cols-2">

@@ -1,20 +1,20 @@
 [
   {
-    "category": "AI",
-    "title": "From Co-Pilots to Product Partners",
-    "dek": "Why Edigitify builds AI that shares accountability with your team instead of automating them away.",
-    "slug": "co-pilots-to-product-partners"
+    "category": "Media",
+    "title": "Budget Orchestration That Actually Responds",
+    "dek": "How we rebalance Meta, Google, and programmatic dollars every 6 hours without tanking learning phases.",
+    "slug": "budget-orchestration-that-responds"
   },
   {
-    "category": "Design",
-    "title": "Motion as a Strategy Layer",
-    "dek": "How purposeful motion behavior increases comprehension and trust across complex digital systems.",
-    "slug": "motion-as-strategy"
+    "category": "Creative",
+    "title": "Intent-Led Story Systems",
+    "dek": "Turning founder stories, UGC, and motion design into modular assets aligned to every funnel stage.",
+    "slug": "intent-led-story-systems"
   },
   {
-    "category": "Research",
-    "title": "Operationalizing Customer Intimacy",
-    "dek": "A playbook for merging ethnography, telemetry, and AI co-creation to unlock new growth loops.",
-    "slug": "operationalizing-customer-intimacy"
+    "category": "Automation",
+    "title": "WhatsApp, CRM, and Offline Sales in One Loop",
+    "dek": "Blueprint for connecting lead forms, field sales, and customer care so no conversation gets lost in handoff.",
+    "slug": "whatsapp-crm-one-loop"
   }
 ]

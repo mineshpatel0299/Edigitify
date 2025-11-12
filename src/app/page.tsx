@@ -1,12 +1,137 @@
 import { Hero } from "@/components/hero";
 import { LogoMarquee } from "@/components/marquee";
 import { WorkCard } from "@/components/work-card";
+import { WorkScrollCard } from "@/components/work-scroll-card";
 import { AwardsList } from "@/components/awards-list";
 import { InsightCard } from "@/components/insight-card";
 import { WorldClockStrip } from "@/components/world-clock-strip";
-import { clientsData, insightsData, workData } from "@/lib/content";
+import { clientsData, insightsData, workData, type WorkItem } from "@/lib/content";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
+
+const servicePods = [
+  {
+    title: "Website Development",
+    slug: "website-development",
+    tags: ["Web", "E-commerce"],
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
+    description: "Modern, fast, and easy-to-manage websites and e-commerce builds.",
+    bullets: [
+      "WordPress, Joomla, and custom PHP stacks",
+      "CMS admin panels your team can actually use",
+      "Secure, scalable storefronts with conversion-friendly UI/UX",
+      "Performance, SEO, and analytics baked in",
+    ],
+    metrics: [
+      { label: "Stack", value: "WordPress · Joomla · PHP" },
+      { label: "Focus", value: "Speed & SEO" },
+    ],
+  },
+  {
+    title: "Social Media Marketing",
+    slug: "social-media-marketing",
+    tags: ["Social", "Content"],
+    image:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
+    description: "Grow reach and community with thumb-stopping content and always-on optimization.",
+    bullets: [
+      "Editorial calendars, creatives, reels, and stories",
+      "Community management and response playbooks",
+      "Paid + organic synergy for compounding results",
+      "Actionable dashboards and learning loops",
+    ],
+    metrics: [
+      { label: "Formats", value: "Reels · Stories · Shorts" },
+      { label: "Cadence", value: "Always-on" },
+    ],
+  },
+  {
+    title: "Search Engine Optimization",
+    slug: "search-engine-optimization",
+    tags: ["Search", "SEO"],
+    image:
+      "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80",
+    description: "Own the queries that matter—across geographies and devices.",
+    bullets: [
+      "National, global, local, and maps SEO",
+      "Brand + e-commerce SEO",
+      "Video SEO and App Store Optimization",
+      "Online Reputation Management",
+    ],
+    metrics: [
+      { label: "Coverage", value: "National + Local" },
+      { label: "Specialty", value: "Brand & E-com SEO" },
+    ],
+  },
+  {
+    title: "Influencer & Creator Marketing",
+    slug: "influencer-creator-marketing",
+    tags: ["Creators", "Brand"],
+    image:
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80",
+    description: "Authentic voices, measurable outcomes.",
+    bullets: [
+      "Celebrity endorsements & video shout-outs",
+      "Blogger/influencer campaigns & meetups",
+      "Mass-reach collaborations mapped to your ICP",
+      "End-to-end brief, contracting, and tracking",
+    ],
+    metrics: [
+      { label: "Talent Ops", value: "End-to-end" },
+      { label: "Formats", value: "Video · Events" },
+    ],
+  },
+  {
+    title: "Online Advertising",
+    slug: "online-advertising",
+    tags: ["Media", "Paid"],
+    image:
+      "https://images.unsplash.com/photo-1483103332443-19ed3bb1f2b6?auto=format&fit=crop&w=1600&q=80",
+    description: "Media that works as hard as your budget across Meta, Google, and beyond.",
+    bullets: [
+      "Smart budget distribution to hit KPIs",
+      "Right formats, right channels, right time",
+      "Precision targeting by age, geo, interest",
+      "Conversion tracking, live optimization, and post-campaign intelligence",
+    ],
+    metrics: [
+      { label: "Platforms", value: "Meta · Google · More" },
+      { label: "Optimization", value: "Live & Always-on" },
+    ],
+  },
+  {
+    title: "Graphic Design & Branding",
+    slug: "graphic-design-branding",
+    tags: ["Design", "Brand"],
+    image:
+      "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1600&q=80",
+    description: "Your brand, unmistakable everywhere.",
+    bullets: [
+      "Logos, brand kits, menus, and cards",
+      "Packaging, brochures, flyers, banners",
+      "Presentation and company profile design",
+      "Fast turnarounds, print-ready assets",
+    ],
+    metrics: [
+      { label: "Deliverables", value: "Logos · Kits · Decks" },
+      { label: "Turnaround", value: "Fast & Print-ready" },
+    ],
+  },
+];
+
+const howWeWorkScrollItems: WorkItem[] = servicePods.map((service, index) => ({
+  slug: service.slug ?? `service-${index}`,
+  title: service.title,
+  tags: service.tags ?? ["How We Work"],
+  summary: service.description,
+  image: service.image,
+  problem: service.description,
+  solution: service.description,
+  outcomes: service.bullets,
+  metrics: service.metrics,
+  gallery: [service.image],
+}));
 
 export default function HomePage() {
   return (
@@ -18,7 +143,7 @@ export default function HomePage() {
         <LogoMarquee clients={clientsData} />
       </section>
 
-      <section className="space-y-8">
+      {/* <section className="space-y-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="section-heading">Recent Work</p>
@@ -34,6 +159,30 @@ export default function HomePage() {
         <div className="grid gap-8 md:grid-cols-2">
           {workData.slice(0, 6).map((item, index) => (
             <WorkCard key={item.slug} item={item} index={index} />
+          ))}
+        </div>
+      </section> */}
+
+      <section className="space-y-10">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="section-heading">How We Work</p>
+            <h2 className="text-4xl font-semibold text-white">Pods that own web, social, search, creators, and design.</h2>
+            <p className="mt-3 max-w-2xl text-white/70">
+              Integrated sprint teams layer strategy, production, and optimization so budgets stay focused on outcomes—not
+              handovers.
+            </p>
+          </div>
+          <Link
+            href="mailto:info@edigitify.in?subject=Share%20a%20brief"
+            className="text-sm uppercase tracking-[0.3em] text-white/70 hover:text-white"
+          >
+            Share a brief ↗
+          </Link>
+        </div>
+        <div className="space-y-12">
+          {howWeWorkScrollItems.map((item, index) => (
+            <WorkScrollCard key={item.slug} item={item} priority={index === 0} />
           ))}
         </div>
       </section>

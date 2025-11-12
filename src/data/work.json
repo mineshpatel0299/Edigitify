@@ -1,178 +1,178 @@
 [
   {
-    "slug": "carehive",
-    "title": "CareHive Precision Health",
-    "tags": ["Strategy", "AI", "Product"],
-    "summary": "A predictive care companion that turns fragmented health journeys into proactive insight for providers and patients alike.",
-    "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1600&q=80",
-    "problem": "Clinicians were drowning in delayed lab signals and manual reporting, leaving patients without timely course corrections.",
-    "solution": "We designed a longitudinal insight graph that merges EHR, wearable, and conversational inputs into one adaptive command surface.",
+    "slug": "mintsteer-growth-engine",
+    "title": "MintSteer Growth Engine",
+    "tags": ["Paid Media", "Automation", "Analytics"],
+    "summary": "Scaled MintSteer's investor pipeline with an always-on acquisition system that aligned capital-raising goals with real-time behavior data.",
+    "image": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1600&q=80",
+    "problem": "Leads from roadshows were stalling because paid channels ran on generic messaging and static landing pages.",
+    "solution": "We rebuilt audience architecture, automated budget reallocation across Meta, Google, and programmatic, and tied every touch to a deal health dashboard in Looker Studio.",
     "outcomes": [
-      "4x faster risk-flag routing to care teams",
-      "Dynamic care plans that auto-update with every new signal",
-      "HIPAA-ready governance controls with full auditability"
+      "Unified view of investor intent signals from ads, webinars, and CRM",
+      "Creative and copy sprints every 10 days tied to market shifts",
+      "Finance, marketing, and leadership reviewing the same live scorecard"
     ],
     "metrics": [
-      { "label": "NPS lift", "value": "+23" },
-      { "label": "Time saved / week", "value": "18 hrs" }
+      { "label": "Qualified leads", "value": "+71%" },
+      { "label": "Cost per meeting", "value": "-36%" }
     ],
     "gallery": [
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80"
+      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
     ]
   },
   {
-    "slug": "natural-history-museum",
-    "title": "Natural History Museum Immersive",
-    "tags": ["Experience", "3D", "Research"],
-    "summary": "Digitally-guided tours and living exhibits that blend archival collections with responsive storytelling.",
-    "image": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80",
-    "problem": "Guests struggled to connect physical galleries with the museum's sprawling digital archive.",
-    "solution": "We choreographed an AR-ready storyline that syncs volumetric captures, proximity beacons, and curator narratives in real time.",
+    "slug": "biocity-care-corridor",
+    "title": "BioCity Care Corridor",
+    "tags": ["Healthcare", "Automation", "Creative"],
+    "summary": "Humanized BioCity Healthcare's digital front door so appointment booking, lab education, and care navigation feel like one guided experience.",
+    "image": "https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80",
+    "problem": "Patients bounced between social ads, WhatsApp, and call centers, forcing coordinators to manually reconcile intent.",
+    "solution": "We shipped multilingual landing journeys, routed Meta lead forms directly into the EMR, and layered Salesforce automations that respond with tailored prep guides.",
     "outcomes": [
-      "30% longer dwell time in climate exhibits",
-      "New membership sign-ups woven directly into the tour",
-      "Dynamic CMS tooling that empowers curators to ship stories in hours"
+      "Appointment slots published dynamically by specialty and insurance",
+      "Context-aware retargeting sequences for follow-up care plans",
+      "Clinical teams gained insight into campaign performance in real time"
     ],
     "metrics": [
-      { "label": "Immersion score", "value": "4.8/5" },
-      { "label": "Visit uplift", "value": "+19%" }
+      { "label": "Show-up rate", "value": "+28%" },
+      { "label": "Manual follow-ups", "value": "-55%" }
     ],
     "gallery": [
-      "https://images.unsplash.com/photo-1529429617124-aee711a70412?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
+      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=80"
     ]
   },
   {
-    "slug": "dailywire-plus",
-    "title": "DailyWire+ Platform",
-    "tags": ["OTT", "Design", "Engineering"],
-    "summary": "Unified subscription, live community, and media commerce surfaces for the DailyWire+ ecosystem.",
-    "image": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80",
-    "problem": "Viewers bounced between standalone livestreams, podcasts, and stores without a coherent journey.",
-    "solution": "We orchestrated a modular design system with shared identity, synchronized watch parties, and shoppable moments.",
+    "slug": "lakkshay-demand-map",
+    "title": "Lakkshay Demand Map",
+    "tags": ["Travel", "Content", "Performance"],
+    "summary": "Turned Lakkshay Travels into a data-backed concierge for tier-II explorers by pairing story-driven films with dynamic offer orchestration.",
+    "image": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80",
+    "problem": "The team relied on seasonal fairs while younger travelers planned journeys through reels and micro-influencers.",
+    "solution": "We scripted destination series, deployed shoppable reels, and stitched WhatsApp commerce so quotes, upgrades, and visas live in one flow.",
     "outcomes": [
-      "Subscription conversion up by double digits",
-      "Latency-safe live chat layered on top of video",
-      "Creator tooling that schedules multi-surface drops"
+      "Always-on UGC pipeline with 42 creators across India",
+      "WhatsApp automation built with contextual CTAs per itinerary type",
+      "Search, social, and affiliate budgets governed by a single pacing model"
     ],
     "metrics": [
-      { "label": "ARPU", "value": "+17%" },
-      { "label": "Watch time", "value": "+28%" }
+      { "label": "Trip bookings", "value": "+63%" },
+      { "label": "Response time", "value": "3m avg" }
     ],
     "gallery": [
-      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"
-    ]
-  },
-  {
-    "slug": "masdar-city",
-    "title": "Masdar City Operations Portal",
-    "tags": ["Sustainability", "IoT", "Data"],
-    "summary": "Command-center visualizations that orchestrate clean energy assets across the Masdar innovation district.",
-    "image": "https://images.unsplash.com/photo-1472289065668-ce650ac443d2?auto=format&fit=crop&w=1600&q=80",
-    "problem": "Energy, transit, and research tenants ran disconnected monitoring stacks.",
-    "solution": "We unified IoT, BIM, and ESG data into a single glass pane with scenario planning baked in.",
-    "outcomes": [
-      "Automated exception routing to on-site crews",
-      "Live carbon ledger with investor-ready reporting",
-      "Digital twin sandbox for urban experiments"
-    ],
-    "metrics": [
-      { "label": "Carbon avoided", "value": "38k tons" },
-      { "label": "Ops efficiency", "value": "+31%" }
-    ],
-    "gallery": [
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
-    ]
-  },
-  {
-    "slug": "interblock",
-    "title": "Interblock Arena",
-    "tags": ["3D", "Realtime", "Product"],
-    "summary": "A tactile gaming intelligence layer that merges biometric telemetry with responsive dealer tools.",
-    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
-    "problem": "Dealers and players lacked shared context to manage live experiences at scale.",
-    "solution": "We built a multi-surface control center with haptic prompts, lighting cues, and AI coaching for every table.",
-    "outcomes": [
-      "Frictionless loyalty handoffs mid-session",
-      "Dynamic lighting scenes that react to live odds",
-      "Biometric data distilled into simple readouts"
-    ],
-    "metrics": [
-      { "label": "Table uptime", "value": "99.98%" },
-      { "label": "Session lift", "value": "+22%" }
-    ],
-    "gallery": [
-      "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80"
-    ]
-  },
-  {
-    "slug": "weir-group",
-    "title": "Weir Group Reliability Cloud",
-    "tags": ["Industrial", "AI", "UX"],
-    "summary": "Predictive maintenance workflows that surface risk, cost, and sustainability insights for engineers in the field.",
-    "image": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80",
-    "problem": "Equipment telemetry lived in siloed historian systems without unified risk scoring.",
-    "solution": "We created a reliability brain that pairs ML predictions with human-centered triage and guided work orders.",
-    "outcomes": [
-      "Mean time to repair reduced dramatically",
-      "Automated ESG traceability for every action",
-      "Connected mobile tools that work offline"
-    ],
-    "metrics": [
-      { "label": "MTTR", "value": "-41%" },
-      { "label": "Asset uptime", "value": "+16%" }
-    ],
-    "gallery": [
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80"
-    ]
-  },
-  {
-    "slug": "streamlayer",
-    "title": "StreamLayer Fan OS",
-    "tags": ["Sports", "3D", "Product"],
-    "summary": "Modular fan engagement OS that fuses broadcast, betting, and community overlays without latency.",
-    "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80",
-    "problem": "Rights holders needed a single stack that could personalize live games per viewer.",
-    "solution": "We shipped a layout engine that matches intents (bet, buy, cheer) with interactive overlays in <16ms.",
-    "outcomes": [
-      "Context-aware offers timed to live plays",
-      "Realtime community rooms with mod tooling",
-      "Unified data spine across properties"
-    ],
-    "metrics": [
-      { "label": "Engagement", "value": "+35%" },
-      { "label": "CTR", "value": "+42%" }
-    ],
-    "gallery": [
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?auto=format&fit=crop&w=1200&q=80"
     ]
   },
   {
-    "slug": "awager",
-    "title": "Awager AI Companion",
-    "tags": ["AI", "Strategy", "Mobile"],
-    "summary": "Ethical wagering assistant that contextualizes risk models with just-in-time guidance for responsible play.",
-    "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1600&q=80",
-    "problem": "Players lacked a transparent view into risk signals while regulators demanded stronger safeguards.",
-    "solution": "We paired explainable AI with personal finance heuristics to guide every stake and break moment.",
+    "slug": "gymtex-commerce-grid",
+    "title": "Gymtex Commerce Grid",
+    "tags": ["D2C", "Search", "CRO"],
+    "summary": "Built a performance stack for Gymtex Flooring so architects and facility owners can spec, sample, and buy without leaving the experience.",
+    "image": "https://images.unsplash.com/photo-1529429617124-aee711a70412?auto=format&fit=crop&w=1600&q=80",
+    "problem": "Offline distributors controlled the narrative and digital orders stalled at the quote form.",
+    "solution": "We launched a configurator, piped first-party data into Google Ads, and layered LinkedIn ABM plays aimed at procurement teams.",
     "outcomes": [
-      "Real-time insight feed tuned per jurisdiction",
-      "Companion mode that intervenes before risk spikes",
-      "Shared dashboards for players, compliance, and partners"
+      "Demand capture for 18 SKUs with automated region-based pricing",
+      "Sales got a prioritized lead board scored by project readiness",
+      "Quarterly creative refresh driven by installer testimonials"
     ],
     "metrics": [
-      { "label": "Risk alerts", "value": "-62%" },
-      { "label": "Retention", "value": "+14%" }
+      { "label": "Spec sheet downloads", "value": "4.2x" },
+      { "label": "Lead-to-close time", "value": "-22 days" }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1529429617124-aee711a70412?auto=format&fit=crop&w=1200&q=80"
+    ]
+  },
+  {
+    "slug": "earthz-launchpad",
+    "title": "Earthz Launchpad",
+    "tags": ["Real Estate", "Brand", "Automation"],
+    "summary": "Positioned Earthz Urban Spaces as a climate-forward developer with immersive pre-launch journeys for each micro-community.",
+    "image": "https://images.unsplash.com/photo-1431578500526-4d9613015464?auto=format&fit=crop&w=1600&q=80",
+    "problem": "Offline events drove awareness but couldn't nurture families relocating from other metros.",
+    "solution": "We built a content hub with AR-ready masterplans, orchestrated geo-fenced media, and synced CRM scoring to walk potential buyers through financing steps.",
+    "outcomes": [
+      "Investor decks, microsites, and site visit calendars fed by one CMS",
+      "Media budgets shift automatically between awareness and lead goals",
+      "Community teams receive sentiment pulses after every interaction"
+    ],
+    "metrics": [
+      { "label": "Site visits", "value": "+48%" },
+      { "label": "Booking velocity", "value": "+31%" }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1472289065668-ce650ac443d2?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80"
+    ]
+  },
+  {
+    "slug": "whiteace-experience-lab",
+    "title": "White Ace Experience Lab",
+    "tags": ["Interiors", "Content", "CX"],
+    "summary": "Digitized White Ace Interiors' studio walk-through so prospects can co-create mood boards, budgets, and installation plans remotely.",
+    "image": "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1600&q=80",
+    "problem": "Inquiries arrived from Instagram but stalled because pricing and inspiration lived on separate channels.",
+    "solution": "We combined interactive lookbooks, AR previews, and CRM automations that notify designers the moment a client saves a room concept.",
+    "outcomes": [
+      "Every creative review documented alongside costs and materials",
+      "Inbound traffic segmented by homeowner, architect, and builder",
+      "Email and WhatsApp nurtures triggered off saved palettes"
+    ],
+    "metrics": [
+      { "label": "Design consultations", "value": "+58%" },
+      { "label": "Average project value", "value": "+24%" }
     ],
     "gallery": [
       "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80"
+    ]
+  },
+  {
+    "slug": "oaklines-b2b-lab",
+    "title": "Oaklines B2B Lab",
+    "tags": ["B2B", "ABM", "Automation"],
+    "summary": "Helped Oaklines win enterprise interior mandates with an account-based playbook tethered to procurement realities.",
+    "image": "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1600&q=80",
+    "problem": "Pitch teams spent weeks preparing decks without insight into who was visiting the website or engaging with samples.",
+    "solution": "We mapped buying committees, synced Clearbit intent into HubSpot, and built personalized microsites for every shortlisted client.",
+    "outcomes": [
+      "Creative, sales, and delivery review the same pursuit board daily",
+      "Ad formats change automatically depending on buyer stage",
+      "Post-signature onboarding triggered the moment PO is raised"
+    ],
+    "metrics": [
+      { "label": "RFP shortlists", "value": "+40%" },
+      { "label": "Pitch prep time", "value": "-30%" }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=80"
+    ]
+  },
+  {
+    "slug": "birdbrick-commerce-loop",
+    "title": "Birdbrick Commerce Loop",
+    "tags": ["Ecommerce", "Lifecycle", "Analytics"],
+    "summary": "Replatformed Birdbrick's D2C store with a lifecycle marketing loop that blends paid, organic, and retail moments.",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
+    "problem": "Flash sales spiked revenue but eroded margins because discounts were the only lever.",
+    "solution": "We rolled out first-party data capture, predictive segments inside Klaviyo, and creative testing frameworks for TikTok Shop.",
+    "outcomes": [
+      "Inventory and campaigns talk to each other daily for pacing",
+      "Customer journeys re-score after every purchase or return",
+      "Weekly growth reviews tie finance and marketing decisions together"
+    ],
+    "metrics": [
+      { "label": "Repeat revenue", "value": "+52%" },
+      { "label": "Discount dependency", "value": "-37%" }
+    ],
+    "gallery": [
+      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
     ]
   }
 ]

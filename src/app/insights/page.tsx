@@ -4,7 +4,7 @@ import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "Insights",
-  description: "Signals from the Edigitify team on AI, design, product, and growth.",
+  description: "Signals from the Edigitify team on media, creative, automation, and analytics.",
 };
 
 export default function InsightsPage() {
@@ -12,9 +12,9 @@ export default function InsightsPage() {
     <div className="space-y-10 pb-20">
       <header className="space-y-4">
         <p className="section-heading">Insights</p>
-        <h1 className="text-5xl font-semibold text-white">Field notes from shipping the future.</h1>
+        <h1 className="text-5xl font-semibold text-white">Field notes from building full-funnel marketing engines.</h1>
         <p className="text-white/70">
-          Essays, tools, and observations from our distributed strategy, design, and engineering team.
+          Quick reads, templates, and POVs on how we balance storytelling with performance for brands across industries.
         </p>
       </header>
       <div className="space-y-6">

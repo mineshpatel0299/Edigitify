@@ -3,25 +3,25 @@ import { Reveal } from "@/components/reveal";
 
 const resources = [
   {
-    title: "AI Product Readiness Canvas",
-    detail: "A one-page guide to evaluate where AI can responsibly augment your experience.",
+    title: "Budget Multiplier Sheet",
+    detail: "A Google Sheets model to pace Meta, Google, and Programmatic based on daily conversion signals.",
     link: "mailto:hello@edigitify.com",
   },
   {
-    title: "Motion Design Handbook",
-    detail: "Principles, easing curves, and component recipes we use to choreograph every interaction.",
+    title: "WhatsApp Journeys Playbook",
+    detail: "Message templates, routing logic, and KPI definitions for service, sales, and care teams.",
     link: "mailto:hello@edigitify.com",
   },
   {
-    title: "Lenis + Framer Motion Starter",
-    detail: "Code patterns for buttery scroll, route transitions, and reduced motion fallbacks.",
+    title: "Revenue Pulse Dashboard",
+    detail: "Looker Studio starter that unifies campaign, CRM, and finance data for weekly leadership reviews.",
     link: "https://github.com/edigitify",
   },
 ];
 
 export const metadata: Metadata = {
   title: "Vault",
-  description: "Curated resources from Edigitify's R&D vault.",
+  description: "Tools and templates from Edigitify's integrated marketing programs.",
 };
 
 export default function VaultPage() {
@@ -29,9 +29,9 @@ export default function VaultPage() {
     <div className="space-y-10 pb-20">
       <header className="space-y-4">
         <p className="section-heading">Vault</p>
-        <h1 className="text-5xl font-semibold text-white">Tools and templates we share with partners.</h1>
+        <h1 className="text-5xl font-semibold text-white">Playbooks fueling our clients' marketing operations.</h1>
         <p className="text-white/70">
-          These artifacts keep our teams aligned and moving quickly. Borrow them, remix them, or ping us for a walkthrough.
+          Download the frameworks we use to plan spends, automate follow-ups, and align media with revenue.
         </p>
       </header>
       <div className="space-y-4">

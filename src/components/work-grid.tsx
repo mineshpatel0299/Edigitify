@@ -5,7 +5,7 @@ import type { WorkItem } from "@/lib/content";
 import { WorkCard } from "./work-card";
 import { motion } from "framer-motion";
 
-const filters = ["All", "Strategy", "UX", "UI", "AI", "3D"];
+const filters = ["All", "Paid Media", "Automation", "Creative", "Analytics", "Travel", "Real Estate", "D2C"];
 
 export function WorkGrid({ items }: { items: WorkItem[] }) {
   const [active, setActive] = useState<string>("All");

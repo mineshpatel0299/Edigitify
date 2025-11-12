@@ -1,0 +1,6 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="198" height="58" rx="12" fill="none" stroke="#F8F8F8" stroke-width="2"/>
+  <text x="100" y="36" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#F8F8F8" letter-spacing="4">
+    WHITE ACE
+  </text>
+</svg>

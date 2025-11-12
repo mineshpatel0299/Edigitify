@@ -4,13 +4,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const translations = [
-  { code: "EN", text: "Our purpose is to ignite brave digital futures." },
-  { code: "FR", text: "Notre raison d'être: bâtir des produits visionnaires." },
-  { code: "DE", text: "Unser Ziel ist es, mutige Produkte zu entwerfen." },
-  { code: "ES", text: "Nuestro propósito: diseñar futuros digitales audaces." },
-  { code: "PL", text: "Naszą misją jest projektować odważne produkty." },
-  { code: "AR", text: "غايتنا إشعال مستقبل رقمي جريء." },
-  { code: "JP", text: "私たちの目的は大胆なデジタル体験を創ること。" }
+  { code: "INNOVATION", text: "Ideas shaped by research, tech, and experimentation." },
+  { code: "RESULTS", text: "Every campaign is tethered to KPIs, not vanity metrics." },
+  { code: "ETHICS", text: "Transparent budgets, clear approvals, zero shortcuts." },
+  { code: "ADAPT", text: "Move as fast as the market with creative and media in sync." },
+  { code: "QUALITY", text: "QA rituals ensure what we deploy is reliable and on-brand." },
 ];
 
 export function VerticalTicker() {

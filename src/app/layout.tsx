@@ -1,23 +1,47 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
-import "./globals.css";
+import { Bebas_Neue } from "next/font/google";
+import localFont from "next/font/local";
 import { Header } from "@/components/header";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 import { FooterMarquee } from "@/components/footer-marquee";
+import { Footer } from "@/components/footer";
+import "./globals.css";
+
+const headingFont = Bebas_Neue({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-heading",
+});
+
+const bodyFont = localFont({
+  src: [
+    {
+      path: "../../public/fonts/glacial-indifference/GlacialIndifference-Regular.woff",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/glacial-indifference/GlacialIndifference-Bold.woff",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-body",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://edigitify-agency.com"),
   title: {
-    default: "Edigitify — Strategic Digital Product Agency",
-    template: "%s | Edigitify",
+    default: "eDigitify — Digital Marketing & Web Development, Delhi",
+    template: "%s | eDigitify",
   },
-  description:
-    "Edigitify partners with category-defining teams to ship strategic digital products across strategy, design, and technology.",
+  description: "Strategic websites, SEO, social, creators & ads that drive measurable growth. Based in Delhi–NCR. Let’s build your next win.",
   openGraph: {
-    title: "Edigitify — Strategic Digital Product Agency",
+    title: "eDigitify — Digital Marketing & Web Development, Delhi",
     description:
-      "Strategic product agency delivering brave digital experiences for ambitious teams across the globe.",
+      "Strategic websites, SEO, social, creators & ads that drive measurable growth. Based in Delhi–NCR. Let’s build your next win.",
     url: "https://edigitify-agency.com",
     siteName: "Edigitify",
     images: [
@@ -31,9 +55,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Edigitify",
-    description:
-      "Strategic digital product agency partner for bold organizations.",
+    title: "eDigitify",
+    description: "Strategic websites, SEO, social, creators & ads that drive measurable growth. Based in Delhi–NCR.",
     images: ["/logo.svg"],
   },
   robots: {
@@ -50,13 +73,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} bg-background text-foreground`}
+        className={`${bodyFont.variable} ${headingFont.variable} bg-background text-foreground`}
       >
         <SmoothScrollProvider>
           <Header />
           <main className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 pb-20 pt-32 sm:px-6 lg:px-0">
             {children}
           </main>
+          <Footer />
           <FooterMarquee />
         </SmoothScrollProvider>
       </body>

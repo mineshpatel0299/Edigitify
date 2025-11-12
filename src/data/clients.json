@@ -1,42 +1,47 @@
 [
   {
-    "name": "Natural History Museum",
-    "logo": "/logos/natural-history.svg",
-    "url": "https://www.nhm.ac.uk"
+    "name": "MintSteer",
+    "logo": "/logos/mintsteer.svg",
+    "url": "https://mintsteer.com/"
   },
   {
-    "name": "DailyWire+",
-    "logo": "/logos/dailywire.svg",
-    "url": "https://www.dailywire.com"
+    "name": "BioCity Healthcare",
+    "logo": "/logos/biocity.svg",
+    "url": "https://biocityhealthcare.com/"
   },
   {
-    "name": "Interblock",
-    "logo": "/logos/interblock.svg",
-    "url": "https://interblockgaming.com"
+    "name": "Lakkshay Travels",
+    "logo": "/logos/lakkshay.svg",
+    "url": "https://www.lakkshaytravels.com/"
   },
   {
-    "name": "Masdar City",
-    "logo": "/logos/masdar.svg",
-    "url": "https://masdarcity.ae"
+    "name": "Gymtex Flooring",
+    "logo": "/logos/gymtex.svg",
+    "url": "https://gymtexflooring.com/"
   },
   {
-    "name": "Weir Group",
-    "logo": "/logos/weir.svg",
-    "url": "https://www.global.weir"
+    "name": "Earthz Urban Spaces",
+    "logo": "/logos/earthz.svg",
+    "url": "https://earthzurbanspaces.com/"
   },
   {
-    "name": "Bentkey",
-    "logo": "/logos/bentkey.svg",
-    "url": "https://www.bentkey.com"
+    "name": "White Ace Interiors",
+    "logo": "/logos/whiteace.svg",
+    "url": "https://whiteaceinteriors.com/"
   },
   {
-    "name": "StreamLayer",
-    "logo": "/logos/streamlayer.svg",
-    "url": "https://www.streamlayer.io"
+    "name": "Oaklines Studio",
+    "logo": "/logos/oaklines.svg",
+    "url": "https://oaklines.in/"
   },
   {
-    "name": "Awager",
-    "logo": "/logos/awager.svg",
-    "url": "https://awager.ai"
+    "name": "Birdbrick Labs",
+    "logo": "/logos/birdbrick.svg",
+    "url": "https://birdbrick.com/"
+  },
+  {
+    "name": "Cloudinary Showcase",
+    "logo": "https://res.cloudinary.com/djicxkd9u/image/upload/v1762932516/21__1_-removebg-preview_kw0gyq.png",
+    "url": "https://res.cloudinary.com/djicxkd9u"
   }
 ]

@@ -1,5 +1,5 @@
 export function FooterMarquee() {
-  const text = "LET'S MAKE YOUR VISION A REALITY • ";
+  const text = "STRATEGIC • INNOVATIVE • IMPACTFUL • ";
   const loop = `${text.repeat(6)}`;
 
   return (

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const items = ["Strategy", "Design", "Technology"];
+const items = ["Web", "Social", "Search", "Creators", "Design"];
 
 export function ServicePills() {
   return (
