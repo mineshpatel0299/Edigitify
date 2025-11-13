@@ -26,7 +26,7 @@ export function Hero() {
           />
           <p className="max-w-2xl text-base text-slate-600 md:text-lg">
             We concept, design, and deploy digital experiences that spark attention and keep it—without the clutter. This year
-            we're weaving 3D motion, AI copilots, and growth sprints into every engagement.
+            we&rsquo;re weaving 3D motion, AI copilots, and growth sprints into every engagement.
           </p>
         </div>
         <div className="flex justify-center">
