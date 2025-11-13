@@ -13,7 +13,7 @@ const navLinks = [
   { href: "/work", label: "Services" },
   // { href: "/services", label: "Services" },
   // { href: "/insights", label: "Insights" },
-  { href: "/vault", label: "Vault" },
+  // { href: "/vault", label: "Vault" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -42,7 +42,7 @@ export function Header() {
         )}
       >
         <Link href="/" className="flex items-center gap-3 text-sm font-semibold">
-          <Image src="/logobw.png" alt="Edigitify" width={70} height={28} className="h-16 w-auto" priority />
+          <Image src="/logobw.png" alt="Edigitify" width={70} height={20} className="h-12 w-auto" priority />
         </Link>
         <nav className="flex flex-1 items-center justify-end gap-6 text-[13px] uppercase tracking-[0.2em]">
           {navLinks.map((link) => {

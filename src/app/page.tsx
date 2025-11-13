@@ -2,9 +2,8 @@ import { Hero } from "@/components/hero";
 import { LogoMarquee } from "@/components/marquee";
 import { WorkCard } from "@/components/work-card";
 import { WorkScrollCard } from "@/components/work-scroll-card";
-import { InsightCard } from "@/components/insight-card";
-import { WorldClockStrip } from "@/components/world-clock-strip";
-import { clientsData, insightsData, workData } from "@/lib/content";
+import { CountUpNumber } from "@/components/ui/count-up-number";
+import { clientsData, workData } from "@/lib/content";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { servicePodItems } from "@/data/service-pods";
@@ -13,17 +12,20 @@ const featuredServicePods = servicePodItems.slice(0, 2);
 
 const studioStats = [
   {
-    value: "20+",
+    value: 20,
+    suffix: "+",
     label: "Project Completed",
     helper: "From social media campaigns to full-brand makeovers, our expert team helps brands connect and convert across platforms.",
   },
   {
-    value: "30+",
+    value: 30,
+    suffix: "+",
     label: "Happy Clients",
     helper: "Trusted by 10+ Growing Brands Our clients love our responsiveness, creativity, and commitment to ROI-focused results.",
   },
   {
-    value: "180+",
+    value: 180,
+    suffix: "+",
     label: "Creators on speed dial",
     helper: "Influencers, editors, engineers, and producers",
   },
@@ -55,7 +57,7 @@ export default function HomePage() {
     <div className="pb-24">
       <Hero />
 
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-24 pt-16">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-24 pt-16 px-4 sm:px-6 lg:px-8 xl:px-10">
         <section className="relative overflow-hidden rounded-[48px] border border-white/60 bg-gradient-to-br from-white/90 via-white/70 to-slate-100/80 p-10 shadow-[0_45px_120px_-60px_rgba(15,23,42,0.7)]">
           <div
             className="absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_25%_15%,rgba(59,130,246,0.18),transparent_55%),radial-gradient(circle_at_80%_25%,rgba(13,148,136,0.16),transparent_55%)]"
@@ -75,7 +77,7 @@ export default function HomePage() {
             </div>
             <LogoMarquee clients={clientsData} />
             <div className="grid gap-4 md:grid-cols-3">
-              {studioStats.map((stat) => (
+              {studioStats.map((stat, index) => (
                 <div
                   key={stat.label}
                   className="group relative overflow-hidden rounded-3xl border border-white/70 bg-white/70 p-6 backdrop-blur-2xl transition hover:-translate-y-1.5 hover:shadow-[0_40px_80px_-50px_rgba(15,23,42,0.9)]"
@@ -84,7 +86,12 @@ export default function HomePage() {
                     <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/80 via-transparent to-sky-50/80" />
                   </div>
                   <p className="text-xs uppercase tracking-[0.4em] text-slate-500">{stat.label}</p>
-                  <p className="mt-4 text-4xl font-semibold text-slate-900">{stat.value}</p>
+                  <CountUpNumber
+                    end={stat.value}
+                    suffix={stat.suffix}
+                    delay={index * 0.15}
+                    className="mt-4 block text-4xl font-semibold text-slate-900"
+                  />
                   <p className="mt-2 text-sm text-slate-600">{stat.helper}</p>
                 </div>
               ))}
@@ -179,55 +186,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden rounded-[48px] border border-white/60 bg-gradient-to-br from-white/82 via-white/60 to-slate-100/70 p-10 shadow-[0_35px_100px_-60px_rgba(15,23,42,0.7)]">
-          <div className="absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_25%_0%,rgba(16,185,129,0.15),transparent_55%),radial-gradient(circle_at_80%_10%,rgba(59,130,246,0.18),transparent_45%)]" />
-          <div className="relative flex items-center justify-between gap-4">
-            <p className="section-heading">Insights</p>
-            <Link
-              href="/insights"
-              className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/30 px-5 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-slate-900 backdrop-blur-2xl transition hover:border-slate-500/70 hover:bg-white/60"
-            >
-              Browse all
-              <span aria-hidden>↗</span>
-            </Link>
-          </div>
-          <ul className="relative mt-8 grid gap-6 md:grid-cols-3">
-            {insightsData.map((insight, index) => (
-              <InsightCard key={insight.slug} insight={insight} index={index} />
-            ))}
-          </ul>
-        </section>
-
-        <section className="relative overflow-hidden rounded-[48px] border border-white/60 bg-gradient-to-br from-white/85 via-white/60 to-slate-100/70 p-10 shadow-[0_45px_120px_-60px_rgba(15,23,42,0.7)]">
-          <div className="absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_0%_0%,rgba(14,165,233,0.15),transparent_45%),radial-gradient(circle_at_100%_10%,rgba(99,102,241,0.15),transparent_45%)]" />
-          <div className="relative space-y-6">
-            <p className="section-heading">Global desk</p>
-            <WorldClockStrip />
-          </div>
-        </section>
-
-        <section className="relative overflow-hidden rounded-[48px] border border-white/60 bg-gradient-to-br from-white/82 via-white/60 to-slate-100/70 p-10 shadow-[0_35px_100px_-60px_rgba(15,23,42,0.7)]">
-          <div className="absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_20%_10%,rgba(16,185,129,0.2),transparent_55%),radial-gradient(circle_at_80%_0%,rgba(14,165,233,0.16),transparent_45%)]" />
-          <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div className="space-y-3">
-              <p className="section-heading">Newsletter</p>
-              <h3 className="text-3xl font-semibold text-slate-900 md:text-4xl">Signals from inside the Edigitify vault.</h3>
-              <p className="text-sm text-slate-600">Monthly dispatch on AI, experience design, and venture-scale operations.</p>
-            </div>
-            <form className="flex w-full flex-col gap-4 rounded-[32px] border border-white/60 bg-white/70 p-4 backdrop-blur-2xl md:max-w-sm">
-              <input
-                type="email"
-                placeholder="you@company.com"
-                className="rounded-full border border-white/70 bg-white/70 px-6 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-500/70 focus:outline-none"
-                required
-              />
-              <button className="rounded-full bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.35em] text-white shadow-[0_20px_60px_rgba(15,23,42,0.4)]">
-                Subscribe
-              </button>
-              <p className="text-xs text-slate-500">By subscribing you agree to our privacy note.</p>
-            </form>
-          </div>
-        </section>
+       
       </div>
     </div>
   );
