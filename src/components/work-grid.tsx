@@ -29,8 +29,8 @@ export function WorkGrid({ items }: { items: WorkItem[] }) {
             }
             className={`rounded-full border px-5 py-2 text-xs uppercase tracking-[0.3em] transition ${
               active === filter
-                ? "border-white bg-white text-black"
-                : "border-white/20 text-white/60 hover:text-white"
+                ? "border-slate-900 bg-slate-900 text-white"
+                : "border-slate-300 text-slate-500 hover:text-slate-900"
             }`}
           >
             {filter}
@@ -48,7 +48,7 @@ export function WorkGrid({ items }: { items: WorkItem[] }) {
             {Array.from({ length: 4 }).map((_, index) => (
               <div
                 key={index}
-                className="h-64 animate-pulse rounded-[28px] border border-white/10 bg-white/5"
+                className="h-64 animate-pulse rounded-[28px] border border-slate-200 bg-white"
               />
             ))}
           </div>

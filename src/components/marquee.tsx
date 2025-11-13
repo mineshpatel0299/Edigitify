@@ -4,8 +4,12 @@ import { Client } from "@/lib/content";
 
 export function LogoMarquee({ clients }: { clients: Client[] }) {
   return (
-    <div className="marquee rounded-3xl border border-white/10 bg-white/5 p-6">
-      <div className="marquee-track gap-10">
+    <div className="marquee relative overflow-hidden rounded-3xl border border-white/70 bg-white/50 p-6 shadow-[0_30px_80px_-50px_rgba(15,23,42,0.8)] backdrop-blur-2xl">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_0%_0%,rgba(59,130,246,0.18),transparent_55%),radial-gradient(circle_at_80%_20%,rgba(16,185,129,0.18),transparent_55%)]"
+        aria-hidden
+      />
+      <div className="relative marquee-track gap-12">
         {[...clients, ...clients].map((client, index) => (
           <Link
             key={`${client.name}-${index}`}
@@ -20,7 +24,7 @@ export function LogoMarquee({ clients }: { clients: Client[] }) {
               width={160}
               height={80}
               sizes="160px"
-              className="h-12 w-auto object-contain grayscale hover:grayscale-0"
+              className="h-12 w-auto object-contain grayscale transition duration-500 hover:grayscale-0"
             />
           </Link>
         ))}

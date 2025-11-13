@@ -50,10 +50,10 @@ export function VerticalTicker() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="flex items-center gap-3"
         >
-          <span className="text-xs uppercase tracking-[0.5em] text-white/40">
+          <span className="text-xs uppercase tracking-[0.5em] text-slate-500">
             {translations[index].code}
           </span>
-          <p className="text-base text-white/80">
+          <p className="text-base text-slate-700">
             {translations[index].text}
           </p>
         </motion.div>

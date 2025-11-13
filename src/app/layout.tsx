@@ -77,7 +77,7 @@ export default function RootLayout({
       >
         <SmoothScrollProvider>
           <Header />
-          <main className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 pb-20 pt-32 sm:px-6 lg:px-0">
+          <main className="flex  w-full flex-col px-4 pb-20 pt-24 sm:px-6">
             {children}
           </main>
           <Footer />

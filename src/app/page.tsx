@@ -2,262 +2,233 @@ import { Hero } from "@/components/hero";
 import { LogoMarquee } from "@/components/marquee";
 import { WorkCard } from "@/components/work-card";
 import { WorkScrollCard } from "@/components/work-scroll-card";
-import { AwardsList } from "@/components/awards-list";
 import { InsightCard } from "@/components/insight-card";
 import { WorldClockStrip } from "@/components/world-clock-strip";
-import { clientsData, insightsData, workData, type WorkItem } from "@/lib/content";
+import { clientsData, insightsData, workData } from "@/lib/content";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
+import { servicePodItems } from "@/data/service-pods";
 
-const servicePods = [
-  {
-    title: "Website Development",
-    slug: "website-development",
-    tags: ["Web", "E-commerce"],
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
-    description: "Modern, fast, and easy-to-manage websites and e-commerce builds.",
-    bullets: [
-      "WordPress, Joomla, and custom PHP stacks",
-      "CMS admin panels your team can actually use",
-      "Secure, scalable storefronts with conversion-friendly UI/UX",
-      "Performance, SEO, and analytics baked in",
-    ],
-    metrics: [
-      { label: "Stack", value: "WordPress · Joomla · PHP" },
-      { label: "Focus", value: "Speed & SEO" },
-    ],
-  },
-  {
-    title: "Social Media Marketing",
-    slug: "social-media-marketing",
-    tags: ["Social", "Content"],
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
-    description: "Grow reach and community with thumb-stopping content and always-on optimization.",
-    bullets: [
-      "Editorial calendars, creatives, reels, and stories",
-      "Community management and response playbooks",
-      "Paid + organic synergy for compounding results",
-      "Actionable dashboards and learning loops",
-    ],
-    metrics: [
-      { label: "Formats", value: "Reels · Stories · Shorts" },
-      { label: "Cadence", value: "Always-on" },
-    ],
-  },
-  {
-    title: "Search Engine Optimization",
-    slug: "search-engine-optimization",
-    tags: ["Search", "SEO"],
-    image:
-      "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80",
-    description: "Own the queries that matter—across geographies and devices.",
-    bullets: [
-      "National, global, local, and maps SEO",
-      "Brand + e-commerce SEO",
-      "Video SEO and App Store Optimization",
-      "Online Reputation Management",
-    ],
-    metrics: [
-      { label: "Coverage", value: "National + Local" },
-      { label: "Specialty", value: "Brand & E-com SEO" },
-    ],
-  },
-  {
-    title: "Influencer & Creator Marketing",
-    slug: "influencer-creator-marketing",
-    tags: ["Creators", "Brand"],
-    image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80",
-    description: "Authentic voices, measurable outcomes.",
-    bullets: [
-      "Celebrity endorsements & video shout-outs",
-      "Blogger/influencer campaigns & meetups",
-      "Mass-reach collaborations mapped to your ICP",
-      "End-to-end brief, contracting, and tracking",
-    ],
-    metrics: [
-      { label: "Talent Ops", value: "End-to-end" },
-      { label: "Formats", value: "Video · Events" },
-    ],
-  },
-  {
-    title: "Online Advertising",
-    slug: "online-advertising",
-    tags: ["Media", "Paid"],
-    image:
-      "https://images.unsplash.com/photo-1483103332443-19ed3bb1f2b6?auto=format&fit=crop&w=1600&q=80",
-    description: "Media that works as hard as your budget across Meta, Google, and beyond.",
-    bullets: [
-      "Smart budget distribution to hit KPIs",
-      "Right formats, right channels, right time",
-      "Precision targeting by age, geo, interest",
-      "Conversion tracking, live optimization, and post-campaign intelligence",
-    ],
-    metrics: [
-      { label: "Platforms", value: "Meta · Google · More" },
-      { label: "Optimization", value: "Live & Always-on" },
-    ],
-  },
-  {
-    title: "Graphic Design & Branding",
-    slug: "graphic-design-branding",
-    tags: ["Design", "Brand"],
-    image:
-      "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1600&q=80",
-    description: "Your brand, unmistakable everywhere.",
-    bullets: [
-      "Logos, brand kits, menus, and cards",
-      "Packaging, brochures, flyers, banners",
-      "Presentation and company profile design",
-      "Fast turnarounds, print-ready assets",
-    ],
-    metrics: [
-      { label: "Deliverables", value: "Logos · Kits · Decks" },
-      { label: "Turnaround", value: "Fast & Print-ready" },
-    ],
-  },
-];
+const featuredServicePods = servicePodItems.slice(0, 2);
 
-const howWeWorkScrollItems: WorkItem[] = servicePods.map((service, index) => ({
-  slug: service.slug ?? `service-${index}`,
-  title: service.title,
-  tags: service.tags ?? ["How We Work"],
-  summary: service.description,
-  image: service.image,
-  problem: service.description,
-  solution: service.description,
-  outcomes: service.bullets,
-  metrics: service.metrics,
-  gallery: [service.image],
-}));
+const studioStats = [
+  {
+    value: "28",
+    label: "Markets launched",
+    helper: "Rollouts across APAC, MENA, and Europe",
+  },
+  {
+    value: "$12M+",
+    label: "Media managed",
+    helper: "Performance and creator spends last 18 months",
+  },
+  {
+    value: "180+",
+    label: "Creators on speed dial",
+    helper: "Influencers, editors, engineers, and producers",
+  },
+] as const;
+
+const capabilityHighlights = [
+  {
+    kicker: "Media · Growth",
+    title: "Performance Lab",
+    copy: "Always-on paid media, CRO, and analytics pods that keep CAC low and make every impression accountable.",
+    items: ["Meta + Google ads", "Automation + dashboards", "Landing page CRO"],
+  },
+  {
+    kicker: "Content · Community",
+    title: "Social Studio",
+    copy: "Editorial, production, and community ops under one squad so social calendars never miss a beat.",
+    items: ["Reels + short-form", "Community playbooks", "Paid + organic sync"],
+  },
+  {
+    kicker: "Brand · Product",
+    title: "Experience Lab",
+    copy: "Full-stack design and web development sprints that convert briefs into shipped experiences fast.",
+    items: ["Web + e-commerce builds", "Design systems", "Growth-ready CMS"],
+  },
+] as const;
 
 export default function HomePage() {
   return (
-    <div className="space-y-20 pb-20">
+    <div className="space-y-24 pb-24">
       <Hero />
 
-      <section className="space-y-6">
-        <p className="section-heading">Selected Partnerships</p>
-        <LogoMarquee clients={clientsData} />
-      </section>
-
-      {/* <section className="space-y-8">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="section-heading">Recent Work</p>
-            <h2 className="text-4xl font-semibold text-white">Building the future with bold teams</h2>
-          </div>
-          <Link
-            href="/work"
-            className="text-sm uppercase tracking-[0.3em] text-white/70 hover:text-white"
-          >
-            Explore all work ↗
-          </Link>
-        </div>
-        <div className="grid gap-8 md:grid-cols-2">
-          {workData.slice(0, 6).map((item, index) => (
-            <WorkCard key={item.slug} item={item} index={index} />
-          ))}
-        </div>
-      </section> */}
-
-      <section className="space-y-10">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="section-heading">How We Work</p>
-            <h2 className="text-4xl font-semibold text-white">Pods that own web, social, search, creators, and design.</h2>
-            <p className="mt-3 max-w-2xl text-white/70">
-              Integrated sprint teams layer strategy, production, and optimization so budgets stay focused on outcomes—not
-              handovers.
-            </p>
-          </div>
-          <Link
-            href="mailto:info@edigitify.in?subject=Share%20a%20brief"
-            className="text-sm uppercase tracking-[0.3em] text-white/70 hover:text-white"
-          >
-            Share a brief ↗
-          </Link>
-        </div>
-        <div className="space-y-12">
-          {howWeWorkScrollItems.map((item, index) => (
-            <WorkScrollCard key={item.slug} item={item} priority={index === 0} />
-          ))}
-        </div>
-      </section>
-
-      <section className="grid gap-8 rounded-[40px] border border-white/10 p-10 md:grid-cols-2">
-        <Reveal className="space-y-4">
-          <p className="section-heading">Who we are</p>
-          <h3 className="text-4xl font-semibold text-white">Strategy, design, and technology inside one autonomous squad.</h3>
-          <p className="text-base text-white/70">
-            We collapse disciplines into high-velocity pods that align research, design systems, AI, and engineering from day one. Every product move ladders up to measurable business outcomes.
-          </p>
-          <Link href="/about" className="text-sm uppercase tracking-[0.3em] text-white/70 underline-offset-8 hover:text-white">
-            Meet the team ↗
-          </Link>
-        </Reveal>
-        <Reveal delay={0.15} className="grid gap-4 md:grid-cols-2">
-          {["Product Strategy", "Service Design", "AI Engineering", "Spatial & 3D"].map((item) => (
-            <div key={item} className="rounded-3xl border border-white/10 bg-white/5 p-6">
-              <p className="text-xs uppercase tracking-[0.4em] text-white/40">Capability</p>
-              <p className="mt-2 text-lg font-semibold text-white">{item}</p>
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-24">
+        <section className="relative overflow-hidden rounded-[48px] border border-white/60 bg-gradient-to-br from-white/90 via-white/70 to-slate-100/80 p-10 shadow-[0_45px_120px_-60px_rgba(15,23,42,0.7)]">
+          <div
+            className="absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_25%_15%,rgba(59,130,246,0.18),transparent_55%),radial-gradient(circle_at_80%_25%,rgba(13,148,136,0.16),transparent_55%)]"
+            aria-hidden
+          />
+          <div className="relative space-y-10">
+            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+              <div>
+                <p className="section-heading text-slate-500">Selected Partnerships</p>
+                <p className="mt-2 text-sm text-slate-600/90">
+                  Long-term retainers with ambitious teams across retail, hospitality, fintech, and lifestyle.
+                </p>
+              </div>
+              <span className="text-[0.65rem] uppercase tracking-[0.4em] text-slate-500">
+                India · Dubai · Remote
+              </span>
             </div>
-          ))}
-        </Reveal>
-      </section>
-
-      <section className="space-y-6">
-        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="section-heading">Recognition</p>
-            <h2 className="text-3xl font-semibold text-white">Awards & Accolades</h2>
+            <LogoMarquee clients={clientsData} />
+            <div className="grid gap-4 md:grid-cols-3">
+              {studioStats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="group relative overflow-hidden rounded-3xl border border-white/70 bg-white/70 p-6 backdrop-blur-2xl transition hover:-translate-y-1.5 hover:shadow-[0_40px_80px_-50px_rgba(15,23,42,0.9)]"
+                >
+                  <div className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
+                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/80 via-transparent to-sky-50/80" />
+                  </div>
+                  <p className="text-xs uppercase tracking-[0.4em] text-slate-500">{stat.label}</p>
+                  <p className="mt-4 text-4xl font-semibold text-slate-900">{stat.value}</p>
+                  <p className="mt-2 text-sm text-slate-600">{stat.helper}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-        <AwardsList />
-      </section>
+        </section>
 
-      <section className="space-y-6">
-        <div className="flex items-center justify-between">
-          <p className="section-heading">Insights</p>
-          <Link href="/insights" className="text-xs uppercase tracking-[0.3em] text-white/60 hover:text-white">
-            Browse all ↗
-          </Link>
-        </div>
-        <ul className="grid gap-6 md:grid-cols-3">
-          {insightsData.map((insight, index) => (
-            <InsightCard key={insight.slug} insight={insight} index={index} />
-          ))}
-        </ul>
-      </section>
+       
 
-      <section className="space-y-6">
-        <p className="section-heading">Global CTA</p>
-        <WorldClockStrip />
-      </section>
-
-      <section className="rounded-[32px] border border-white/10 p-10">
-        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="section-heading">Newsletter</p>
-            <h3 className="text-3xl font-semibold text-white">Signals from inside the Edigitify vault.</h3>
-            <p className="text-sm text-white/60">Monthly dispatch on AI, experience design, and venture-scale operations.</p>
+        <section className="relative overflow-hidden rounded-[48px] border border-white/60 bg-gradient-to-br from-white/80 via-white/65 to-slate-100/70 p-10 shadow-[0_35px_100px_-60px_rgba(15,23,42,0.7)]">
+          <div className="absolute inset-0 opacity-80 [background-image:radial-gradient(circle_at_15%_0%,rgba(99,102,241,0.18),transparent_50%),radial-gradient(circle_at_90%_20%,rgba(14,165,233,0.12),transparent_45%)]" />
+          <div className="relative flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="section-heading">Recent Work</p>
+              <h2 className="text-4xl font-semibold text-slate-900 md:text-5xl">
+                Building the future with bold teams.
+              </h2>
+            </div>
+            <Link
+              href="/work"
+              className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/30 px-5 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-slate-900 backdrop-blur-2xl transition hover:border-slate-500/70 hover:bg-white/60"
+            >
+              Explore all work
+              <span aria-hidden>↗</span>
+            </Link>
           </div>
-          <form className="flex w-full flex-col gap-4 md:max-w-sm">
-            <input
-              type="email"
-              placeholder="you@company.com"
-              className="rounded-full border border-white/20 bg-transparent px-6 py-3 text-sm text-white focus:border-white"
-              required
-            />
-            <button className="rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-black">
-              Subscribe
-            </button>
-            <p className="text-xs text-white/40">By subscribing you agree to our privacy note.</p>
-          </form>
-        </div>
-      </section>
+          <div className="relative mt-10 grid gap-8 md:grid-cols-2">
+            {workData.slice(0, 4).map((item, index) => (
+              <WorkCard key={item.slug} item={item} index={index} />
+            ))}
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden rounded-[48px] border border-white/60 bg-gradient-to-br from-white/85 via-white/60 to-slate-100/70 p-10 shadow-[0_45px_120px_-60px_rgba(15,23,42,0.7)]">
+          <div className="absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_15%_20%,rgba(14,165,233,0.12),transparent_50%),radial-gradient(circle_at_85%_10%,rgba(125,211,252,0.18),transparent_55%)]" />
+          <div className="relative flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="section-heading">How we work</p>
+              <h2 className="text-4xl font-semibold text-slate-900 md:text-5xl">
+                Pods that own web, social, search, creators, and design.
+              </h2>
+              <p className="mt-3 max-w-2xl text-base text-slate-600">
+                Integrated sprint teams layer strategy, production, and optimization so budgets stay focused on outcomes—not handovers.
+              </p>
+            </div>
+            <Link
+              href="/work"
+              className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/30 px-6 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-slate-900 backdrop-blur-2xl transition hover:border-slate-500/70 hover:bg-white/60"
+            >
+              View more
+              <span aria-hidden>↗</span>
+            </Link>
+          </div>
+          <div className="relative mt-12 space-y-12">
+            {featuredServicePods.map((item, index) => (
+              <WorkScrollCard key={item.slug} item={item} priority={index === 0} />
+            ))}
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden rounded-[48px] border border-white/60 bg-gradient-to-br from-white/85 via-white/60 to-slate-100/70 p-10 shadow-[0_45px_120px_-60px_rgba(15,23,42,0.7)]">
+          <div className="absolute inset-0 opacity-80 [background-image:radial-gradient(circle_at_0%_25%,rgba(244,114,182,0.15),transparent_45%),radial-gradient(circle_at_90%_10%,rgba(56,189,248,0.18),transparent_50%)]" />
+          <div className="relative grid gap-8 md:grid-cols-2">
+            <Reveal className="space-y-4">
+              <p className="section-heading">Who we are</p>
+              <h3 className="text-4xl font-semibold text-slate-900">Strategy, design, and technology inside one autonomous squad.</h3>
+              <p className="text-base text-slate-600">
+                We collapse disciplines into high-velocity pods that align research, design systems, AI, and engineering from day one. Every product move ladders up to measurable business outcomes.
+              </p>
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-slate-900 underline-offset-8 hover:text-slate-700"
+              >
+                Meet the team
+                <span aria-hidden>↗</span>
+              </Link>
+            </Reveal>
+            <Reveal delay={0.15} className="grid gap-4 md:grid-cols-2">
+              {["Product Strategy", "Service Design", "AI Engineering", "Spatial & 3D"].map((item) => (
+                <div
+                  key={item}
+                  className="group relative overflow-hidden rounded-3xl border border-white/70 bg-white/70 p-6 backdrop-blur-2xl transition duration-500 hover:-translate-y-1 hover:border-slate-200/80 hover:shadow-[0_30px_70px_-45px_rgba(15,23,42,0.8)]"
+                >
+                  <div className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
+                    <div className="absolute inset-0 bg-gradient-to-br from-rose-100/60 via-transparent to-sky-100/70" />
+                  </div>
+                  <p className="text-[0.65rem] uppercase tracking-[0.4em] text-slate-500">Capability</p>
+                  <p className="mt-2 text-lg font-semibold text-slate-900">{item}</p>
+                </div>
+              ))}
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden rounded-[48px] border border-white/60 bg-gradient-to-br from-white/82 via-white/60 to-slate-100/70 p-10 shadow-[0_35px_100px_-60px_rgba(15,23,42,0.7)]">
+          <div className="absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_25%_0%,rgba(16,185,129,0.15),transparent_55%),radial-gradient(circle_at_80%_10%,rgba(59,130,246,0.18),transparent_45%)]" />
+          <div className="relative flex items-center justify-between gap-4">
+            <p className="section-heading">Insights</p>
+            <Link
+              href="/insights"
+              className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/30 px-5 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-slate-900 backdrop-blur-2xl transition hover:border-slate-500/70 hover:bg-white/60"
+            >
+              Browse all
+              <span aria-hidden>↗</span>
+            </Link>
+          </div>
+          <ul className="relative mt-8 grid gap-6 md:grid-cols-3">
+            {insightsData.map((insight, index) => (
+              <InsightCard key={insight.slug} insight={insight} index={index} />
+            ))}
+          </ul>
+        </section>
+
+        <section className="relative overflow-hidden rounded-[48px] border border-white/60 bg-gradient-to-br from-white/85 via-white/60 to-slate-100/70 p-10 shadow-[0_45px_120px_-60px_rgba(15,23,42,0.7)]">
+          <div className="absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_0%_0%,rgba(14,165,233,0.15),transparent_45%),radial-gradient(circle_at_100%_10%,rgba(99,102,241,0.15),transparent_45%)]" />
+          <div className="relative space-y-6">
+            <p className="section-heading">Global desk</p>
+            <WorldClockStrip />
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden rounded-[48px] border border-white/60 bg-gradient-to-br from-white/82 via-white/60 to-slate-100/70 p-10 shadow-[0_35px_100px_-60px_rgba(15,23,42,0.7)]">
+          <div className="absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_20%_10%,rgba(16,185,129,0.2),transparent_55%),radial-gradient(circle_at_80%_0%,rgba(14,165,233,0.16),transparent_45%)]" />
+          <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div className="space-y-3">
+              <p className="section-heading">Newsletter</p>
+              <h3 className="text-3xl font-semibold text-slate-900 md:text-4xl">Signals from inside the Edigitify vault.</h3>
+              <p className="text-sm text-slate-600">Monthly dispatch on AI, experience design, and venture-scale operations.</p>
+            </div>
+            <form className="flex w-full flex-col gap-4 rounded-[32px] border border-white/60 bg-white/70 p-4 backdrop-blur-2xl md:max-w-sm">
+              <input
+                type="email"
+                placeholder="you@company.com"
+                className="rounded-full border border-white/70 bg-white/70 px-6 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-500/70 focus:outline-none"
+                required
+              />
+              <button className="rounded-full bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.35em] text-white shadow-[0_20px_60px_rgba(15,23,42,0.4)]">
+                Subscribe
+              </button>
+              <p className="text-xs text-slate-500">By subscribing you agree to our privacy note.</p>
+            </form>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

@@ -11,17 +11,25 @@ export function InsightCard({ insight, index }: { insight: Insight; index: numbe
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      className="rounded-3xl border border-white/10 bg-white/5 p-6"
+      whileHover={{ y: -8 }}
+      className="group relative overflow-hidden rounded-3xl border border-white/70 bg-white/70 p-6 shadow-[0_30px_70px_-45px_rgba(15,23,42,0.8)] backdrop-blur-2xl"
     >
+      <div className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/80 via-transparent to-sky-50/80" />
+      </div>
       <div className="flex items-center justify-between">
-        <span className="text-xs uppercase tracking-[0.4em] text-white/50">
+        <span className="text-xs uppercase tracking-[0.4em] text-slate-500">
           {insight.category}
         </span>
-        <span className="text-sm text-white/40">Read</span>
+        <span className="text-xs uppercase tracking-[0.3em] text-slate-400">Read</span>
       </div>
-      <Link href={`/insights#${insight.slug}`} className="mt-4 block">
-        <h3 className="text-2xl font-semibold text-white">{insight.title}</h3>
-        <p className="mt-2 text-sm text-white/70">{insight.dek}</p>
+      <Link href={`/insights#${insight.slug}`} className="relative mt-4 block">
+        <h3 className="text-2xl font-semibold text-slate-900">{insight.title}</h3>
+        <p className="mt-2 text-sm text-slate-600">{insight.dek}</p>
+        <span className="mt-4 inline-flex items-center gap-2 text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-slate-500">
+          Open memo
+          <span aria-hidden>↗</span>
+        </span>
       </Link>
     </motion.li>
   );

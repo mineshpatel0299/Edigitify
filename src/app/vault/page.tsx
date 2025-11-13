@@ -29,8 +29,8 @@ export default function VaultPage() {
     <div className="space-y-10 pb-20">
       <header className="space-y-4">
         <p className="section-heading">Vault</p>
-        <h1 className="text-5xl font-semibold text-white">Playbooks fueling our clients' marketing operations.</h1>
-        <p className="text-white/70">
+        <h1 className="text-5xl font-semibold text-slate-900">Playbooks fueling our clients' marketing operations.</h1>
+        <p className="text-slate-600">
           Download the frameworks we use to plan spends, automate follow-ups, and align media with revenue.
         </p>
       </header>
@@ -39,11 +39,11 @@ export default function VaultPage() {
           <Reveal key={resource.title} delay={index * 0.1}>
             <a
               href={resource.link}
-              className="block rounded-[32px] border border-white/10 p-6 transition hover:border-white"
+              className="block rounded-[32px] border border-slate-200 bg-white p-6 transition hover:border-slate-400 shadow-sm shadow-slate-200/60"
             >
-              <p className="text-xs uppercase tracking-[0.4em] text-white/40">Resource</p>
-              <h2 className="mt-2 text-2xl font-semibold text-white">{resource.title}</h2>
-              <p className="mt-2 text-white/70">{resource.detail}</p>
+              <p className="text-xs uppercase tracking-[0.4em] text-slate-500">Resource</p>
+              <h2 className="mt-2 text-2xl font-semibold text-slate-900">{resource.title}</h2>
+              <p className="mt-2 text-slate-600">{resource.detail}</p>
             </a>
           </Reveal>
         ))}

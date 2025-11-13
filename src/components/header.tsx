@@ -9,11 +9,12 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/work", label: "Work" },
-  { href: "/services", label: "Services" },
-  { href: "/insights", label: "Insights" },
-  { href: "/about", label: "About" },
+  // { href: "/about", label: "About" },
+  { href: "/work", label: "Services" },
+  // { href: "/services", label: "Services" },
+  // { href: "/insights", label: "Insights" },
   { href: "/vault", label: "Vault" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {
@@ -36,13 +37,12 @@ export function Header() {
     >
       <div
         className={cn(
-          "mx-4 mt-4 flex w-full max-w-6xl items-center gap-6 rounded-full border border-white/10 bg-black/60 px-6 text-sm backdrop-blur-xl transition-all duration-300",
-          scrolled ? "py-3" : "py-5",
+          "mx-4 mt-4 flex w-full max-w-6xl items-center gap-6 rounded-full border border-slate-200 bg-white/80 px-8 text-sm shadow-xl shadow-slate-200/60 backdrop-blur-xl transition-all duration-300",
+          scrolled ? "py-2" : "py-5",
         )}
       >
         <Link href="/" className="flex items-center gap-3 text-sm font-semibold">
-          <Image src="/logos/logom.png" alt="Edigitify" width={70} height={28} className="h-16 w-auto" priority />
-         
+          <Image src="/logobw.png" alt="Edigitify" width={70} height={28} className="h-16 w-auto" priority />
         </Link>
         <nav className="flex flex-1 items-center justify-end gap-6 text-[13px] uppercase tracking-[0.2em]">
           {navLinks.map((link) => {
@@ -51,7 +51,10 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="relative pb-1 text-white/60 transition hover:text-white"
+                className={cn(
+                  "relative pb-1 text-slate-500 transition hover:text-slate-900",
+                  active && "text-slate-900"
+                )}
               >
                 {link.label}
                 {active && (

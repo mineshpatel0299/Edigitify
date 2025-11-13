@@ -38,7 +38,7 @@ export function WorkCard({ item, index }: { item: WorkItem; index: number }) {
             style={{ rotateX: tilt.x, rotateY: tilt.y }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.99 }}
-            className="ring-card overflow-hidden rounded-[28px] border border-white/10 bg-card/80"
+            className="ring-card overflow-hidden rounded-[28px]"
           >
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
@@ -48,14 +48,14 @@ export function WorkCard({ item, index }: { item: WorkItem; index: number }) {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 33vw"
                 className="object-cover transition duration-700 ease-in-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-              <span className="absolute left-6 top-6 text-xs uppercase tracking-[0.4em] text-white/70">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/5 to-transparent" />
+              <span className="absolute left-6 top-6 text-xs uppercase tracking-[0.4em] text-white">
                 {tags}
               </span>
             </div>
             <div className="flex flex-col gap-2 p-6">
-              <h3 className="text-2xl font-semibold text-white">{item.title}</h3>
-              <p className="text-sm text-white/70">{item.summary}</p>
+              <h3 className="text-2xl font-semibold text-slate-900">{item.title}</h3>
+              <p className="text-sm text-slate-600">{item.summary}</p>
             </div>
           </motion.div>
       </Link>

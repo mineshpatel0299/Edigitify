@@ -3,8 +3,8 @@ export function FooterMarquee() {
   const loop = `${text.repeat(6)}`;
 
   return (
-    <div className="marquee border-t border-white/10 py-8">
-      <div className="marquee-track footer-marquee-track uppercase text-white/80">
+    <div className="marquee border-t border-slate-200 bg-white py-8">
+      <div className="marquee-track footer-marquee-track uppercase text-slate-400">
         <span aria-hidden="true">{loop}</span>
       </div>
     </div>
