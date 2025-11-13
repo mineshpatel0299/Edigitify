@@ -13,14 +13,14 @@ const featuredServicePods = servicePodItems.slice(0, 2);
 
 const studioStats = [
   {
-    value: "28",
-    label: "Markets launched",
-    helper: "Rollouts across APAC, MENA, and Europe",
+    value: "20+",
+    label: "Project Completed",
+    helper: "From social media campaigns to full-brand makeovers, our expert team helps brands connect and convert across platforms.",
   },
   {
-    value: "$12M+",
-    label: "Media managed",
-    helper: "Performance and creator spends last 18 months",
+    value: "30+",
+    label: "Happy Clients",
+    helper: "Trusted by 10+ Growing Brands Our clients love our responsiveness, creativity, and commitment to ROI-focused results.",
   },
   {
     value: "180+",
@@ -52,10 +52,10 @@ const capabilityHighlights = [
 
 export default function HomePage() {
   return (
-    <div className="space-y-24 pb-24">
+    <div className="pb-24">
       <Hero />
 
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-24">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-24 pt-16">
         <section className="relative overflow-hidden rounded-[48px] border border-white/60 bg-gradient-to-br from-white/90 via-white/70 to-slate-100/80 p-10 shadow-[0_45px_120px_-60px_rgba(15,23,42,0.7)]">
           <div
             className="absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_25%_15%,rgba(59,130,246,0.18),transparent_55%),radial-gradient(circle_at_80%_25%,rgba(13,148,136,0.16),transparent_55%)]"
