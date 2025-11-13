@@ -21,7 +21,7 @@ const resources = [
 
 export const metadata: Metadata = {
   title: "Vault",
-  description: "Tools and templates from Edigitify's integrated marketing programs.",
+  description: "Tools and templates from Edigitify&rsquo;s integrated marketing programs.",
 };
 
 export default function VaultPage() {
@@ -29,7 +29,7 @@ export default function VaultPage() {
     <div className="space-y-10 pb-20">
       <header className="space-y-4">
         <p className="section-heading">Vault</p>
-        <h1 className="text-5xl font-semibold text-slate-900">Playbooks fueling our clients' marketing operations.</h1>
+        <h1 className="text-5xl font-semibold text-slate-900">Playbooks fueling our clients&rsquo; marketing operations.</h1>
         <p className="text-slate-600">
           Download the frameworks we use to plan spends, automate follow-ups, and align media with revenue.
         </p>
