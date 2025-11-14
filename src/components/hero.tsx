@@ -56,8 +56,8 @@ const heroImages = [
 
 export function Hero() {
   return (
-    <section className="relative -mt-24 flex min-h-[104vh] w-full flex-col justify-center overflow-hidden pt-32 md:-mt-32 md:pt-40">
-      <div className="pointer-events-none absolute inset-0">
+    <section className="relative -mt-24 flex min-h-[95vh] w-full flex-col justify-center overflow-hidden pt-28 pb-12 md:-mt-32 md:pt-36 md:pb-16">
+      <div className="pointer-events-none absolute inset-0 hidden sm:block">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(59,130,246,0.25),transparent_55%),radial-gradient(circle_at_80%_0%,rgba(16,185,129,0.25),transparent_50%),radial-gradient(circle_at_50%_85%,rgba(14,165,233,0.2),transparent_50%)] opacity-80" />
         <div
           className="absolute inset-0 opacity-[0.08]"
@@ -69,20 +69,23 @@ export function Hero() {
           aria-hidden
         />
       </div>
-      <div className="relative z-10 grid h-full w-full gap-16 px-4 md:px-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center lg:px-12 xl:px-16 2xl:px-24">
-        <div className="space-y-6 text-slate-900">
-          <AnimatedText
-            lines={["Driven By Results.", "Built For Brands."]}
-            className="text-5xl font-normal uppercase tracking-wide leading-tight text-slate-900 md:text-7xl lg:text-[5.5rem]"
-          />
-          <p className="max-w-2xl text-base text-slate-600 md:text-lg">
-            We concept, design, and deploy digital experiences that spark attention and keep it—without the clutter. This year
-            we&rsquo;re weaving 3D motion, AI copilots, and growth sprints into every engagement.
-          </p>
-        </div>
-        <div className="flex justify-center">
-          <div className="relative aspect-[4/3] w-full overflow-visible sm:aspect-[3/2]">
-            <ImageCarouselOrbit images={heroImages} className="h-full min-h-[360px]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-white/30 to-transparent sm:hidden" aria-hidden />
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:mx-auto lg:max-w-7xl lg:px-12 xl:px-16 2xl:px-20">
+        <div className="flex flex-col gap-12 lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-16">
+          <div className="space-y-6 text-slate-900 max-sm:px-1">
+            <AnimatedText
+              lines={["Driven By Results.", "Built For Brands."]}
+              className="text-4xl font-semibold uppercase leading-tight tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-[5rem]"
+            />
+            <p className="max-w-2xl text-base text-slate-600 sm:text-lg">
+              We concept, design, and deploy digital experiences that spark attention and keep it—without the clutter. This year
+              we&rsquo;re weaving 3D motion, AI copilots, and growth sprints into every engagement.
+            </p>
+          </div>
+          <div className="flex justify-center max-sm:-mx-4">
+            <div className="relative aspect-[5/4] w-full overflow-visible rounded-[40px] border border-white/15 bg-white/10 p-4 backdrop-blur max-sm:aspect-[4/3] max-sm:border-none max-sm:bg-transparent max-sm:p-0 sm:aspect-[3/2]">
+              <ImageCarouselOrbit images={heroImages} className="h-full min-h-[320px] sm:min-h-[380px]" />
+            </div>
           </div>
         </div>
       </div>
