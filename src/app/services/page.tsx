@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Reveal } from "@/components/reveal";
+import { WorkScrollCard } from "@/components/work-scroll-card";
+import { servicePodItems } from "@/data/service-pods";
 
 const services = [
   {
@@ -35,7 +37,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="space-y-12 pb-20">
+    <div className="space-y-16 pb-20">
       <div className="space-y-4">
         <p className="section-heading">Offerings</p>
         <h1 className="text-5xl font-semibold text-slate-900">Full-stack marketing teams for every growth push.</h1>
@@ -43,6 +45,20 @@ export default function ServicesPage() {
           Edigitify assembles pods that own strategy, execution, and reporting end to end. You get one squad that can brief talent, deploy media, talk to sales, and answer to the board.
         </p>
       </div>
+      <section className="space-y-8">
+        <div className="space-y-3">
+          <p className="section-heading">How we work</p>
+          <h2 className="text-4xl font-semibold text-slate-900">Service pods built like in-house teams.</h2>
+          <p className="max-w-3xl text-slate-600">
+            Scroll through each pod to see the stack, deliverables, and live signals the team ships for your campaigns.
+          </p>
+        </div>
+        <div className="space-y-12">
+          {servicePodItems.map((item, index) => (
+            <WorkScrollCard key={item.slug} item={item} priority={index === 0} />
+          ))}
+        </div>
+      </section>
       <div className="grid gap-6 md:grid-cols-2">
         {services.map((service, index) => (
           <Reveal key={service.title} delay={index * 0.08} className="rounded-[30px] border border-slate-200 bg-white p-8 shadow-sm shadow-slate-200/60">

@@ -66,6 +66,7 @@ export default function HomePage() {
         </section>
 
        
+        {/* Services */}
 
         <section className="rounded-[40px] border border-slate-200/80 bg-white/70 px-8 py-12 sm:px-12 sm:py-14 shadow-[0_40px_100px_-80px_rgba(15,23,42,0.6)]">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -94,7 +95,12 @@ export default function HomePage() {
                 The scroll container reveals each pod&rsquo;s stack, deliverables, and live signals without leaving the page.
               </p>
             </div>
-            <span className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">Scroll softly ↓</span>
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-xs font-semibold uppercase tracking-[0.35em] text-slate-900 transition hover:border-slate-500 hover:text-slate-700"
+            >
+              View all services
+            </Link>
           </div>
           <div className="mt-12 space-y-12">
             {featuredServicePods.map((item, index) => (
