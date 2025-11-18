@@ -5,6 +5,7 @@ import { Header } from "@/components/header";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 import { FooterMarquee } from "@/components/footer-marquee";
 import { Footer } from "@/components/footer";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
 const headingFont = Bebas_Neue({
@@ -75,14 +76,16 @@ export default function RootLayout({
       <body
         className={`${bodyFont.variable} ${headingFont.variable} bg-background text-foreground`}
       >
-        <SmoothScrollProvider>
-          <Header />
-          <main className="flex  w-full flex-col px-4 pb-20 pt-24 sm:px-6">
-            {children}
-          </main>
-          <Footer />
-          <FooterMarquee />
-        </SmoothScrollProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <SmoothScrollProvider>
+            <Header />
+            <main className="flex  w-full flex-col px-4 pb-20 pt-24 sm:px-6">
+              {children}
+            </main>
+            <Footer />
+            <FooterMarquee />
+          </SmoothScrollProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

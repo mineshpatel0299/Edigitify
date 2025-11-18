@@ -7,7 +7,7 @@ import { clientsData, workData } from "@/lib/content";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { servicePodItems } from "@/data/service-pods";
-import { TestimonialColumns } from "@/components/testimonial-columns";
+import { TestimonialsVariant } from "@/components/ui/animated-cards-stack-demo";
 
 const featuredServicePods = servicePodItems.slice(0, 2);
 
@@ -109,19 +109,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="rounded-[40px] border border-slate-200/80 bg-white/70 px-8 py-12 sm:px-12 sm:py-14 shadow-[0_40px_100px_-70px_rgba(15,23,42,0.55)]">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div className="space-y-2">
-              <p className="text-[0.65rem] uppercase tracking-[0.45em] text-slate-400">Testimonials</p>
-              <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">Signals from the teams we support.</h2>
-              <p className="max-w-xl text-sm text-slate-500">Opposing scroll columns keep their stories in motion.</p>
-            </div>
-        
-          </div>
-          <div className="mt-10">
-            <TestimonialColumns />
-          </div>
-        </section>
+        <TestimonialsVariant />
 
         <section className="rounded-[40px] border border-slate-200/80 bg-white/70 px-8 py-12 sm:px-12 sm:py-14 shadow-[0_40px_90px_-70px_rgba(15,23,42,0.55)]">
           <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr]">
