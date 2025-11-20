@@ -30,7 +30,8 @@ const heroStats = [
 ] as const;
 
 const heroMedia = {
-  mediaSrc: "/hero.mp4",
+  mediaSrc:
+    "https://videos.pexels.com/video-files/855564/855564-hd_1280_720_25fps.mp4",
   poster: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80",
   background: "/dgbg.jpg",
   title: "Driven BY Results, Building For Brands",
