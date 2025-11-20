@@ -137,23 +137,24 @@ const ScrollExpandMedia = ({
 
   return (
     <div ref={sectionRef} className="transition-colors duration-700 ease-in-out overflow-x-hidden">
-      <section className="relative flex flex-col items-center justify-start min-h-[100dvh]">
-        <div className="relative w-full flex flex-col items-center min-h-[100dvh]">
+      <section className="relative flex min-h-[100dvh] w-screen flex-col items-center justify-start overflow-hidden">
+        <div className="relative flex min-h-[100dvh] w-screen flex-col items-center">
           <motion.div
-            className="absolute inset-0 z-0 h-full"
+            className="absolute inset-0 z-0 h-full overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 - scrollProgress }}
             transition={{ duration: 0.1 }}
           >
-            <Image
-              src={bgImageSrc}
-              alt="Background"
-              width={1920}
-              height={1080}
-              className="w-screen h-screen"
-              style={{ objectFit: "cover", objectPosition: "center" }}
-              priority
-            />
+            <div className="relative h-full w-full">
+              <Image
+                src={bgImageSrc}
+                alt="Background"
+                fill
+                className="object-cover object-center"
+                sizes="100vw"
+                priority
+              />
+            </div>
             <div className="absolute inset-0 bg-black/10" />
           </motion.div>
 

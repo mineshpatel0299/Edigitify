@@ -25,7 +25,7 @@ export function WorkScrollCard({ item, priority }: WorkScrollCardProps) {
         <div className="grid h-full gap-4 rounded-2xl bg-gradient-to-br from-white via-slate-50 to-slate-100 p-4 md:grid-cols-5">
           <article className="col-span-5 overflow-hidden rounded-2xl border border-slate-200 bg-white md:col-span-3">
             <Link
-              href={`/work/${item.slug}`}
+              href={`/work/${encodeURIComponent(item.slug)}`}
               className="relative block h-[24rem] w-full overflow-hidden md:h-full"
             >
               <Image
@@ -68,7 +68,7 @@ export function WorkScrollCard({ item, priority }: WorkScrollCardProps) {
                 ))}
               </div>
               <Link
-                href={`/work/${item.slug}`}
+                href={`/work/${encodeURIComponent(item.slug)}`}
                 className="mt-auto inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-900 transition hover:border-slate-500"
               >
                 View Campaign Notes ↗

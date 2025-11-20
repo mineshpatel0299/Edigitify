@@ -40,7 +40,7 @@ const heroMedia = {
 
 export function Hero() {
   return (
-    <section className="relative -mt-24 md:-mt-32">
+    <section className="relative left-1/2 -mt-24 w-screen max-w-none -translate-x-1/2 overflow-hidden md:-mt-32">
       <ScrollExpandMedia
         mediaType="video"
         mediaSrc={heroMedia.mediaSrc}

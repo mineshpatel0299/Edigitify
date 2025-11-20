@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import type { WorkItem } from "@/lib/content";
 
@@ -9,7 +10,10 @@ type WorkScrollShowcaseProps = {
 };
 
 export function WorkScrollShowcase({ items }: WorkScrollShowcaseProps) {
-  const [hero, ...rest] = items.slice(0, 3);
+  const featuredSlug = "oceans-earth-realty";
+  const heroIndex = items.findIndex((item) => item.slug === featuredSlug);
+  const hero = heroIndex >= 0 ? items[heroIndex] : items[0];
+  const rest = (heroIndex >= 0 ? items.filter((_, index) => index !== heroIndex) : items.slice(1)).slice(0, 2);
 
   if (!hero) return null;
 
@@ -30,7 +34,11 @@ export function WorkScrollShowcase({ items }: WorkScrollShowcaseProps) {
         }
       >
         <div className="grid h-full gap-4 rounded-2xl bg-gradient-to-br from-white via-slate-50 to-slate-100 p-4 md:grid-cols-5">
-          <article className="relative col-span-5 h-64 overflow-hidden rounded-2xl border border-slate-200 bg-white md:col-span-3 md:h-full">
+          <Link
+            href={`/work/${encodeURIComponent(hero.slug)}`}
+            className="group relative col-span-5 h-64 overflow-hidden rounded-2xl border border-slate-200 bg-white md:col-span-3 md:h-full"
+            aria-label={`View ${hero.title} case study`}
+          >
             <Image
               src={hero.image}
               alt={hero.title}
@@ -45,7 +53,7 @@ export function WorkScrollShowcase({ items }: WorkScrollShowcaseProps) {
               <h3 className="text-3xl font-semibold">{hero.title}</h3>
               <p className="text-sm text-white/70">{hero.summary}</p>
             </div>
-          </article>
+          </Link>
 
           <div className="col-span-5 grid gap-4 md:col-span-2 md:grid-rows-2">
             <div className="rounded-2xl border border-slate-200 bg-white p-6 text-slate-900">

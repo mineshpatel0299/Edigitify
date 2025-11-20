@@ -1,5 +1,5 @@
 import clients from "@/data/clients.json";
-import work from "@/data/work.json";
+import work from "@/data/work";
 import awards from "@/data/awards.json";
 import insights from "@/data/insights.json";
 import cities from "@/data/cities.json";

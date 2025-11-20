@@ -29,7 +29,7 @@ export function WorkCard({ item, index }: { item: WorkItem; index: number }) {
       className="group"
     >
       <Link
-        href={`/work/${item.slug}`}
+        href={`/work/${encodeURIComponent(item.slug)}`}
         className="block"
         onMouseMove={handlePointerMove}
         onMouseLeave={() => setTilt({ x: 0, y: 0 })}
