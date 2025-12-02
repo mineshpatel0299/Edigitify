@@ -1,4 +1,4 @@
-import { type WorkItem } from "@/lib/content";
+import { type WorkScrollCardItem } from "@/lib/content";
 
 const servicePodsSource = [
   {
@@ -111,15 +111,12 @@ const servicePodsSource = [
   },
 ] as const;
 
-export const servicePodItems: WorkItem[] = servicePodsSource.map((service, index) => ({
+export const servicePodItems: WorkScrollCardItem[] = servicePodsSource.map((service, index) => ({
   slug: service.slug ?? `service-${index}`,
   title: service.title,
-  tags: service.tags ?? ["How We Work"],
+  tags: service.tags ? [...service.tags] : ["How We Work"],
   summary: service.description,
   image: service.image,
-  problem: service.description,
-  solution: service.description,
-  outcomes: service.bullets,
-  metrics: service.metrics,
-  gallery: [service.image],
+  outcomes: [...service.bullets],
+  metrics: service.metrics.map((metric) => ({ ...metric })),
 }));

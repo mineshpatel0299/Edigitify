@@ -3,10 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import type { WorkItem } from "@/lib/content";
+import type { WorkScrollCardItem } from "@/lib/content";
 
 type WorkScrollCardProps = {
-  item: WorkItem;
+  item: WorkScrollCardItem;
   priority?: boolean;
 };
 
