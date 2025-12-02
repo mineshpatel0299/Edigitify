@@ -99,7 +99,7 @@ export function ContactSection() {
               transition={{ duration: 0.6, delay: 0.2, ease: [0.19, 1, 0.22, 1] }}
               className="text-4xl font-semibold text-slate-900 md:text-5xl"
             >
-              Let's Connect and Transform Your Digital Vision into Reality
+              Let&apos;s Connect and Transform Your Digital Vision into Reality
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -107,7 +107,7 @@ export function ContactSection() {
               transition={{ duration: 0.6, delay: 0.3, ease: [0.19, 1, 0.22, 1] }}
               className="text-base text-slate-600"
             >
-              Share your project details and we'll respond with a comprehensive plan within 12 business hours. Let's build something extraordinary together.
+              Share your project details and we&apos;ll respond with a comprehensive plan within 12 business hours. Let&apos;s build something extraordinary together.
             </motion.p>
           </div>
         </motion.div>
@@ -248,7 +248,7 @@ export function ContactSection() {
                   transition={{ duration: 0.4 }}
                   className="text-sm text-emerald-600 font-medium"
                 >
-                  ✓ Thanks! We'll reach out to you shortly.
+                  ✓ Thanks! We&apos;ll reach out to you shortly.
                 </motion.p>
               )}
             </motion.div>

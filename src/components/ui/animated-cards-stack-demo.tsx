@@ -3,6 +3,7 @@
 import * as React from "react"
 import { useTheme } from "next-themes"
 import { Medal, Rocket, Target, Trophy } from "lucide-react"
+import Image from "next/image"
 
 import {
   CardTransformed,
@@ -10,7 +11,6 @@ import {
   ContainerScroll,
   ReviewStars,
 } from "@/components/ui/animated-cards-stack"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { cn } from "@/lib/utils"
 
 const TESTIMONIALS = [
@@ -90,6 +90,7 @@ function getCardVariant(theme: string | undefined) {
 
 export function TestimonialsVariant() {
   const { theme } = useTheme()
+  const [erroredAvatars, setErroredAvatars] = React.useState<Record<string, boolean>>({})
 
   return (
     <section
@@ -138,18 +139,35 @@ export function TestimonialsVariant() {
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <Avatar className={getAvatarClass(theme)}>
-                    <AvatarImage
-                      src={testimonial.avatarUrl}
-                      alt={`Portrait of ${testimonial.name}`}
-                    />
-                    <AvatarFallback>
-                      {testimonial.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </AvatarFallback>
-                  </Avatar>
+                  <div
+                    className={cn(
+                      "relative flex h-12 w-12 shrink-0 overflow-hidden rounded-full",
+                      getAvatarClass(theme),
+                    )}
+                  >
+                    {erroredAvatars[testimonial.id] ? (
+                      <span className="flex h-full w-full items-center justify-center text-sm font-semibold text-slate-600">
+                        {testimonial.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")}
+                      </span>
+                    ) : (
+                      <Image
+                        src={testimonial.avatarUrl}
+                        alt={`Portrait of ${testimonial.name}`}
+                        fill
+                        sizes="48px"
+                        className="object-cover"
+                        onError={() =>
+                          setErroredAvatars((prev) => ({
+                            ...prev,
+                            [testimonial.id]: true,
+                          }))
+                        }
+                      />
+                    )}
+                  </div>
                   <div>
                     <span
                       id={`card-${testimonial.id}-title`}
@@ -283,10 +301,12 @@ export const ImagesVariant = () => {
                 variant="dark"
                 className="overflow-hidden !rounded-sm !p-0"
               >
-                <img
+                <Image
                   src={imageUrl}
                   alt="featured inspiration"
                   className="size-full object-cover"
+                  fill
+                  sizes="320px"
                 />
               </CardTransformed>
             ))}
