@@ -85,7 +85,7 @@ export function AboutHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.7 }}
           >
-            At Edigitify, we operate as an extension of your team, delivering premium, fully managed campaigns through integrated excellence. Our experienced professionals bring together strategy, creativity, technology, and automation to surpass industry benchmarks while maintaining the personalized touch of white-glove service. Every engagement is built on transparency, measurable results, and a commitment to elevating your brand's digital presence.
+            At Edigitify, we operate as an extension of your team, delivering premium, fully managed campaigns through integrated excellence. Our experienced professionals bring together strategy, creativity, technology, and automation to surpass industry benchmarks while maintaining the personalized touch of white-glove service. Every engagement is built on transparency, measurable results, and a commitment to elevating your brand&apos;s digital presence.
           </motion.p>
 
           {/* Impact Signals Grid */}

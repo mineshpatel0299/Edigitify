@@ -22,17 +22,17 @@ export function WorkScrollCard({ item, priority }: WorkScrollCardProps) {
           </div>
         }
       >
-        <div className="grid h-full gap-4 rounded-2xl bg-gradient-to-br from-white via-slate-50 to-slate-100 p-4 md:grid-cols-5">
+        <div className="grid h-full gap-4 overflow-hidden rounded-2xl bg-gradient-to-br from-white via-slate-50 to-slate-100 p-4 md:grid-cols-5">
           <article className="col-span-5 overflow-hidden rounded-2xl border border-slate-200 bg-white md:col-span-3">
             <Link
               href={`/work/${encodeURIComponent(item.slug)}`}
-              className="relative block h-[24rem] w-full overflow-hidden md:h-full"
+              className="relative block h-[24rem] w-full overflow-hidden rounded-2xl md:h-full"
             >
               <Image
                 src={item.image}
                 alt={item.title}
                 fill
-                className="object-cover"
+                className="rounded-2xl object-cover"
                 sizes="(max-width: 768px) 100vw, 60vw"
                 priority={priority}
               />

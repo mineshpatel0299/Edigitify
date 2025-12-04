@@ -6,16 +6,16 @@ const servicePodsSource = [
     slug: "website-development",
     tags: ["Web", "E-commerce"],
     image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1600&q=80",
     description: "Modern, fast, and easy-to-manage websites and e-commerce builds.",
     bullets: [
-      "WordPress, Joomla, and custom PHP stacks",
+      "Next.js, WordPress, and Node.js development",
       "CMS admin panels your team can actually use",
       "Secure, scalable storefronts with conversion-friendly UI/UX",
       "Performance, SEO, and analytics baked in",
     ],
     metrics: [
-      { label: "Stack", value: "WordPress · Joomla · PHP" },
+      { label: "Stack", value: "Next.js · WordPress · Node.js" },
       { label: "Focus", value: "Speed & SEO" },
     ],
   },
@@ -24,7 +24,7 @@ const servicePodsSource = [
     slug: "social-media-marketing",
     tags: ["Social", "Content"],
     image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1600&q=80",
     description: "Grow reach and community with thumb-stopping content and always-on optimization.",
     bullets: [
       "Editorial calendars, creatives, reels, and stories",
@@ -42,7 +42,7 @@ const servicePodsSource = [
     slug: "search-engine-optimization",
     tags: ["Search", "SEO"],
     image:
-      "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1600&q=80",
     description: "Own the queries that matter—across geographies and devices.",
     bullets: [
       "National, global, local, and maps SEO",
@@ -60,7 +60,7 @@ const servicePodsSource = [
     slug: "influencer-creator-marketing",
     tags: ["Creators", "Brand"],
     image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80",
     description: "Authentic voices, measurable outcomes.",
     bullets: [
       "Celebrity endorsements & video shout-outs",
@@ -78,7 +78,7 @@ const servicePodsSource = [
     slug: "online-advertising",
     tags: ["Media", "Paid"],
     image:
-      "https://images.unsplash.com/photo-1483103332443-19ed3bb1f2b6?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=1600&q=80",
     description: "Media that works as hard as your budget across Meta, Google, and beyond.",
     bullets: [
       "Smart budget distribution to hit KPIs",
@@ -96,7 +96,7 @@ const servicePodsSource = [
     slug: "graphic-design-branding",
     tags: ["Design", "Brand"],
     image:
-      "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1600&q=80",
     description: "Your brand, unmistakable everywhere.",
     bullets: [
       "Logos, brand kits, menus, and cards",
