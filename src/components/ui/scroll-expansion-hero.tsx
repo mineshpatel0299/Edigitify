@@ -96,14 +96,28 @@ const ScrollExpandMedia = ({
       setTouchStartY(0);
     };
 
-    const handleScroll = () => {
+    const handleScroll = (event: Event) => {
       if (!mediaFullyExpanded) {
+        event.preventDefault();
         window.scrollTo(0, 0);
       }
     };
 
+    // Control body overflow to prevent any scrolling when video is not fully expanded
+    if (!mediaFullyExpanded) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.top = '0';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.top = '';
+    }
+
     window.addEventListener("wheel", handleWheel as unknown as EventListener, { passive: false });
-    window.addEventListener("scroll", handleScroll as EventListener);
+    window.addEventListener("scroll", handleScroll as EventListener, { passive: false });
     window.addEventListener("touchstart", handleTouchStart as unknown as EventListener, { passive: false });
     window.addEventListener("touchmove", handleTouchMove as unknown as EventListener, { passive: false });
     window.addEventListener("touchend", handleTouchEnd as EventListener);
@@ -114,6 +128,12 @@ const ScrollExpandMedia = ({
       window.removeEventListener("touchstart", handleTouchStart as unknown as EventListener);
       window.removeEventListener("touchmove", handleTouchMove as unknown as EventListener);
       window.removeEventListener("touchend", handleTouchEnd as EventListener);
+
+      // Clean up body styles when component unmounts
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.top = '';
     };
   }, [scrollProgress, mediaFullyExpanded, touchStartY]);
 

@@ -38,13 +38,16 @@ const heroStats = [
 ] as const;
 
 const heroMedia = {
+  // Marketing agency video - creative team collaboration and strategy
   mediaSrc:
-    "https://videos.pexels.com/video-files/855564/855564-hd_1280_720_25fps.mp4",
-  poster: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80",
-  background: "/dgbg.jpg",
+    "https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4",
+  // Professional marketing team workspace poster
+  poster: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600&q=80",
+  // Static background - modern marketing agency office
+  background: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80",
   title: "Driven BY Results, Building For Brands",
-  date: "EDIGITIFY 2024",
-  scrollToExpand: "Scroll to enter the hero experience",
+  date: "EDIGITIFY 2025",
+  scrollToExpand: "Scroll to explore our story",
 };
 
 export function Hero() {
