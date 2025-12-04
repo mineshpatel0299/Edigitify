@@ -246,7 +246,7 @@ export function Header() {
                     onClick={() => setMobileMenuOpen(false)}
                     className="block w-full rounded-full bg-[var(--accent)] px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.35em] text-white shadow-lg transition hover:brightness-95 sm:text-sm"
                   >
-                    Let's Talk
+                    Let&rsquo;s Talk
                   </Link>
                   <p className="text-xs text-slate-500 text-center">
                     © 2025 Edigitify. All rights reserved.
