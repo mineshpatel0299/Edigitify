@@ -22,26 +22,39 @@ export function SmoothScrollProvider({
       return;
     }
 
-    const lenis = new Lenis({
-      duration: 1.1,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
+    // Defer Lenis initialization until after initial paint
+    // This improves First Contentful Paint (FCP) and Largest Contentful Paint (LCP)
+    const initLenis = () => {
+      const lenis = new Lenis({
+        duration: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      });
 
-    lenisRef.current = lenis;
-    let frame = 0;
+      lenisRef.current = lenis;
+      let frame = 0;
 
-    const raf = (time: number) => {
-      lenis.raf(time);
+      const raf = (time: number) => {
+        lenis.raf(time);
+        frame = requestAnimationFrame(raf);
+      };
+
       frame = requestAnimationFrame(raf);
+
+      return () => {
+        cancelAnimationFrame(frame);
+        lenis.destroy();
+      };
     };
 
-    frame = requestAnimationFrame(raf);
-
-    return () => {
-      cancelAnimationFrame(frame);
-      lenis.destroy();
-    };
+    // Use requestIdleCallback to defer initialization, fallback to setTimeout
+    if ('requestIdleCallback' in window) {
+      const idleId = requestIdleCallback(initLenis, { timeout: 500 });
+      return () => cancelIdleCallback(idleId);
+    } else {
+      const timeoutId = setTimeout(initLenis, 100);
+      return () => clearTimeout(timeoutId);
+    }
   }, []);
 
   useEffect(() => {

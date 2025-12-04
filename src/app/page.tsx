@@ -1,20 +1,39 @@
 "use client";
 
-import { Hero } from "@/components/hero";
-import { LogoMarquee } from "@/components/marquee";
-import { WorkCard } from "@/components/work-card";
-import { WorkScrollCard } from "@/components/work-scroll-card";
-import { CountUpNumber } from "@/components/ui/count-up-number";
-import { MagneticCard } from "@/components/ui/magnetic-card";
-import { FloatingOrbs } from "@/components/ui/floating-orbs";
-import { Particles } from "@/components/ui/particles";
-import { clientsData, workData } from "@/lib/content";
-import Link from "next/link";
-import { servicePodItems } from "@/data/service-pods";
-import { TestimonialsVariant } from "@/components/ui/animated-cards-stack-demo";
+import dynamic from "next/dynamic";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 import { Sparkles, ArrowRight, Zap, TrendingUp, Star, Award, Users, Target } from "lucide-react";
+import { clientsData, workData } from "@/lib/content";
+import { servicePodItems } from "@/data/service-pods";
+
+// Critical components - loaded immediately
+import { Hero } from "@/components/hero";
+import { LogoMarquee } from "@/components/marquee";
+
+// Lazy load heavy components with loading states
+const WorkCard = dynamic(() => import("@/components/work-card").then(mod => ({ default: mod.WorkCard })), {
+  loading: () => <div className="h-96 bg-slate-100 animate-pulse rounded-3xl" />,
+});
+
+const WorkScrollCard = dynamic(() => import("@/components/work-scroll-card").then(mod => ({ default: mod.WorkScrollCard })), {
+  loading: () => <div className="h-64 bg-slate-100 animate-pulse rounded-3xl" />,
+});
+
+const CountUpNumber = dynamic(() => import("@/components/ui/count-up-number").then(mod => ({ default: mod.CountUpNumber })));
+
+const MagneticCard = dynamic(() => import("@/components/ui/magnetic-card").then(mod => ({ default: mod.MagneticCard })));
+
+const FloatingOrbs = dynamic(() => import("@/components/ui/floating-orbs").then(mod => ({ default: mod.FloatingOrbs })));
+
+const Particles = dynamic(() => import("@/components/ui/particles").then(mod => ({ default: mod.Particles })));
+
+// Lazy load the testimonials section (appears last)
+const TestimonialsVariant = dynamic(() => import("@/components/ui/animated-cards-stack-demo").then(mod => ({ default: mod.TestimonialsVariant })), {
+  loading: () => <div className="h-96 bg-slate-100 animate-pulse rounded-3xl" />,
+  ssr: false, // Don't render on server to reduce initial bundle
+});
 
 const featuredServicePods = servicePodItems.slice(0, 2);
 

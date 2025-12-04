@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useMemo } from "react";
+import { useMemo, useEffect, useState, useRef, memo } from "react";
 
 interface Particle {
   id: number;
@@ -19,13 +19,52 @@ interface ParticlesProps {
   colors?: string[];
 }
 
-export function Particles({
+export const Particles = memo(function Particles({
   count = 50,
   className = "",
   colors = ["#14b8a6", "#3b82f6", "#8b5cf6", "#ec4899"]
 }: ParticlesProps) {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Detect mobile and reduced motion preference
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    const checkReducedMotion = () => {
+      setPrefersReducedMotion(
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      );
+    };
+
+    checkMobile();
+    checkReducedMotion();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Intersection observer to pause animations when offscreen
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0, rootMargin: '50px' }
+    );
+
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // Reduce particle count on mobile (60% reduction)
+  const adjustedCount = isMobile ? Math.floor(count * 0.4) : count;
+
   const particles: Particle[] = useMemo(() => {
-    return Array.from({ length: count }, (_, i) => ({
+    return Array.from({ length: adjustedCount }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
@@ -34,38 +73,47 @@ export function Particles({
       delay: Math.random() * 5,
       color: colors[Math.floor(Math.random() * colors.length)]
     }));
-  }, [count, colors]);
+  }, [adjustedCount, colors]);
+
+  // Don't render if user prefers reduced motion
+  if (prefersReducedMotion) {
+    return null;
+  }
 
   return (
-    <div className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}>
+    <div
+      ref={containerRef}
+      className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
+    >
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className="absolute rounded-full blur-sm"
+          className="absolute rounded-full blur-sm will-change-transform"
           style={{
             left: `${particle.x}%`,
             top: `${particle.y}%`,
             width: particle.size,
             height: particle.size,
             backgroundColor: particle.color,
+            transform: 'translateZ(0)', // GPU acceleration
           }}
-          animate={{
+          animate={isVisible ? {
             y: [0, -100, 0],
             x: [0, Math.random() * 50 - 25, 0],
             opacity: [0, 1, 0],
             scale: [0, 1.5, 0],
-          }}
+          } : {}}
           transition={{
             duration: particle.duration,
             delay: particle.delay,
-            repeat: Infinity,
+            repeat: isVisible ? Infinity : 0,
             ease: "easeInOut",
           }}
         />
       ))}
     </div>
   );
-}
+});
 
 export function OrbitingParticles({
   count = 20,

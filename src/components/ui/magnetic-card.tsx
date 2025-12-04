@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useRef, useState, MouseEvent } from "react";
+import { useRef, useState, MouseEvent, useCallback } from "react";
 
 interface MagneticCardProps {
   children: React.ReactNode;
@@ -16,6 +16,7 @@ export function MagneticCard({
 }: MagneticCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const rafRef = useRef<number | null>(null);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -26,27 +27,43 @@ export function MagneticCard({
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [intensity, -intensity]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [-intensity, intensity]);
 
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+  // Throttle mouse move with requestAnimationFrame for better performance
+  const handleMouseMove = useCallback((e: MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
 
-    const rect = ref.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
+    // Cancel previous RAF if it exists
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+    }
 
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
+    rafRef.current = requestAnimationFrame(() => {
+      if (!ref.current) return;
 
-    x.set(xPct);
-    y.set(yPct);
-  };
+      const rect = ref.current.getBoundingClientRect();
+      const width = rect.width;
+      const height = rect.height;
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
 
-  const handleMouseLeave = () => {
+      const xPct = mouseX / width - 0.5;
+      const yPct = mouseY / height - 0.5;
+
+      x.set(xPct);
+      y.set(yPct);
+    });
+  }, [x, y]);
+
+  const handleMouseLeave = useCallback(() => {
     setIsHovered(false);
     x.set(0);
     y.set(0);
-  };
+
+    // Clean up any pending RAF
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
+  }, [x, y]);
 
   return (
     <motion.div
@@ -58,6 +75,7 @@ export function MagneticCard({
         rotateX,
         rotateY,
         transformStyle: "preserve-3d",
+        willChange: isHovered ? 'transform' : 'auto',
       }}
       className={className}
       whileHover={{ scale: 1.02 }}
