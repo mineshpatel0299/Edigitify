@@ -10,7 +10,7 @@ const teamMembers = [
     name: "Hardik Gandhi",
     role: "Director & Founder",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
-    bio: "Visionary leader with 10+ years in digital strategy",
+    bio: "Visionary entrepreneur with over a decade of experience in digital strategy and business transformation. Hardik founded Edigitify with the mission to revolutionize how businesses approach digital marketing, combining strategic thinking with innovative execution to deliver exceptional results.",
     color: "from-teal-500 to-blue-500",
   },
   {
@@ -18,7 +18,7 @@ const teamMembers = [
     name: "Ankita Jii",
     role: "Social Media Strategist",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=800&q=80",
-    bio: "Crafting viral campaigns that resonate with audiences",
+    bio: "Expert social media strategist who transforms brands into engaging digital experiences. Ankita crafts data-driven campaigns that resonate with target audiences, drive meaningful engagement, and build lasting community connections across all major social platforms.",
     color: "from-purple-500 to-pink-500",
   },
   {
@@ -26,7 +26,7 @@ const teamMembers = [
     name: "CS Maccha",
     role: "All Rounder",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
-    bio: "Jack of all trades, master of many",
+    bio: "Versatile marketing professional with expertise spanning content creation, project management, client relations, and strategic planning. CS brings adaptability and comprehensive skills that ensure seamless project execution and exceptional client satisfaction across all touchpoints.",
     color: "from-orange-500 to-red-500",
   },
   {
@@ -34,7 +34,7 @@ const teamMembers = [
     name: "Minesh",
     role: "SDE-1",
     image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80",
-    bio: "Building scalable solutions with cutting-edge tech",
+    bio: "Talented software engineer specializing in building robust, scalable digital solutions. Minesh combines technical expertise with creative problem-solving to develop cutting-edge platforms, automation tools, and web applications that power modern marketing campaigns.",
     color: "from-emerald-500 to-teal-500",
   },
   {
@@ -42,7 +42,7 @@ const teamMembers = [
     name: "Veer",
     role: "Creative Lead",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80",
-    bio: "Transforming ideas into stunning visual experiences",
+    bio: "Award-winning creative director who transforms brand visions into captivating visual narratives. Veer's innovative designs blend aesthetic excellence with strategic purpose, creating memorable experiences that elevate brand identity and drive user engagement.",
     color: "from-blue-500 to-cyan-500",
   },
 ];
@@ -209,14 +209,13 @@ export function AboutTeamParallax() {
             Meet The Team
           </motion.span>
           <h2 className="mx-auto mb-6 max-w-4xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 bg-clip-text text-4xl font-bold text-transparent md:text-5xl lg:text-6xl">
-            Talented humans building{" "}
+            Meet the experts driving{" "}
             <span className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text">
-              exceptional work
+              your success
             </span>
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-slate-600 md:text-xl">
-            Our distributed team of strategists, designers, developers, and marketers brings diverse
-            perspectives and deep expertise to every project.
+            Our passionate team combines decades of collective experience in digital strategy, creative design, technical development, and marketing automation. Each member brings unique expertise and perspective, working collaboratively to deliver campaigns that not only meet but exceed your expectations and drive measurable business growth.
           </p>
         </motion.div>
 
@@ -252,11 +251,10 @@ export function AboutTeamParallax() {
 
             <div className="relative z-10">
               <h3 className="mb-4 text-3xl font-bold text-white md:text-4xl">
-                Want to join our team?
+                Ready to elevate your career?
               </h3>
               <p className="mb-8 text-lg text-slate-300">
-                We&apos;re always looking for talented individuals who are passionate about digital
-                marketing and creating exceptional work.
+                We&apos;re constantly seeking exceptional talent to join our growing team. If you&apos;re passionate about digital innovation, thrive in collaborative environments, and are committed to delivering excellence, we&apos;d love to hear from you. Explore opportunities to work on exciting projects with industry-leading clients while developing your skills alongside top professionals in the field.
               </p>
               <motion.a
                 href="/contact"

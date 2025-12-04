@@ -7,23 +7,23 @@ import Image from "next/image";
 const storyPoints = [
   {
     icon: "🎯",
-    title: "Strategy First",
-    description: "We begin every engagement with deep discovery, mapping your goals, audience signals, and competitive landscape before a single pixel is designed.",
+    title: "Strategy-First Approach",
+    description: "Every successful campaign begins with thorough discovery. We immerse ourselves in your business objectives, analyze market dynamics, map customer journeys, and identify competitive advantages. Our strategic framework ensures that every tactical decision aligns with your overarching goals, creating a solid foundation for sustainable growth and measurable ROI.",
   },
   {
     icon: "✨",
-    title: "Creative Excellence",
-    description: "Our design philosophy blends minimalism with purpose—every element serves the user journey and reinforces your brand's unique voice.",
+    title: "Creative Excellence & Innovation",
+    description: "Our creative team doesn't just design—we craft experiences that resonate. By blending cutting-edge design trends with timeless principles, we create visual narratives that capture attention and drive engagement. Every color choice, typography decision, and interactive element is purposefully designed to reinforce your brand identity and guide users toward meaningful actions.",
   },
   {
     icon: "⚡",
-    title: "Automation & Scale",
-    description: "Marketing automation isn't just about tools—it's about orchestrating seamless experiences that nurture leads and delight customers at scale.",
+    title: "Intelligent Automation & Scalability",
+    description: "We leverage advanced marketing automation to orchestrate personalized customer experiences across multiple touchpoints. From lead nurturing workflows to dynamic content delivery, our systems work tirelessly to engage your audience at the right moment with the right message. This intelligent automation allows your campaigns to scale efficiently while maintaining a personal touch that drives conversions.",
   },
   {
     icon: "📊",
-    title: "Data-Driven Results",
-    description: "Real-time dashboards, transparent reporting, and actionable insights keep your leadership clear on what's working and where to invest next.",
+    title: "Data-Driven Decision Making",
+    description: "Transparency and accountability are at the core of our approach. Our comprehensive analytics dashboards provide real-time visibility into campaign performance, audience behavior, and conversion metrics. We don't just report numbers—we deliver actionable insights that inform strategic pivots, optimize budget allocation, and continuously improve results. Every recommendation is backed by data, ensuring your marketing investments generate maximum returns.",
   },
 ];
 
@@ -62,11 +62,10 @@ export function AboutStorySection() {
             Our Story
           </motion.span>
           <h2 className="mx-auto mb-6 max-w-4xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 bg-clip-text text-4xl font-bold text-transparent md:text-5xl lg:text-6xl">
-            Crafting campaigns that feel <span className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text">effortless</span>
+            Transforming digital vision into <span className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text">measurable success</span>
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-slate-600 md:text-xl">
-            We believe the best marketing doesn&apos;t feel like marketing at all. It&apos;s a seamless blend of strategy,
-            creativity, and technology working in harmony.
+            Founded on the principle that exceptional marketing requires both art and science, Edigitify has evolved into a powerhouse of digital innovation. We don&apos;t just execute campaigns—we architect comprehensive digital ecosystems that drive sustainable growth, build lasting customer relationships, and deliver results that exceed expectations. Our story is one of relentless pursuit of excellence, continuous learning, and an unwavering commitment to our clients&apos; success.
           </p>
         </motion.div>
 
@@ -162,11 +161,10 @@ export function AboutStorySection() {
                   </span>
                 </div>
                 <h3 className="mb-3 text-2xl font-bold text-slate-900">
-                  Built for modern collaboration
+                  Built for seamless collaboration
                 </h3>
                 <p className="text-slate-600">
-                  Our distributed team operates across time zones, bringing diverse perspectives
-                  and round-the-clock momentum to every project.
+                  Our integrated team combines seasoned strategists, award-winning designers, technical innovators, and marketing automation specialists. Together, we create synergy that transforms complex challenges into elegant solutions, delivering campaigns that resonate with audiences and drive tangible business results.
                 </p>
               </motion.div>
             </motion.div>

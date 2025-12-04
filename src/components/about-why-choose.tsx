@@ -5,38 +5,38 @@ import { useRef, MouseEvent } from "react";
 
 const reasons = [
   {
-    title: "White-Glove Service",
-    description: "Premium, personalized attention to every campaign detail from strategy to execution and beyond.",
+    title: "Premium White-Glove Service",
+    description: "Experience unparalleled attention to detail with our premium service approach. From initial consultation through strategy development, implementation, and ongoing optimization, every aspect of your campaign receives meticulous care. We don't just manage your marketing—we become your dedicated partners, treating your success as our own and ensuring every decision is made with your best interests at heart.",
     icon: "✨",
     gradient: "from-teal-500 to-blue-500",
   },
   {
-    title: "Integrated Pods",
-    description: "Strategy, creative, media, and automation working together under one unified team.",
+    title: "Integrated Team Excellence",
+    description: "Our cross-functional pods eliminate the inefficiencies of working with multiple disconnected agencies. Strategy, creative design, technical development, content creation, media buying, and analytics experts collaborate seamlessly under one roof. This integrated approach ensures consistent messaging, faster execution, better coordination, and superior results across all marketing channels.",
     icon: "🤝",
     gradient: "from-purple-500 to-pink-500",
   },
   {
-    title: "Data-Driven Decisions",
-    description: "Real-time dashboards and transparent reporting keep you informed at every step.",
+    title: "Data-Driven Intelligence",
+    description: "Make confident decisions backed by comprehensive analytics and real-time insights. Our advanced dashboards provide complete transparency into campaign performance, audience behavior, conversion metrics, and ROI. We don't just collect data—we transform it into actionable intelligence that drives continuous optimization and demonstrates clear value from your marketing investments.",
     icon: "📊",
     gradient: "from-orange-500 to-red-500",
   },
   {
     title: "Proven Track Record",
-    description: "150+ successful projects delivered across diverse industries with measurable results.",
+    description: "Our portfolio speaks volumes about our capabilities. With over 150 successful projects spanning diverse industries—from startups to established enterprises—we bring battle-tested expertise to every engagement. Our clients consistently achieve and exceed their KPIs, experiencing significant improvements in brand awareness, lead generation, customer acquisition, and overall marketing ROI.",
     icon: "🏆",
     gradient: "from-emerald-500 to-teal-500",
   },
   {
-    title: "Scalable Solutions",
-    description: "Marketing systems that grow with your business, from startup to enterprise.",
+    title: "Scalable Growth Solutions",
+    description: "Whether you're a growing startup or an established enterprise, our solutions scale with your ambitions. We design flexible marketing systems and infrastructure that adapt to your evolving needs, handle increased demand, and support expansion into new markets. Our scalable approach ensures your marketing capabilities grow in lockstep with your business, without requiring complete overhauls.",
     icon: "⚡",
     gradient: "from-blue-500 to-cyan-500",
   },
   {
-    title: "Always Available",
-    description: "24/7 support and dedicated account management ensures you're never left in the dark.",
+    title: "Dedicated Support & Partnership",
+    description: "You're never alone in your marketing journey. Our dedicated account managers provide responsive support, proactive communication, and strategic guidance whenever you need it. We believe in building lasting partnerships based on trust, transparency, and mutual success. Your account manager becomes an extension of your team, deeply invested in understanding your business and driving your continued growth.",
     icon: "🌟",
     gradient: "from-indigo-500 to-purple-500",
   },
@@ -127,11 +127,10 @@ export function AboutWhyChoose() {
             Why Choose Edigitify
           </motion.span>
           <h2 className="mx-auto mb-6 max-w-4xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 bg-clip-text text-4xl font-bold text-transparent md:text-5xl lg:text-6xl">
-            Your success is <span className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text">our mission</span>
+            Why leading brands choose <span className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text">Edigitify</span>
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-slate-600 md:text-xl">
-            We&apos;re not just another agency. We&apos;re your embedded digital marketing team, committed to
-            delivering exceptional results through integrated excellence.
+            We&apos;re not just another marketing agency—we&apos;re your strategic growth partner. Our unique combination of integrated expertise, proven methodologies, cutting-edge technology, and unwavering commitment to client success sets us apart in the digital marketing landscape. Discover what makes Edigitify the preferred choice for businesses serious about achieving exceptional results.
           </p>
         </motion.div>
 
@@ -227,10 +226,10 @@ export function AboutWhyChoose() {
 
             <div className="relative z-10">
               <h3 className="mb-4 bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
-                Ready to elevate your digital presence?
+                Ready to transform your digital marketing?
               </h3>
               <p className="mb-8 text-lg text-slate-600">
-                Let&apos;s discuss how we can help you achieve your marketing goals with our integrated approach.
+                Let&apos;s collaborate to create a customized strategy that aligns with your business objectives and drives measurable growth. Whether you&apos;re looking to increase brand awareness, generate more qualified leads, improve conversion rates, or scale your digital presence, our team has the expertise and dedication to help you succeed.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <motion.a

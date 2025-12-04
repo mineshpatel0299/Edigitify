@@ -5,8 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 const impactSignals = [
-  "Strategy, creative, media, and ops inside one pod.",
-  "Daily reporting that keeps leadership clear and calm.",
+  "Unified pods combining strategy, creative direction, media buying, and operational excellence under one roof for seamless execution.",
+  "Transparent, real-time dashboards with daily performance insights that empower leadership to make confident, data-driven decisions.",
+  "Dedicated account management ensuring every campaign receives premium, white-glove attention from kickoff to continuous optimization.",
+  "Agile methodology that adapts to market changes, allowing rapid pivots and iterative improvements without losing momentum.",
 ];
 
 const floatingIcons = [
@@ -73,7 +75,7 @@ export function AboutHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
           >
-            White-glove pods shipping calm, fully managed campaigns.
+            Your strategic partner for exceptional digital marketing excellence
           </motion.h1>
 
           {/* Description */}
@@ -83,7 +85,7 @@ export function AboutHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.7 }}
           >
-            We plug in like an internal team so every sprint stays focused, light on process, and heavy on craft.
+            At Edigitify, we operate as an extension of your team, delivering premium, fully managed campaigns through integrated excellence. Our experienced professionals bring together strategy, creativity, technology, and automation to surpass industry benchmarks while maintaining the personalized touch of white-glove service. Every engagement is built on transparency, measurable results, and a commitment to elevating your brand's digital presence.
           </motion.p>
 
           {/* Impact Signals Grid */}
@@ -182,7 +184,7 @@ export function AboutHero() {
             >
               <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Our Team</p>
               <p className="mt-1 text-sm">
-                White-glove pods blending strategy, design, media, and automation.
+                Cross-functional experts delivering integrated campaigns with precision, creativity, and measurable impact.
               </p>
 
               {/* Animated Pulse Indicator */}

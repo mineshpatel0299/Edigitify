@@ -89,59 +89,6 @@ const work: WorkCaseStudy[] = [
     },
   },
   {
-    slug: "Real Estate",
-    title: "Acre Folio",
-    tags: ["Healthcare", "Automation", "Creative"],
-    summary:
-      "Humanized BioCity Healthcare's digital front door so appointment booking, lab education, and care navigation feel like one guided experience.",
-    image: "https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80",
-    problem:
-      "Patients bounced between social ads, WhatsApp, and call centers, forcing coordinators to manually reconcile intent.",
-    solution:
-      "We shipped multilingual landing journeys, routed Meta lead forms directly into the EMR, and layered Salesforce automations that respond with tailored prep guides.",
-    outcomes: [
-      "Appointment slots published dynamically by specialty and insurance",
-      "Context-aware retargeting sequences for follow-up care plans",
-      "Clinical teams gained insight into campaign performance in real time",
-    ],
-    metrics: [
-      { label: "Show-up rate", value: "+28%" },
-      { label: "Manual follow-ups", value: "-55%" },
-    ],
-    gallery: [
-      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=80",
-    ],
-    client: "BioCity Hospitals",
-    industry: "Healthcare",
-    location: "Hyderabad, India",
-    services: ["Multilingual landing journeys", "Healthcare automation", "Patient analytics"],
-    timeline: [
-      {
-        phase: "Experience audit",
-        detail:
-          "Shadowed call-center workflows and mapped frictions between inbound ads, WhatsApp chats, and EMR records.",
-      },
-      {
-        phase: "Automation layer",
-        detail:
-          "Connected Meta lead forms, Salesforce Health Cloud, and WhatsApp to deliver contextual prep guides.",
-      },
-      {
-        phase: "Care intelligence",
-        detail:
-          "Live dashboards gave ops teams a pulse on slot utilization and patient sentiment per specialty.",
-      },
-    ],
-    accent: { from: "#fce7f3", via: "#fef9c3", to: "#ffffff" },
-    testimonial: {
-      quote:
-        "Coordinators finally see the full patient story before picking up the phone. It has changed the tone of every interaction.",
-      author: "Dr. Aarav Kulkarni",
-      role: "Chief Digital Officer, BioCity",
-    },
-  },
-  {
     slug: "lakkshay-demand-map",
     title: "Lakkshay Demand Map",
     tags: ["Travel", "Content", "Performance"],
