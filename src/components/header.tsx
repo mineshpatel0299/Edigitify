@@ -19,6 +19,7 @@ const navLinks = [
 ];
 
 const MOBILE_BREAKPOINT = 768;
+const DARK_NAV_LINKS = new Set(["/work", "/services", "/contact"]);
 
 export function Header() {
   const pathname = usePathname();
@@ -107,12 +108,14 @@ export function Header() {
           >
             {navLinks.map((link) => {
               const active = pathname === link.href || pathname.startsWith(link.href + "/");
+              const forceDark = DARK_NAV_LINKS.has(link.href);
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "relative pb-1 text-slate-500 transition hover:text-slate-900",
+                    "relative pb-1 transition",
+                    forceDark ? "text-slate-900 hover:text-slate-900" : "text-slate-500 hover:text-slate-900",
                     active && "text-slate-900"
                   )}
                 >
@@ -197,6 +200,7 @@ export function Header() {
                 <div className="flex flex-col flex-1 px-6 py-8 gap-2 overflow-y-auto">
                   {navLinks.map((link, index) => {
                     const active = pathname === link.href || pathname.startsWith(link.href + "/");
+                    const forceDark = DARK_NAV_LINKS.has(link.href);
                     return (
                       <motion.div
                         key={link.href}
@@ -208,17 +212,25 @@ export function Header() {
                           href={link.href}
                           onClick={() => setMobileMenuOpen(false)}
                           className={cn(
-                            "flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-medium uppercase tracking-[0.3em] transition-all sm:text-sm",
+                            "relative flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-medium uppercase tracking-[0.3em] transition-all sm:text-sm",
                             active
                               ? "bg-slate-900 text-white shadow-lg"
-                              : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                              : forceDark
+                                ? "text-slate-900 hover:bg-slate-100 hover:text-slate-900"
+                                : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                           )}
                         >
                           {active && (
-                            <motion.span
-                              layoutId="mobile-active-pill"
-                              className="w-1.5 h-1.5 rounded-full bg-white"
-                            />
+                            <>
+                              <motion.span
+                                layoutId="mobile-active-pill"
+                                className="w-1.5 h-1.5 rounded-full bg-white"
+                              />
+                              <motion.span
+                                layoutId="mobile-nav-underline"
+                                className="absolute inset-x-4 bottom-1 h-0.5 bg-white/70"
+                              />
+                            </>
                           )}
                           {link.label}
                         </Link>
