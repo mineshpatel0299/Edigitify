@@ -103,7 +103,7 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav
-            className="hidden md:flex flex-1 items-center justify-end gap-6 text-[13px] uppercase tracking-[0.2em]"
+            className="hidden md:flex flex-1 items-center justify-end gap-2 text-[13px] uppercase tracking-[0.2em]"
             aria-label="Primary navigation"
           >
             {navLinks.map((link) => {
@@ -114,19 +114,39 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "relative pb-1 transition",
-                    forceDark ? "text-slate-900 hover:text-slate-900" : "text-slate-500 hover:text-slate-900",
-                    active && "text-slate-900"
+                    "relative px-4 py-2.5 rounded-full transition-all duration-300 group",
+                    forceDark ? "text-slate-900" : "text-slate-600",
+                    active
+                      ? "text-slate-900 font-semibold"
+                      : "hover:text-slate-900 hover:bg-slate-100/50"
                   )}
                 >
-                  {link.label}
+                  {/* Active background with gradient */}
                   {active && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute -bottom-1 left-0 h-0.5 w-full bg-[var(--accent)]"
-                      transition={{ duration: 0.3, ease: "easeOut" }}
+                    <motion.div
+                      layoutId="nav-active-bg"
+                      className="absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-50 rounded-full shadow-sm border border-slate-200/50"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
+
+                  {/* Text content */}
+                  <span className="relative z-10 flex items-center gap-2">
+                    {active && (
+                      <motion.span
+                        layoutId="nav-dot"
+                        className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] shadow-sm shadow-[var(--accent)]/50"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                    {link.label}
+                  </span>
+
+                  {/* Hover underline effect */}
+                  <span className={cn(
+                    "absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-[var(--accent)] rounded-full transition-all duration-300",
+                    active ? "w-0" : "w-0 group-hover:w-8"
+                  )} />
                 </Link>
               );
             })}
@@ -197,7 +217,7 @@ export function Header() {
                 </div>
 
                 {/* Mobile Navigation Links */}
-                <div className="flex flex-col flex-1 px-6 py-8 gap-2 overflow-y-auto">
+                <div className="flex flex-col flex-1 px-6 py-8 gap-3 overflow-y-auto">
                   {navLinks.map((link, index) => {
                     const active = pathname === link.href || pathname.startsWith(link.href + "/");
                     const forceDark = DARK_NAV_LINKS.has(link.href);
@@ -212,27 +232,45 @@ export function Header() {
                           href={link.href}
                           onClick={() => setMobileMenuOpen(false)}
                           className={cn(
-                            "relative flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-medium uppercase tracking-[0.3em] transition-all sm:text-sm",
+                            "relative flex items-center gap-3 px-5 py-4 rounded-2xl text-xs font-medium uppercase tracking-[0.3em] transition-all sm:text-sm group overflow-hidden",
                             active
-                              ? "bg-slate-900 text-white shadow-lg"
+                              ? "bg-gradient-to-br from-slate-900 to-slate-800 text-white shadow-xl shadow-slate-900/20"
                               : forceDark
-                                ? "text-slate-900 hover:bg-slate-100 hover:text-slate-900"
-                                : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                                ? "text-slate-900 hover:bg-slate-50 hover:shadow-sm border border-transparent hover:border-slate-200"
+                                : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:shadow-sm border border-transparent hover:border-slate-200"
                           )}
                         >
+                          {/* Active indicator dot and line */}
                           {active && (
                             <>
                               <motion.span
                                 layoutId="mobile-active-pill"
-                                className="w-1.5 h-1.5 rounded-full bg-white"
+                                className="w-2 h-2 rounded-full bg-[var(--accent)] shadow-lg shadow-[var(--accent)]/50 ring-2 ring-white/50"
+                                transition={{ type: "spring", stiffness: 380, damping: 30 }}
                               />
-                              <motion.span
-                                layoutId="mobile-nav-underline"
-                                className="absolute inset-x-4 bottom-1 h-0.5 bg-white/70"
+                              <motion.div
+                                className="absolute left-0 top-0 bottom-0 w-1 bg-[var(--accent)] rounded-r-full"
+                                layoutId="mobile-active-bar"
+                                transition={{ type: "spring", stiffness: 380, damping: 30 }}
                               />
                             </>
                           )}
-                          {link.label}
+
+                          {/* Inactive hover dot */}
+                          {!active && (
+                            <span className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-[var(--accent)] transition-all duration-300" />
+                          )}
+
+                          <span className="relative">{link.label}</span>
+
+                          {/* Subtle shine effect on active */}
+                          {active && (
+                            <motion.div
+                              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                              animate={{ x: ["-100%", "100%"] }}
+                              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                            />
+                          )}
                         </Link>
                       </motion.div>
                     );
