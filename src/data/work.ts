@@ -41,22 +41,24 @@ const work: WorkCaseStudy[] = [
   {
     slug: "oceans-earth-realty",
     title: "Oceans & Earth Realty",
-    tags: ["Real Estate", "Paid Media", "Automation"],
+    tags: ["Real Estate", "Branding", "Social Media", "Sustainability"],
     summary:
-      "Rolled out a demand engine for Oceans & Earth so NRIs, investors, and luxury buyers can discover curated islands, estates, and eco-villas without friction.",
+      "Oceans & Earth Realty is a purpose-led real estate advisory firm inspired by conscious living, sustainability, and mindful choices. At EDigitify, we crafted a cohesive digital identity for them—from website design and social media management to creatives, videos, advertising, and WhatsApp communication. Our role was to transform their philosophy into a brand experience that feels authentic, consistent, and deeply meaningful.",
     image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80",
     problem:
-      "Inventory dropped every quarter because enquiries scattered across brokers, DMs, and fairs. No one knew which prospects were real or ready.",
+      "Oceans & Earth came to us with a vision rooted in conservation, responsible lifestyles, and sustainable decision-making. But their digital presence didn't reflect that vision. Their visuals felt inconsistent, their messaging didn't express their philosophy, their website lacked narrative, clarity, and emotion, and their brand story felt scattered. They didn't just need digital marketing—they needed a brand experience that made people feel the beauty, depth, and responsibility of sustainable living.",
     solution:
-      "We mapped personas, built cinematic landing journeys, synced WhatsApp and HubSpot, and layered smart nurturing so each investor gets pricing, VR tours, and concierge slots instantly.",
+      "We stepped in as their full-scale digital partner, shaping every touchpoint of their brand ecosystem. We built a clean, modern, nature-inspired website that communicates sustainability through color, design, and tone while highlighting their real estate expertise. We crafted a social media content strategy rooted in environmental consciousness, real estate education, community engagement, and brand storytelling. We created structured WhatsApp communication flows to share project details, deliver updates, and nurture leads. We produced nature-inspired visuals including reels, short videos, brand stories, project explainers, and minimal aesthetic templates. We ran high-intent Meta & Google Ads campaigns focused on lead generation, audience segmentation, and sustainable real estate positioning with messaging aligned to their eco-conscious tone.",
     outcomes: [
-      "Single source of truth for every lead from paid, partner, and organic channels",
-      "Dynamic VR walkthroughs stitched into emails, WhatsApp, and microsites",
-      "Lead scoring tied to funding proof, geography, and desired property type",
+      "Established a strong, meaningful brand identity that reflects purpose and responsibility",
+      "Built trust with a value-driven audience through consistent, nature-inspired communication",
+      "Delivered cohesive messaging across website, social media, WhatsApp, and advertising platforms",
+      "Positioned Oceans & Earth as a sustainable real estate advisory that stands out in a crowded market",
+      "Created a brand experience that truly reflects their philosophy: purposeful, responsible, and deeply connected to nature",
     ],
     metrics: [
-      { label: "Ready-to-buy pipeline", value: "+62%" },
-      { label: "Site visit conversions", value: "+35%" },
+      { label: "Brand recognition", value: "Strong market presence" },
+      { label: "Audience engagement", value: "Value-driven growth" },
     ],
     gallery: [
       "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80",
@@ -64,28 +66,28 @@ const work: WorkCaseStudy[] = [
       "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=80",
     ],
     client: "Oceans & Earth Realty",
-    industry: "Luxury Real Estate",
-    location: "Dubai & Maldives",
-    services: ["Luxury demand gen", "Immersive content", "Marketing automation"],
+    industry: "Sustainable Real Estate",
+    location: "NCR, India",
+    services: ["Website Design", "Social Media Management", "WhatsApp Marketing", "Creative & Video Production", "Meta & Google Ads Management"],
     timeline: [
       {
-        phase: "Signal lab",
-        detail: "Unified CRM, broker sheets, and social DMs to identify qualified overseas buyers by behavior.",
+        phase: "Brand foundation & website",
+        detail: "Built a clean, modern, nature-inspired website that communicates sustainability through color, design, and tone. Balanced aesthetics with functionality while bringing their purpose-driven story to life with clarity and emotion.",
       },
       {
-        phase: "Experience stack",
-        detail: "Shot cinematic walkthroughs, built VR-ready journeys, and plugged them into a modular CMS.",
+        phase: "Content & community ecosystem",
+        detail: "Crafted a social media strategy rooted in environmental consciousness, real estate education, and community engagement. Produced nature-inspired visuals, reels, brand stories, and project explainers. Created structured WhatsApp communication flows for project details, updates, and lead nurturing.",
       },
       {
-        phase: "Concierge ops",
-        detail: "Automated verification, paperwork prep, and site visit calendars directly inside HubSpot.",
+        phase: "Strategic advertising",
+        detail: "Launched high-intent Meta & Google Ads campaigns focused on lead generation, audience segmentation, and brand visibility. Created ad creatives and messaging aligned with their eco-conscious tone—subtle, trustworthy, and premium.",
       },
     ],
     accent: { from: "#e0f7fa", via: "#fff7ed", to: "#ffffff" },
     testimonial: {
-      quote: "The concierge feels handcrafted even though it’s automated. Investors feel looked after from the first click.",
-      author: "Shayan Riaz",
-      role: "Founder, Oceans & Earth",
+      quote: "EDigitify helped us build a digital identity that truly reflects our philosophy of sustainability and purposeful living. Our brand now feels authentic and deeply meaningful.",
+      author: "Oceans & Earth Team",
+      role: "Sustainable Real Estate Advisory",
     },
   },
   {
@@ -136,55 +138,57 @@ const work: WorkCaseStudy[] = [
     accent: { from: "#d1fae5", via: "#fef3c7", to: "#ffffff" },
   },
   {
-    slug: "gymtex-commerce-grid",
-    title: "Gymtex Commerce Grid",
-    tags: ["D2C", "Search", "CRO"],
+    slug: "gymtex-flooring",
+    title: "Gymtex Flooring",
+    tags: ["Fitness", "Social Media", "Product Marketing", "Paid Ads"],
     summary:
-      "Built a performance stack for Gymtex Flooring so architects and facility owners can spec, sample, and buy without leaving the experience.",
+      "Gymtex is a premium gym flooring brand known for durability, anti-slip technology, and heavy-duty performance. EDigitify manages their social media presence, Meta ads, creative design, photoshoots, and video shoots—crafting a bold, energetic, and product-centric digital identity that reflects the strength of the brand.",
     image: "https://images.unsplash.com/photo-1529429617124-aee711a70412?auto=format&fit=crop&w=1600&q=80",
     problem:
-      "Offline distributors controlled the narrative and digital orders stalled at the quote form.",
+      "Gymtex is a trusted gym flooring solutions brand offering products built for safety, stability, and high-intensity performance. Despite having a solid product, their digital identity didn't fully capture the quality and toughness of their flooring. They needed a brand presence that speaks the language of fitness—bold, confident, modern, and powerful.",
     solution:
-      "We launched a configurator, piped first-party data into Google Ads, and layered LinkedIn ABM plays aimed at procurement teams.",
+      "EDigitify stepped in to build a digital presence as tough and energetic as the flooring itself. We built a social media content strategy focusing on product features (anti-slip, durability, density, scratch-proof), gym installation showcases, humorous and relatable fitness content, strong visual identity aligned with gym aesthetics, and engaging reels with trend-driven creative ideas. We ran targeted Meta ad campaigns aimed at gym owners, fitness studios, commercial spaces, sports facilities, builders, and contractors—highlighting product durability and safety to drive high-quality inquiries and conversions. We designed bold, high-contrast visuals representing strength, durability, fitness culture, product quality, and technical specifications. We conducted professional photoshoots and video shoots to showcase real flooring installations, material texture and finish, gym layouts, on-ground usage, feature highlights, and before-after transformations.",
     outcomes: [
-      "Demand capture for 18 SKUs with automated region-based pricing",
-      "Sales got a prioritized lead board scored by project readiness",
-      "Quarterly creative refresh driven by installer testimonials",
+      "Built a strong digital presence with higher brand recall in the fitness industry",
+      "Generated consistent lead flow through targeted Meta ads campaigns",
+      "Created premium product visuals that help customers instantly trust the brand",
+      "Developed a modern identity aligned with the fitness industry",
+      "Positioned Gymtex as selling confidence, safety, and performance for every fitness space",
     ],
     metrics: [
-      { label: "Spec sheet downloads", value: "4.2x" },
-      { label: "Lead-to-close time", value: "-22 days" },
+      { label: "Brand recall", value: "Significantly higher" },
+      { label: "Lead quality", value: "Consistent high-quality flow" },
     ],
     gallery: [
       "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1529429617124-aee711a70412?auto=format&fit=crop&w=1200&q=80",
     ],
     client: "Gymtex Flooring",
-    industry: "Industrial Manufacturing",
-    location: "Bengaluru, India",
-    services: ["B2B commerce", "Search & paid", "Revenue operations"],
+    industry: "Fitness & Gym Flooring",
+    location: "India",
+    services: ["Social Media Management", "Meta Ad Management", "Creative Design", "Photoshoot & Video Production", "Product Marketing"],
     timeline: [
       {
-        phase: "Product intelligence",
+        phase: "Social media & content strategy",
         detail:
-          "Digitized spec sheets, pricing tiers, and distributor availability into one modular catalogue.",
+          "Built a content strategy focusing on product features, gym installation showcases, humorous fitness content, and strong visual identity aligned with gym aesthetics. Created engaging reels and trend-driven creative ideas to make the brand presence as tough and energetic as the flooring itself.",
       },
       {
-        phase: "Acquisition grid",
+        phase: "Visual storytelling & production",
         detail:
-          "Synced first-party data with Google Ads & LinkedIn to prioritize high-intent geography-account pairs.",
+          "Designed bold, high-contrast visuals representing strength, durability, fitness culture, and product quality. Conducted professional photoshoots and video shoots showcasing real flooring installations, material texture, gym layouts, on-ground usage, feature highlights, and before-after transformations to give Gymtex a premium product showcase.",
       },
       {
-        phase: "Sales handoff",
+        phase: "Performance advertising",
         detail:
-          "Scored opportunities by readiness so account managers knew which architect to call and when.",
+          "Ran targeted Meta ad campaigns aimed at gym owners, fitness studios, commercial spaces, sports facilities, builders, and contractors. Ads highlight product durability and safety, driving high-quality inquiries and conversions from the right audience segments.",
       },
     ],
     accent: { from: "#e0f2fe", via: "#f0f9ff", to: "#ffffff" },
     testimonial: {
-      quote: "The configurator plus revenue cockpit helped our sales floor feel like a digital HQ.",
-      author: "Nitin Pujari",
-      role: "Commercial Director, Gymtex",
+      quote: "EDigitify elevated our digital presence with performance-driven marketing and premium visuals. Gymtex now stands as the most trusted gym flooring brand through impactful content and consistent brand visibility.",
+      author: "Gymtex Team",
+      role: "Gym Flooring Solutions",
     },
   },
   {
@@ -442,22 +446,24 @@ const work: WorkCaseStudy[] = [
   {
     slug: "acre-folio",
     title: "Acre Folio",
-    tags: ["Proptech", "Product", "Growth"],
+    tags: ["Real Estate", "Social Media", "Branding", "Paid Ads"],
     summary:
-      "Designed Acre Folio’s digital showroom so family offices can subscribe to farmland and estate syndicates with complete financial clarity.",
+      "Acre Folio is one of Delhi's fast-growing real estate consultancy firms, and EDigitify manages their complete digital presence—from social media management, brand creatives, logo design, photoshoots/videoshoots to Meta & Google Ads. Our holistic strategy has helped Acre Folio build a strong brand identity, generate qualified leads, and position themselves as a trusted property advisory name in Delhi-NCR.",
     image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80",
     problem:
-      "High-intent buyers loved the thesis but stalled because diligence documents, yield models, and booking workflows lived in different tools.",
+      "Acre Folio was trusted by clients on ground, but online, they barely existed. In a market crowded with aggressive ads and loud sales pitches, their quiet credibility was getting overshadowed. They needed a brand that looked premium, sounded premium, and felt like the go-to real estate advisor for serious buyers. But their existing brand identity, visuals, communication style, and platforms didn't reflect that vision yet.",
     solution:
-      "We rebuilt the product story, layered interactive models, and connected DocuSign, Razorpay, and CRM scoring so investors can reserve parcels in minutes.",
+      "We built everything from the ground up: created a clean, premium logo with a sharp minimal design and professional colour palette; managed monthly content calendars with high-quality property content including reels, posts, carousels, and testimonials; produced all creative assets (property showcases, project highlights, USP graphics, festive content) and video content (short-form reels, walkthrough videos, project explainers); conducted on-site photoshoots and videoshoots for properties and team profiling; and managed high-performance Google Ads & Meta Ads campaigns with strong targeting, qualified lead generation, and conversion-optimized ad creatives.",
     outcomes: [
-      "Self-serve data rooms auto-provisioned for each investment vehicle",
-      "Real-time yield calculators embedded into landing journeys and webinars",
-      "Deal teams alerted the second a capital commitment or LOI is signed",
+      "Built a premium, trustworthy brand identity that reflects professionalism and trust",
+      "Created consistent digital presence with a mix of value-driven, aspirational, and lead-focused content",
+      "Produced comprehensive creative assets and video content aligned with brand tone",
+      "Generated consistent, high-quality real estate leads through targeted ad campaigns",
+      "Strengthened digital footprint across social media, search, and performance ads",
     ],
     metrics: [
-      { label: "Average commitment size", value: "+44%" },
-      { label: "Time to reserve", value: "-9 days" },
+      { label: "Digital engagement & reach", value: "Significantly increased" },
+      { label: "Qualified leads", value: "Consistent pipeline" },
     ],
     gallery: [
       "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
@@ -465,28 +471,190 @@ const work: WorkCaseStudy[] = [
       "https://images.unsplash.com/photo-1470376619031-a6791e534bf0?auto=format&fit=crop&w=1200&q=80",
     ],
     client: "Acre Folio",
-    industry: "Proptech",
-    location: "Bengaluru, India",
-    services: ["Product strategy", "Investor enablement", "Automation"],
+    industry: "Real Estate Consultancy",
+    location: "Delhi-NCR, India",
+    services: ["Logo Design & Brand Identity", "Social Media Management", "Creative Design & Video Production", "Google Ads & Meta Ads Management", "On-site Photoshoots & Videoshoots"],
     timeline: [
       {
-        phase: "Investor discovery",
-        detail: "Interviewed LPs and mapped blockers inside diligence, payment, and legal review.",
+        phase: "Brand foundation",
+        detail: "Created a clean, premium logo with minimal design for strong visual recall. Established a colour palette communicating confidence & reliability. Built consistent brand identity across all platforms.",
       },
       {
-        phase: "Experience design",
-        detail: "Built interactive story flows, calculators, and doc rooms that flex by asset type.",
+        phase: "Content & creative ecosystem",
+        detail: "Set up monthly content calendars with high-quality property content. Produced all creative assets: property showcases, project highlights, USP graphics, festive content, and premium layouts. Created short-form reels, walkthrough videos, and project explainers. Conducted on-site shoots for properties, office spaces, and team profiling.",
       },
       {
-        phase: "Subscription ops",
-        detail: "Connected e-sign, payments, and CRM workflows so the team sees commitment health in real time.",
+        phase: "Performance marketing",
+        detail: "Launched high-performance Google PPC and Meta Lead Ads campaigns with strong targeting for active property buyers. Created conversion-optimized ad creatives and landing pages aligned with buyer intent. Implemented continuous monitoring and strategy optimization to generate qualified leads across Delhi-NCR.",
       },
     ],
     accent: { from: "#f1f5f9", via: "#ecfccb", to: "#ffffff" },
     testimonial: {
-      quote: "Investors rarely email the team now—they have everything, and our pipeline stays crystal clear.",
-      author: "Sonal Dugar",
-      role: "COO, Acre Folio",
+      quote: "EDigitify transformed us from an offline brokerage to a premium digital real-estate identity. Their end-to-end approach helped us build the brand we always envisioned.",
+      author: "Acre Folio Team",
+      role: "Real Estate Consultancy",
+    },
+  },
+  {
+    slug: "primevital",
+    title: "PrimeVital",
+    tags: ["Healthcare", "Diagnostics", "Branding", "Social Media"],
+    summary:
+      "PrimeVital is a diagnostics brand built on accuracy, advanced infrastructure, and medical expertise. EDigitify manages their social media presence, website, creative communication, videos, and offline branding. Our work focuses on building trust, credibility, and a patient-first digital identity that reflects the true standard of their healthcare services.",
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1600&q=80",
+    problem:
+      "PrimeVital had everything a diagnostics brand should stand on—expertise, infrastructure, scientific accuracy, and modern facilities. But their digital reflection wasn't doing justice to their real-world excellence. In healthcare, trust isn't claimed—it's earned through clarity, consistency, and the promise of safety. Yet PrimeVital's online presence lacked structure in communication, visual and brand consistency, reliability cues, professional depth, and a sense of patient-focused reassurance. They didn't want marketing—they wanted people to feel assured the moment they saw the name PrimeVital.",
+    solution:
+      "EDigitify stepped in to shape a digital identity that conveys care, confidence, and clinical trust. We built a clean, trustworthy, medically accurate social media presence focusing on diagnostic education, patient care communication, service highlights, trust-building content, and health awareness posts with a professional, calming, credibility-driven tone. We created a website that communicates transparency and clinical accuracy, makes services easy to understand, reflects modern healthcare standards, builds patient confidence through clean UI/UX, and aligns visuals with medical quality cues. We designed visual communication combining medical accuracy with soft, reassuring tones, modern minimal layouts, informative explainer videos, and service highlights showcasing lab processes. For offline branding, we created lab banners, standees, informational posters, print advertising templates, and branding materials for clinic environments to maintain consistency across touchpoints.",
+    outcomes: [
+      "Built a credible digital footprint that reflects clinical excellence",
+      "Strengthened patient trust through professional, reassuring communication",
+      "Communicated professionalism clearly across all digital platforms",
+      "Maintained consistency across online and offline brand touchpoints",
+      "Positioned PrimeVital as a reliable diagnostics partner with a patient-first approach",
+    ],
+    metrics: [
+      { label: "Patient trust & engagement", value: "Significantly improved" },
+      { label: "Brand credibility", value: "Strong recognition" },
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1200&q=80",
+    ],
+    client: "PrimeVital",
+    industry: "Healthcare & Diagnostics",
+    location: "India",
+    services: ["Social Media Management", "Website Development", "Creative Design & Video Production", "Offline Branding", "Healthcare Content Strategy"],
+    timeline: [
+      {
+        phase: "Brand foundation & website",
+        detail: "Created a website that communicates transparency and clinical accuracy with clean UI/UX. Built visual identity reflecting modern healthcare standards with medical quality cues. Established digital foundation that builds patient confidence.",
+      },
+      {
+        phase: "Social media & content ecosystem",
+        detail: "Built clean, trustworthy social media presence with medically accurate content. Focused on diagnostic education, patient care communication, service highlights, and health awareness. Maintained professional, calming, credibility-driven tone throughout.",
+      },
+      {
+        phase: "Creative assets & offline branding",
+        detail: "Designed visual communication combining medical accuracy with soft, reassuring tones and modern minimal layouts. Produced informative explainer videos and service highlights. Created offline branding materials including lab banners, standees, informational posters, and clinic environment branding to maintain unified identity across digital and physical spaces.",
+      },
+    ],
+    accent: { from: "#dbeafe", via: "#e0f2fe", to: "#ffffff" },
+    testimonial: {
+      quote: "EDigitify helped us build a digital identity that patients can trust. Our brand now reflects what we truly are—precise, trustworthy, and patient-first.",
+      author: "PrimeVital Team",
+      role: "Healthcare & Diagnostics",
+    },
+  },
+  {
+    slug: "amber-glass-india",
+    title: "Amber Glass India",
+    tags: ["Manufacturing", "B2B", "Branding", "Web Design"],
+    summary:
+      "Amber Glass India is a leading industrial and architectural glass manufacturer supplying premium glass solutions across real estate, commercial, and engineering environments. At EDigitify, we redesigned their website, built a modern logo identity, and executed a high-quality ad shoot to bring their craftsmanship and engineering precision to the forefront.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80",
+    problem:
+      "Amber Glass India had an impressive portfolio—toughened glass, architectural solutions, industrial-grade products, and large-scale project capabilities. They were respected in their industry, known for quality and reliability. Yet, their digital presence did not show it. Their website felt outdated, their story wasn't clear, visuals didn't match the scale of their work, and as a B2B brand, their expertise remained hidden. They looked like a strong manufacturing company offline but online, they were nearly invisible.",
+    solution:
+      "We saw a brand capable of looking global—modern, engineered, precise. We built a clean, industrial, premium website that showcases their product range with clarity, highlights engineering capabilities, uses bold architectural layouts, balances visuals with technical information, and positions them as a modern manufacturing brand. The new design feels global, professional, structured, and trustworthy. We designed a refined, modern logo representing strength, precision, industrial engineering, and architectural aesthetics—minimal yet powerful, fitting for a brand that works with glass, metal, and construction. To truly reflect their capability, we executed a full-scale visual shoot covering factory environment, manufacturing processes, glass finishing and cutting, installation shots, product textures and clarity, and architectural glass applications. These visuals became the backbone of their website and marketing material, showcasing their craftsmanship in a premium, international way.",
+    outcomes: [
+      "Built a premium industrial brand identity that reflects engineering excellence",
+      "Strengthened credibility with architects, builders, and B2B clients",
+      "Presented their expertise with clarity and modern design",
+      "Improved online visibility and digital presence significantly",
+      "Positioned Amber Glass India to stand out in the competitive B2B glass manufacturing space",
+    ],
+    metrics: [
+      { label: "Brand perception", value: "Global & modern" },
+      { label: "Digital credibility", value: "Significantly enhanced" },
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+    ],
+    client: "Amber Glass India",
+    industry: "Industrial & Architectural Glass Manufacturing",
+    location: "India",
+    services: ["Website Design", "Logo Design & Brand Identity", "Product Photography & AD Shoot", "B2B Brand Positioning"],
+    timeline: [
+      {
+        phase: "Website design & development",
+        detail:
+          "Built a clean, industrial, premium website showcasing their product range with clarity. Highlighted engineering capabilities using bold, architectural layouts. Balanced visuals with technical information to position them as a modern manufacturing brand. The design feels global, professional, structured, and trustworthy.",
+      },
+      {
+        phase: "Logo design & brand identity",
+        detail:
+          "Designed a refined, modern logo representing strength, precision, industrial engineering, and architectural aesthetics. Created a minimal yet powerful identity fitting for a brand that works with glass, metal, and construction—building a cohesive visual language across all touchpoints.",
+      },
+      {
+        phase: "AD shoot & visual storytelling",
+        detail:
+          "Executed a full-scale visual shoot covering factory environment, manufacturing processes, glass finishing and cutting, installation shots, product textures and clarity, and architectural glass applications. These visuals became the backbone of their website and marketing material, showcasing their craftsmanship in a premium, international way.",
+      },
+    ],
+    accent: { from: "#f0f9ff", via: "#e0e7ff", to: "#ffffff" },
+    testimonial: {
+      quote: "EDigitify transformed our digital presence to match our engineering precision and architectural excellence. We now look like the global brand we always were.",
+      author: "Amber Glass India Team",
+      role: "Industrial & Architectural Glass Manufacturing",
+    },
+  },
+  {
+    slug: "birdbrick-properties",
+    title: "BirdBrick Properties",
+    tags: ["Real Estate", "Branding", "Social Media", "Web Design"],
+    summary:
+      "BirdBrick Properties entered Gurgaon's dynamic real estate market with strong fundamentals—deep market understanding, investor-first advisory, and a modern approach to property consulting. But the brand's digital presence did not reflect its expertise or ambition. Their identity was scattered, visuals lacked consistency, and the brand story wasn't aligned with the expectations of NCR's discerning homebuyers and investors. They needed more than marketing—they needed a brand transformation that communicated trust, clarity, and long-term value from the very first interaction.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80",
+    problem:
+      "BirdBrick Properties approached EDigitify at a crucial stage of their growth. They were serving a strong client base offline, but their digital presence was limited—fragmented visuals, outdated layouts, and no compelling story to reflect their industry expertise. In a space crowded with aggressive marketing, BirdBrick needed a digital presence that spoke a different language: trust, clarity, and professionalism. They didn't just want marketing—they wanted a brand identity that matched their reputation.",
+    solution:
+      "We built BirdBrick Properties' digital foundation with a focus on long-term brand credibility. We created a clean, modern, investor-friendly website that reflects reliability and simplifies property browsing. We designed a fresh, professional logo identity that communicates sophistication and trust at first glance. We managed consistent, value-driven social media content that positions BirdBrick as a knowledgeable and dependable real estate partner. We ran performance-focused Meta ad campaigns to generate high-intent leads across Gurgaon's real estate market. We conducted high-quality photoshoots and video production to showcase properties, team culture, and brand essence. We crafted engaging visual content including creatives, reels, and brand videos to improve recall, build authority, and keep the brand active across all platforms.",
+    outcomes: [
+      "Created a unified visual identity across all digital platforms",
+      "Built a professional website that establishes instant trust with potential clients",
+      "Developed a strong social media footprint with consistent brand storytelling",
+      "Launched performance-driven ads delivering qualified real estate leads",
+      "Produced high-quality media assets for long-term marketing use",
+    ],
+    metrics: [
+      { label: "Brand visibility", value: "Significantly increased" },
+      { label: "Qualified leads", value: "Consistent high-intent pipeline" },
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+    ],
+    client: "BirdBrick Properties",
+    industry: "Real Estate Consultancy",
+    location: "Gurgaon, India",
+    services: ["Website Design", "Logo Design", "Social Media Management", "Meta Ad Management", "Photoshoot & Video Production", "Creative Design & Brand Videos"],
+    timeline: [
+      {
+        phase: "Brand foundation & digital identity",
+        detail:
+          "Created a clean, modern, investor-friendly website that reflects reliability and simplifies property browsing. Designed a fresh, professional logo identity that communicates sophistication and trust at first glance. Built a unified visual identity that matches BirdBrick's offline reputation.",
+      },
+      {
+        phase: "Content ecosystem & social presence",
+        detail:
+          "Managed consistent, value-driven social media content that positions BirdBrick as a knowledgeable and dependable real estate partner. Crafted engaging visual content including creatives, reels, and brand videos to improve brand recall, build authority, and keep the brand active across all platforms.",
+      },
+      {
+        phase: "Performance marketing & visual storytelling",
+        detail:
+          "Ran performance-focused Meta ad campaigns to generate high-intent leads across Gurgaon's real estate market. Conducted high-quality photoshoots and video production to showcase properties, team culture, and brand essence—creating premium media assets for long-term use.",
+      },
+    ],
+    accent: { from: "#fef3c7", via: "#fef9e7", to: "#ffffff" },
+    testimonial: {
+      quote: "EDigitify transformed our scattered digital presence into a unified brand identity that truly reflects our values and expertise. We now stand out in Gurgaon's competitive real estate market.",
+      author: "BirdBrick Properties Team",
+      role: "Real Estate Consultancy",
     },
   },
 ];
