@@ -65,14 +65,21 @@ export function Header() {
 
   // Close menu on larger breakpoints to avoid stuck states while resizing
   useEffect(() => {
+    let resizeTimer: NodeJS.Timeout;
     const handleResize = () => {
-      if (window.innerWidth >= MOBILE_BREAKPOINT) {
-        setMobileMenuOpen(false);
-      }
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (window.innerWidth >= MOBILE_BREAKPOINT) {
+          setMobileMenuOpen(false);
+        }
+      }, 150);
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => {
+      clearTimeout(resizeTimer);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   // Enable dismiss with the Escape key for accessibility
@@ -91,17 +98,16 @@ export function Header() {
 
   return (
     <>
-      <motion.header
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed inset-x-0 top-0 z-50 flex justify-center"
+      <header
+        className="fixed inset-x-0 top-0 z-50 flex justify-center animate-in fade-in slide-in-from-top-4 duration-500"
+        style={{ animationFillMode: "backwards" }}
       >
         <div
           className={cn(
-            "mx-4 mt-4 flex w-full max-w-6xl items-center gap-6 rounded-full border border-slate-200 bg-white/90 px-6 sm:px-8 text-sm shadow-xl shadow-slate-200/60 backdrop-blur-sm sm:backdrop-blur-xl transition-all duration-300",
+            "mx-4 mt-4 flex w-full max-w-6xl items-center gap-6 rounded-full border border-slate-200 bg-white/95 px-6 sm:px-8 text-sm shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-200",
             scrolled ? "py-2" : "py-4 sm:py-5",
           )}
+          style={{ willChange: "padding" }}
         >
           <Link href="/" className="flex items-center gap-3 text-sm font-semibold">
             <Image
@@ -127,37 +133,24 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "relative px-4 py-2.5 rounded-full transition-all duration-300 group",
+                    "relative px-4 py-2.5 rounded-full transition-all duration-200 group",
                     forceDark ? "text-slate-900" : "text-slate-600",
                     active
-                      ? "text-slate-900 font-semibold"
+                      ? "text-slate-900 font-semibold bg-slate-100 border border-slate-200/50"
                       : "hover:text-slate-900 hover:bg-slate-100/50"
                   )}
                 >
-                  {/* Active background with gradient */}
-                  {active && (
-                    <motion.div
-                      layoutId="nav-active-bg"
-                      className="absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-50 rounded-full shadow-sm border border-slate-200/50"
-                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                    />
-                  )}
-
                   {/* Text content */}
                   <span className="relative z-10 flex items-center gap-2">
                     {active && (
-                      <motion.span
-                        layoutId="nav-dot"
-                        className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] shadow-sm shadow-[var(--accent)]/50"
-                        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                      />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
                     )}
                     {link.label}
                   </span>
 
                   {/* Hover underline effect */}
                   <span className={cn(
-                    "absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-[var(--accent)] rounded-full transition-all duration-300",
+                    "absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-[var(--accent)] rounded-full transition-all duration-200",
                     active ? "w-0" : "w-0 group-hover:w-8"
                   )} />
                 </Link>
@@ -181,10 +174,10 @@ export function Header() {
             )}
           </button>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile Menu Overlay */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {mobileMenuOpen && (
           <>
             {/* Backdrop */}
@@ -192,7 +185,7 @@ export function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.15 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               className="fixed inset-0 bg-black/30 z-40 md:hidden"
               onClick={() => setMobileMenuOpen(false)}
             />
@@ -202,10 +195,10 @@ export function Header() {
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
               id="mobile-navigation"
               aria-label="Mobile primary navigation"
-              className="fixed top-0 bottom-0 right-0 z-50 flex w-[calc(100vw-2rem)] max-w-sm flex-col bg-white shadow-2xl md:hidden"
+              className="fixed top-0 bottom-0 right-0 z-50 flex w-[calc(100vw-2rem)] max-w-sm flex-col bg-white shadow-xl md:hidden"
               style={{ willChange: "transform" }}
             >
               <div className="flex flex-col h-full">
@@ -236,48 +229,42 @@ export function Header() {
                     const active = pathname === link.href || pathname.startsWith(link.href + "/");
                     const forceDark = DARK_NAV_LINKS.has(link.href);
                     return (
-                      <motion.div
+                      <div
                         key={link.href}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.2, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                        className="animate-in fade-in slide-in-from-right-4 duration-300"
+                        style={{
+                          animationDelay: `${index * 30}ms`,
+                          animationFillMode: "backwards"
+                        }}
                       >
                         <Link
                           href={link.href}
                           onClick={() => setMobileMenuOpen(false)}
                           className={cn(
-                            "relative flex items-center gap-3 px-5 py-4 rounded-2xl text-xs font-medium uppercase tracking-[0.3em] transition-all sm:text-sm group overflow-hidden",
+                            "relative flex items-center gap-3 px-5 py-4 rounded-2xl text-xs font-medium uppercase tracking-[0.3em] transition-all duration-200 sm:text-sm group",
                             active
-                              ? "bg-gradient-to-br from-slate-900 to-slate-800 text-white shadow-xl shadow-slate-900/20"
+                              ? "bg-slate-900 text-white shadow-lg"
                               : forceDark
-                                ? "text-slate-900 hover:bg-slate-50 hover:shadow-sm border border-transparent hover:border-slate-200"
-                                : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:shadow-sm border border-transparent hover:border-slate-200"
+                                ? "text-slate-900 hover:bg-slate-50 border border-transparent hover:border-slate-200"
+                                : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 border border-transparent hover:border-slate-200"
                           )}
                         >
                           {/* Active indicator dot and line */}
                           {active && (
                             <>
-                              <motion.span
-                                layoutId="mobile-active-pill"
-                                className="w-2 h-2 rounded-full bg-[var(--accent)] shadow-lg shadow-[var(--accent)]/50 ring-2 ring-white/50"
-                                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                              />
-                              <motion.div
-                                className="absolute left-0 top-0 bottom-0 w-1 bg-[var(--accent)] rounded-r-full"
-                                layoutId="mobile-active-bar"
-                                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                              />
+                              <span className="w-2 h-2 rounded-full bg-[var(--accent)] ring-2 ring-white/50" />
+                              <div className="absolute left-0 top-0 bottom-0 w-1 bg-[var(--accent)] rounded-r-full" />
                             </>
                           )}
 
                           {/* Inactive hover dot */}
                           {!active && (
-                            <span className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-[var(--accent)] transition-all duration-300" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-[var(--accent)] transition-colors duration-200" />
                           )}
 
                           <span className="relative">{link.label}</span>
                         </Link>
-                      </motion.div>
+                      </div>
                     );
                   })}
                 </div>
@@ -287,7 +274,7 @@ export function Header() {
                   <Link
                     href="/contact"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block w-full rounded-full bg-[var(--accent)] px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.35em] text-white shadow-lg transition hover:brightness-95 sm:text-sm"
+                    className="block w-full rounded-full bg-[var(--accent)] px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.35em] text-white shadow-md transition-all duration-200 hover:brightness-95 active:scale-[0.98] sm:text-sm"
                   >
                     Let&rsquo;s Talk
                   </Link>

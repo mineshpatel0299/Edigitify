@@ -87,18 +87,20 @@ export default function HomePage() {
     <div className="pb-32">
       <Hero />
 
-      <div className="mx-auto flex w-full max-w-8xl flex-col gap-32 pt-20 pb-8 px-4 sm:px-6 lg:px-12">
+      <div className="mx-auto flex w-full max-w-8xl flex-col gap-12 md:gap-32 pt-12 md:pt-20 pb-8 px-0 md:px-4 lg:px-12">
         {/* Partners Section - Enhanced with Magnetic Cards */}
         <motion.section
           ref={partnersRef}
           initial={{ opacity: 0, y: 100 }}
           animate={partnersInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="relative overflow-hidden rounded-[48px] border border-slate-200/80 bg-gradient-to-br from-white via-blue-50/40 to-purple-50/40 px-8 py-16 sm:px-12 sm:py-20 shadow-[0_20px_80px_-20px_rgba(59,130,246,0.3)]"
+          className="relative overflow-hidden rounded-none md:rounded-[48px] border-0 md:border md:border-slate-200/80 bg-gradient-to-br from-white via-blue-50/40 to-purple-50/40 px-4 py-12 sm:px-12 sm:py-20 md:shadow-[0_20px_80px_-20px_rgba(59,130,246,0.3)]"
         >
-          {/* Enhanced Floating Orbs */}
-          <FloatingOrbs count={10} />
-          <Particles count={30} colors={["#3b82f6", "#8b5cf6", "#ec4899", "#14b8a6"]} />
+          {/* Enhanced Floating Orbs - Hidden on mobile for performance */}
+          <div className="hidden md:block">
+            <FloatingOrbs count={10} />
+            <Particles count={30} colors={["#3b82f6", "#8b5cf6", "#ec4899", "#14b8a6"]} />
+          </div>
 
           <div className="relative z-10 space-y-12">
             <motion.div
@@ -159,7 +161,7 @@ export default function HomePage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={partnersInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.7, delay: 0.7 }}
-              className="rounded-[32px] border-2 border-slate-200/80 bg-white/80 backdrop-blur-xl px-6 py-4 shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
+              className="rounded-2xl md:rounded-[32px] border-0 md:border-2 md:border-slate-200/80 bg-white/80 backdrop-blur-xl px-3 md:px-6 py-3 md:py-4 md:shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
             >
               <LogoMarquee clients={clientsData} />
             </motion.div>
@@ -177,7 +179,7 @@ export default function HomePage() {
                       initial={{ opacity: 0, y: 50 }}
                       animate={partnersInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ duration: 0.6, delay: 0.9 + index * 0.1 }}
-                      className="group relative h-full overflow-hidden rounded-[28px] border border-slate-200/80 bg-white/90 backdrop-blur-sm p-8 shadow-xl hover:shadow-2xl transition-shadow duration-500"
+                      className="group relative h-full overflow-hidden rounded-2xl md:rounded-[28px] border-0 md:border md:border-slate-200/80 bg-white/90 backdrop-blur-sm p-4 md:p-8 shadow-lg md:shadow-xl hover:shadow-2xl transition-shadow duration-500"
                     >
                       {/* Gradient Background */}
                       <motion.div
@@ -248,11 +250,13 @@ export default function HomePage() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={workInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="relative overflow-hidden rounded-[48px] border border-emerald-200/60 bg-gradient-to-br from-white via-emerald-50/30 to-teal-50/30 px-8 py-16 sm:px-12 sm:py-20 shadow-[0_20px_80px_-20px_rgba(16,185,129,0.3)]"
+          className="relative overflow-hidden rounded-none md:rounded-[48px] border-0 md:border md:border-emerald-200/60 bg-gradient-to-br from-white via-emerald-50/30 to-teal-50/30 px-4 py-12 sm:px-12 sm:py-20 md:shadow-[0_20px_80px_-20px_rgba(16,185,129,0.3)]"
         >
-          {/* Enhanced Background Effects */}
-          <FloatingOrbs count={8} />
-          <Particles count={40} colors={["#10b981", "#14b8a6", "#06b6d4", "#22c55e"]} />
+          {/* Enhanced Background Effects - Hidden on mobile for performance */}
+          <div className="hidden md:block">
+            <FloatingOrbs count={8} />
+            <Particles count={40} colors={["#10b981", "#14b8a6", "#06b6d4", "#22c55e"]} />
+          </div>
 
           {/* Decorative Elements */}
           <motion.div
@@ -355,11 +359,13 @@ export default function HomePage() {
           initial={{ opacity: 0, y: 100 }}
           animate={podsInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="relative overflow-hidden rounded-[48px] border border-violet-200/60 bg-gradient-to-br from-white via-violet-50/30 to-fuchsia-50/30 px-8 py-16 sm:px-12 sm:py-20 shadow-[0_20px_80px_-20px_rgba(139,92,246,0.3)]"
+          className="relative overflow-hidden rounded-none md:rounded-[48px] border-0 md:border md:border-violet-200/60 bg-gradient-to-br from-white via-violet-50/30 to-fuchsia-50/30 px-4 py-12 sm:px-12 sm:py-20 md:shadow-[0_20px_80px_-20px_rgba(139,92,246,0.3)]"
         >
-          {/* Enhanced Background Effects */}
-          <FloatingOrbs count={10} />
-          <Particles count={35} colors={["#8b5cf6", "#a855f7", "#d946ef", "#ec4899"]} />
+          {/* Enhanced Background Effects - Hidden on mobile for performance */}
+          <div className="hidden md:block">
+            <FloatingOrbs count={10} />
+            <Particles count={35} colors={["#8b5cf6", "#a855f7", "#d946ef", "#ec4899"]} />
+          </div>
 
           {/* Animated Pattern Background */}
           <motion.div
@@ -458,11 +464,13 @@ export default function HomePage() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={studioInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="relative overflow-hidden rounded-[48px] border border-amber-200/60 bg-gradient-to-br from-white via-amber-50/40 to-orange-50/40 px-8 py-16 sm:px-12 sm:py-20 shadow-[0_20px_80px_-20px_rgba(251,146,60,0.3)]"
+          className="relative overflow-hidden rounded-none md:rounded-[48px] border-0 md:border md:border-amber-200/60 bg-gradient-to-br from-white via-amber-50/40 to-orange-50/40 px-4 py-12 sm:px-12 sm:py-20 md:shadow-[0_20px_80px_-20px_rgba(251,146,60,0.3)]"
         >
-          {/* Enhanced Background Effects */}
-          <FloatingOrbs count={12} />
-          <Particles count={40} colors={["#f59e0b", "#fb923c", "#f97316", "#ef4444"]} />
+          {/* Enhanced Background Effects - Hidden on mobile for performance */}
+          <div className="hidden md:block">
+            <FloatingOrbs count={12} />
+            <Particles count={40} colors={["#f59e0b", "#fb923c", "#f97316", "#ef4444"]} />
+          </div>
 
           {/* Animated gradient overlay */}
           <motion.div
@@ -551,7 +559,7 @@ export default function HomePage() {
                     initial={{ opacity: 0, x: 50 }}
                     animate={studioInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.5 + index * 0.15 }}
-                    className="group relative h-full overflow-hidden rounded-[28px] border border-slate-200/80 bg-white/90 backdrop-blur-sm p-8 shadow-xl hover:shadow-2xl transition-shadow duration-500"
+                    className="group relative h-full overflow-hidden rounded-2xl md:rounded-[28px] border-0 md:border md:border-slate-200/80 bg-white/90 backdrop-blur-sm p-4 md:p-8 shadow-lg md:shadow-xl hover:shadow-2xl transition-shadow duration-500"
                   >
                     {/* Gradient Background */}
                     <motion.div

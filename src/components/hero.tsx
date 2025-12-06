@@ -77,12 +77,14 @@ export function Hero() {
 
       {/* Enhanced Hero Content Below Video */}
       <div className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
-        {/* Floating Orbs Background */}
-        <FloatingOrbs count={12} />
-        <Particles count={60} colors={["#3b82f6", "#8b5cf6", "#ec4899", "#14b8a6"]} />
+        {/* Floating Orbs Background - Hidden on mobile for performance */}
+        <div className="hidden md:block">
+          <FloatingOrbs count={12} />
+          <Particles count={60} colors={["#3b82f6", "#8b5cf6", "#ec4899", "#14b8a6"]} />
+        </div>
 
         {/* Hero Highlights Section */}
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-12 py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-12 py-12 md:py-24">
           <motion.div
             ref={highlightsRef}
             initial={{ opacity: 0, y: 60 }}
@@ -126,7 +128,7 @@ export function Hero() {
             </motion.p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {heroHighlights.map((highlight, index) => {
               const Icon = highlight.icon;
               return (
@@ -145,7 +147,7 @@ export function Hero() {
                     rotateY: 5,
                     transition: { duration: 0.3 }
                   }}
-                  className="group relative overflow-hidden rounded-3xl border border-slate-800/50 bg-gradient-to-br from-slate-900/90 via-slate-800/50 to-slate-900/90 backdrop-blur-xl p-8 shadow-2xl"
+                  className="group relative overflow-hidden rounded-2xl md:rounded-3xl border-0 md:border md:border-slate-800/50 bg-gradient-to-br from-slate-900/90 via-slate-800/50 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 shadow-xl md:shadow-2xl"
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   {/* Animated gradient background */}
@@ -189,7 +191,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 60 }}
             animate={statsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-24 grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8"
+            className="mt-12 md:mt-24 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 lg:gap-8"
           >
             {heroStats.map((stat, index) => {
               const Icon = stat.icon;
@@ -204,7 +206,7 @@ export function Hero() {
                     y: -8,
                     transition: { duration: 0.3 }
                   }}
-                  className="group relative overflow-hidden rounded-2xl border border-cyan-500/20 bg-gradient-to-br from-cyan-950/30 via-blue-950/20 to-purple-950/30 backdrop-blur-sm p-8 text-center"
+                  className="group relative overflow-hidden rounded-xl md:rounded-2xl border-0 md:border md:border-cyan-500/20 bg-gradient-to-br from-cyan-950/30 via-blue-950/20 to-purple-950/30 backdrop-blur-sm p-4 md:p-8 text-center"
                 >
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
