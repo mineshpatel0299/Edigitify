@@ -59,7 +59,7 @@ function TeamMemberCard({
   const yOffset = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, (idx % 2 === 0 ? 1 : -1) * 50]
+    [0, (idx % 2 === 0 ? 1 : -1) * 20]
   );
 
   return (
@@ -117,12 +117,12 @@ function TeamMemberCard({
         </div>
 
         {/* Info Section */}
-        <div className="relative p-6">
+        <div className="relative flex h-[200px] flex-col p-6">
           {/* Name */}
           <h3 className="mb-2 text-2xl font-bold text-slate-900">{member.name}</h3>
 
           {/* Bio */}
-          <p className="mb-4 text-slate-600">{member.bio}</p>
+          <p className="mb-4 flex-1 text-slate-600 line-clamp-5">{member.bio}</p>
 
           {/* Animated Bottom Line */}
           <motion.div
@@ -131,24 +131,6 @@ function TeamMemberCard({
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: idx * 0.1 + 0.5 }}
           />
-
-          {/* Social Links (Optional) */}
-          <div className="mt-4 flex gap-3">
-            <motion.a
-              href="#"
-              whileHover={{ scale: 1.1, y: -2 }}
-              className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r ${member.color} text-white shadow-md transition-shadow hover:shadow-lg`}
-            >
-              in
-            </motion.a>
-            <motion.a
-              href="#"
-              whileHover={{ scale: 1.1, y: -2 }}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-600 shadow-md transition-all hover:border-slate-400 hover:shadow-lg"
-            >
-              tw
-            </motion.a>
-          </div>
         </div>
 
         {/* Decorative Corner Elements */}
@@ -220,7 +202,7 @@ export function AboutTeamParallax() {
         </motion.div>
 
         {/* Team Grid with Parallax */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
           {teamMembers.map((member, idx) => (
             <TeamMemberCard
               key={member.id}

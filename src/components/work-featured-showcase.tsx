@@ -195,65 +195,12 @@ export function WorkFeaturedShowcase({ item }: { item: WorkItem }) {
               {item.summary}
             </motion.p>
 
-            {/* Problem & Solution */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="space-y-6"
-            >
-              <div>
-                <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-teal-400">
-                  The Challenge
-                </h4>
-                <p className="text-slate-400">{item.problem}</p>
-              </div>
-
-              <div>
-                <h4 className="mb-2 text-sm font-semibold uppercase tracking-wider text-blue-400">
-                  Our Solution
-                </h4>
-                <p className="text-slate-400">{item.solution}</p>
-              </div>
-            </motion.div>
-
-            {/* Outcomes */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="space-y-4"
-            >
-              <h4 className="text-sm font-semibold uppercase tracking-wider text-purple-400">
-                Key Outcomes
-              </h4>
-              <ul className="space-y-3">
-                {item.outcomes.slice(0, 3).map((outcome, idx) => (
-                  <motion.li
-                    key={outcome}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.7 + idx * 0.1 }}
-                    className="flex items-start gap-3"
-                  >
-                    <span className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-teal-500 to-blue-500 text-xs text-white">
-                      ✓
-                    </span>
-                    <span className="text-slate-300">{outcome}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-
             {/* CTA */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.9 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
             >
               <Link href={`/work/${item.slug}`}>
                 <motion.button

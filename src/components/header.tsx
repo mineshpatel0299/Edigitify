@@ -29,8 +29,21 @@ export function Header() {
   useEffect(() => {
     const handle = () => setScrolled(window.scrollY > 24);
     handle();
-    window.addEventListener("scroll", handle);
-    return () => window.removeEventListener("scroll", handle);
+
+    // Throttle scroll events for better performance
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handle();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // Close mobile menu when route changes
@@ -81,12 +94,12 @@ export function Header() {
       <motion.header
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         className="fixed inset-x-0 top-0 z-50 flex justify-center"
       >
         <div
           className={cn(
-            "mx-4 mt-4 flex w-full max-w-6xl items-center gap-6 rounded-full border border-slate-200 bg-white/80 px-6 sm:px-8 text-sm shadow-xl shadow-slate-200/60 backdrop-blur-xl transition-all duration-300",
+            "mx-4 mt-4 flex w-full max-w-6xl items-center gap-6 rounded-full border border-slate-200 bg-white/90 px-6 sm:px-8 text-sm shadow-xl shadow-slate-200/60 backdrop-blur-sm sm:backdrop-blur-xl transition-all duration-300",
             scrolled ? "py-2" : "py-4 sm:py-5",
           )}
         >
@@ -126,7 +139,7 @@ export function Header() {
                     <motion.div
                       layoutId="nav-active-bg"
                       className="absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-50 rounded-full shadow-sm border border-slate-200/50"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                     />
                   )}
 
@@ -136,7 +149,7 @@ export function Header() {
                       <motion.span
                         layoutId="nav-dot"
                         className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] shadow-sm shadow-[var(--accent)]/50"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                       />
                     )}
                     {link.label}
@@ -179,8 +192,8 @@ export function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+              transition={{ duration: 0.15 }}
+              className="fixed inset-0 bg-black/30 z-40 md:hidden"
               onClick={() => setMobileMenuOpen(false)}
             />
 
@@ -189,10 +202,11 @@ export function Header() {
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               id="mobile-navigation"
               aria-label="Mobile primary navigation"
               className="fixed top-0 bottom-0 right-0 z-50 flex w-[calc(100vw-2rem)] max-w-sm flex-col bg-white shadow-2xl md:hidden"
+              style={{ willChange: "transform" }}
             >
               <div className="flex flex-col h-full">
                 {/* Mobile Menu Header */}
@@ -226,7 +240,7 @@ export function Header() {
                         key={link.href}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
+                        transition={{ duration: 0.2, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
                       >
                         <Link
                           href={link.href}
@@ -246,12 +260,12 @@ export function Header() {
                               <motion.span
                                 layoutId="mobile-active-pill"
                                 className="w-2 h-2 rounded-full bg-[var(--accent)] shadow-lg shadow-[var(--accent)]/50 ring-2 ring-white/50"
-                                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                               />
                               <motion.div
                                 className="absolute left-0 top-0 bottom-0 w-1 bg-[var(--accent)] rounded-r-full"
                                 layoutId="mobile-active-bar"
-                                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                               />
                             </>
                           )}
@@ -262,15 +276,6 @@ export function Header() {
                           )}
 
                           <span className="relative">{link.label}</span>
-
-                          {/* Subtle shine effect on active */}
-                          {active && (
-                            <motion.div
-                              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-                              animate={{ x: ["-100%", "100%"] }}
-                              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-                            />
-                          )}
                         </Link>
                       </motion.div>
                     );
