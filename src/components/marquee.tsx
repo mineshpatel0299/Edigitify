@@ -20,9 +20,9 @@ export function LogoMarquee({ clients }: { clients: Client[] }) {
             <Image
               src={client.logo}
               alt={client.name}
-              width={160}
-              height={80}
-              sizes="160px"
+              width={260}
+              height={130}
+              sizes="260px"
               className="h-12 w-auto object-contain grayscale transition duration-500 hover:grayscale-0"
             />
           </Link>

@@ -1,15 +1,20 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 
 const categories = [
   { id: "all", label: "All Work", icon: "✦", count: "150+" },
+  { id: "website-development", label: "Website Development", icon: "💻", count: "58" },
+  { id: "branding", label: "Branding", icon: "🏷️", count: "42" },
+  { id: "advertisment-adv", label: "AdvertismentAdv", icon: "📢", count: "30" },
+  { id: "graphic-design", label: "Graphic Design", icon: "🎨", count: "52" },
   { id: "paid-media", label: "Paid Media", icon: "📊", count: "45" },
-  { id: "automation", label: "Automation", icon: "⚡", count: "38" },
-  { id: "creative", label: "Creative", icon: "🎨", count: "52" },
-  { id: "analytics", label: "Analytics", icon: "📈", count: "29" },
+  { id: "photoshoot", label: "Photoshoot", icon: "📸", count: "24" },
+  { id: "campaign", label: "Campaign", icon: "🎯", count: "33" },
 ];
+
 
 const floatingElements = [
   { shape: "circle", size: 150, color: "from-teal-400/20 to-blue-400/20", delay: 0 },
@@ -19,6 +24,7 @@ const floatingElements = [
 
 export function WorkHeroBanner({ onFilterChange }: { onFilterChange?: (filter: string) => void }) {
   const [activeFilter, setActiveFilter] = useState("all");
+  const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -30,6 +36,11 @@ export function WorkHeroBanner({ onFilterChange }: { onFilterChange?: (filter: s
   const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
 
   const handleFilterClick = (filterId: string) => {
+    if (filterId === "website-development") {
+      setActiveFilter(filterId);
+      router.push("/work/websites");
+      return;
+    }
     setActiveFilter(filterId);
     onFilterChange?.(filterId);
   };
