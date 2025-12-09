@@ -26,38 +26,38 @@ export function WorkCard({ item, index }: { item: WorkItem; index: number }) {
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="group"
+      className="group h-full"
     >
       <Link
         href={`/work/${encodeURIComponent(item.slug)}`}
-        className="block"
+        className="block h-full"
         onMouseMove={handlePointerMove}
         onMouseLeave={() => setTilt({ x: 0, y: 0 })}
       >
-          <motion.div
-            style={{ rotateX: tilt.x, rotateY: tilt.y }}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.99 }}
-            className="ring-card overflow-hidden rounded-[28px]"
-          >
-            <div className="relative aspect-[4/3] overflow-hidden">
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 33vw"
-                className="object-cover transition duration-700 ease-in-out group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/5 to-transparent" />
-              <span className="absolute left-6 top-6 text-xs uppercase tracking-[0.4em] text-white">
-                {tags}
-              </span>
-            </div>
-            <div className="flex flex-col gap-2 p-6">
-              <h3 className="text-2xl font-semibold text-slate-900">{item.title}</h3>
-              <p className="text-sm text-slate-600">{item.summary}</p>
-            </div>
-          </motion.div>
+        <motion.div
+          style={{ rotateX: tilt.x, rotateY: tilt.y }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.99 }}
+          className="ring-card flex h-full flex-col overflow-hidden rounded-[28px]"
+        >
+          <div className="relative aspect-[4/3] overflow-hidden">
+            <Image
+              src={item.image}
+              alt={item.title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 33vw"
+              className="object-cover transition duration-700 ease-in-out group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/5 to-transparent" />
+            <span className="absolute left-6 top-6 text-xs uppercase tracking-[0.4em] text-white">
+              {tags}
+            </span>
+          </div>
+          <div className="flex flex-1 flex-col gap-2 p-6">
+            <h3 className="text-2xl font-semibold text-slate-900">{item.title}</h3>
+            <p className="text-sm text-slate-600">{item.summary}</p>
+          </div>
+        </motion.div>
       </Link>
     </motion.article>
   );

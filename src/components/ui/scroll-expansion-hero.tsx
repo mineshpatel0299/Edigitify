@@ -152,8 +152,11 @@ const ScrollExpandMedia = ({
   const mediaHeight = 400 + scrollProgress * (isMobileState ? 200 : 400);
   const textTranslateX = scrollProgress * (isMobileState ? 180 : 150);
 
-  const firstWord = title ? title.split(" ")[0] : "";
-  const restOfTitle = title ? title.split(" ").slice(1).join(" ") : "";
+  const heroTitle = title ?? "";
+  const [primaryTitle, secondaryTitle] = heroTitle
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean);
 
   return (
     <div ref={sectionRef} className="transition-colors duration-700 ease-in-out overflow-x-hidden">
@@ -273,24 +276,30 @@ const ScrollExpandMedia = ({
                 </div>
               </div>
 
-              <div
-                className={`flex items-center justify-center text-center gap-4 w-full relative z-10 transition-none flex-col ${
-                  textBlend ? "mix-blend-difference" : "mix-blend-normal"
-                }`}
-              >
-                <motion.h2
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-200 transition-none"
-                  style={{ transform: `translateX(-${textTranslateX}vw)` }}
+              {(primaryTitle || secondaryTitle) && (
+                <div
+                  className={`flex flex-col items-center justify-center text-center w-full relative z-10 transition-none ${
+                    textBlend ? "mix-blend-difference" : "mix-blend-normal"
+                  }`}
                 >
-                  {firstWord}
-                </motion.h2>
-                <motion.h2
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-blue-200 transition-none"
-                  style={{ transform: `translateX(${textTranslateX}vw)` }}
-                >
-                  {restOfTitle}
-                </motion.h2>
-              </div>
+                  {primaryTitle && (
+                    <motion.h2
+                      className="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-blue-200 transition-none whitespace-nowrap px-4"
+                      style={{ transform: `translateX(-${textTranslateX}vw)` }}
+                    >
+                      {primaryTitle}
+                    </motion.h2>
+                  )}
+                  {secondaryTitle && (
+                    <motion.h2
+                      className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-blue-200 transition-none px-4"
+                      style={{ transform: `translateX(${textTranslateX}vw)` }}
+                    >
+                      {secondaryTitle}
+                    </motion.h2>
+                  )}
+                </div>
+              )}
             </div>
 
             <motion.section
