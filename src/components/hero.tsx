@@ -12,29 +12,29 @@ import { Spotlight } from "@/components/ui/spotlight";
 
 const heroHighlights = [
   {
-    title: "Immersive Launch Films",
-    description: "Cinematic scroll choreography paired with realtime direction sessions for your flagship drops.",
+    title: "About Us",
+    description: "Our team brings the experience and knowledge to deliver white-glove, fully managed campaigns that surpass the industry's toughest benchmarks.",
     icon: Sparkles,
     gradient: "from-purple-500 via-pink-500 to-rose-500",
   },
   {
-    title: "Adaptive Campaign Systems",
-    description: "CMS friendly blocks that inherit campaign art direction and stay editable by your team.",
+    title: "Our Story",
+    description: "We obsess over quality, design, and visualization so every launch feels bespoke, exceeding expectations for modern brands and their audiences.",
     icon: Orbit,
     gradient: "from-blue-500 via-cyan-500 to-teal-500",
   },
   {
-    title: "Always-On Optimization",
-    description: "Growth squads rotate in weekly to tune conversion, polish motion, and keep content fresh.",
+    title: "Vision & Mission",
+    description: "We efficiently whiteboard professional organic strategies, mentor ambitious talent, and invite you to take your career to the next level with us—you're good enough, right?",
     icon: Waves,
     gradient: "from-emerald-500 via-green-500 to-lime-500",
   },
 ] as const;
 
 const heroStats = [
-  { value: "4 - 6", label: "Week launch sprints", icon: Rocket },
-  { value: "12", label: "Markets activated", icon: Zap },
-  { value: "24/7", label: "Studio pulse", icon: Sparkles },
+  { value: "10+", label: "Years of experience", icon: Rocket },
+  { value: "50+", label: "Forward-thinking clients", icon: Zap },
+  { value: "360°", label: "Managed campaigns", icon: Sparkles },
 ] as const;
 
 const heroMedia = {
@@ -115,7 +115,7 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-white via-cyan-100 to-blue-100 bg-clip-text text-transparent mb-6"
             >
-              Crafted Experiences
+              White-Glove Digital Growth
             </motion.h2>
 
             <motion.p
@@ -124,7 +124,7 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.4 }}
               className="text-lg text-slate-400 max-w-2xl mx-auto"
             >
-              Where creativity meets technology to build digital products that captivate and convert
+              Trusted by forward-thinking companies and clients, our story is rooted in delivering fully managed campaigns that exceed expectations in creativity, technology, and measurable outcomes.
             </motion.p>
           </motion.div>
 

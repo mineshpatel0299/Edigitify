@@ -69,6 +69,7 @@ export function WorkHeroBanner({ onFilterChange }: { onFilterChange?: (filter: s
       {/* Floating Shapes */}
       <div className="pointer-events-none absolute inset-0">
         {floatingElements.map((el, idx) => (
+          
           <motion.div
             key={idx}
             className={`absolute rounded-${el.shape === "circle" ? "full" : "3xl"} bg-gradient-to-br ${el.color} blur-3xl`}

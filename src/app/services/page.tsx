@@ -1,630 +1,219 @@
 "use client";
 
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { useRef } from "react";
-import { WorkScrollCard } from "@/components/work-scroll-card";
-import { servicePodItems } from "@/data/service-pods";
-import { MagneticCard } from "@/components/ui/magnetic-card";
-import { AnimatedIcon } from "@/components/ui/animated-icon";
-import { FloatingOrbs } from "@/components/ui/floating-orbs";
-import { Particles } from "@/components/ui/particles";
-import { AnimatedCounter } from "@/components/ui/animated-counter";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Timeline } from "@/components/ui/timeline";
 
-const services = [
+const serviceCards = [
   {
-    title: "Paid Media Architecture",
-    copy: "We distribute budgets across Meta, Google, YouTube, programmatic, and affiliates with pacing models that update every few hours.",
-    bullets: ["Channel mix + forecasting", "Creative x audience matrices", "Measurement + MMM setup"],
-    gradient: "from-teal-500 to-blue-500",
-    icon: "📊",
+    title: "Website Development",
+    badge: "Experience",
+    image: "https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=900&q=80",
+    description: "Full-stack web squads shipping ultra-fast, brand-safe experiences with CRO rituals baked into every sprint.",
+    details: [
+      "Component libraries + CMS handoffs that marketing can edit without dev cycles",
+      "Speed + SEO performance budgets enforced before handover",
+      "Conversion research loops using heatmaps, GA4 and on-site polling",
+      "Launch playbooks covering QA, automation triggers and analytics",
+    ],
+    outcome: "Sites that feel premium, convert confidently, and load in under two seconds.",
+    accent: "from-sky-500 via-blue-500 to-indigo-600",
+    overlay: "from-transparent via-slate-900/20 to-slate-950/90",
   },
   {
-    title: "Performance Creative Studio",
-    copy: "Scripted story labs produce reels, films, statics, and UGC while maintaining brand codes and testing frameworks.",
-    bullets: ["Campaign narrative systems", "UGC + influencer ops", "Landing + commerce experiences"],
-    gradient: "from-purple-500 to-pink-500",
-    icon: "🎨",
+    title: "Branding Systems",
+    badge: "Identity",
+    image: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80",
+    description: "Naming, visual language, and narrative systems that translate beautifully from decks to digital touchpoints.",
+    details: [
+      "Brand strategy sprints uncovering promise, proof and personality",
+      "Modular design languages ready for Figma, Canva, Webflow or code",
+      "Tone-of-voice manuals, content pillars, and creator briefs",
+      "Asset vaults + governance so teams launch consistently",
+    ],
+    outcome: "A repeatable brand kit your entire company can execute against.",
+    accent: "from-amber-500 via-orange-500 to-rose-500",
+    overlay: "from-transparent via-orange-900/20 to-slate-950/90",
   },
   {
-    title: "Automation & CRM Ops",
-    copy: "WhatsApp, email, and CRM journeys stitched into sales workflows so leads get context and teams keep clarity.",
-    bullets: ["Lead routing & scoring", "Playbooks for HubSpot/Salesforce", "Service + support automation"],
-    gradient: "from-orange-500 to-red-500",
-    icon: "⚡",
+    title: "Advertisement Ops",
+    badge: "Media",
+    image: "https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?auto=format&fit=crop&w=900&q=80",
+    description: "Campaign desks that run Meta, Search, YouTube, programmatic and affiliates with live pacing guardrails.",
+    details: [
+      "Scenario planners aligning finance forecasts with media investments",
+      "Channel + creative matrices refreshed weekly to prevent fatigue",
+      "Automation for pacing, alerts and approvals inside shared dashboards",
+      "Executive-ready reporting proving revenue impact, not vanity metrics",
+    ],
+    outcome: "Media machines that feel both creative and financially responsible.",
+    accent: "from-teal-500 via-cyan-500 to-blue-500",
+    overlay: "from-transparent via-cyan-900/20 to-slate-950/90",
   },
   {
-    title: "Analytics & Advisory",
-    copy: "We wire dashboards, revenue modeling, and C-suite rituals that align finance, marketing, and customer ops.",
-    bullets: ["Attribution + incrementality", "Budget governance", "RevOps office hours"],
-    gradient: "from-emerald-500 to-teal-500",
-    icon: "📈",
+    title: "Graphic Design",
+    badge: "Content",
+    image: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=900&q=80",
+    description: "Design pods outputting social kits, pitch decks, sales enablement, and merch without sacrificing craft.",
+    details: [
+      "Creative ops rhythm with request portals and SLAs everyone can see",
+      "Story-driven campaigns built in Figma + motion ready formats",
+      "Always-on asset QA plus accessibility checks",
+      "Version-controlled libraries synced to Notion or DAM tools",
+    ],
+    outcome: "Brand visuals scale without devolving into generic templates.",
+    accent: "from-fuchsia-500 via-purple-500 to-blue-600",
+    overlay: "from-transparent via-purple-900/20 to-slate-950/90",
+  },
+  {
+    title: "Paid Media",
+    badge: "Acquisition",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
+    description: "Growth strategists, analysts and buyers working from one operating board with 24/7 experimentation.",
+    details: [
+      "Offer + messaging test ladders prioritized by impact vs effort",
+      "Creative feedback loops so editors know which hooks win",
+      "Incrementality + MMM-ready measurement frameworks",
+      "Resource planning to reallocate spend in hours, not weeks",
+    ],
+    outcome: "Acquisition that compounds because learning never pauses.",
+    accent: "from-emerald-500 via-teal-500 to-cyan-500",
+    overlay: "from-transparent via-emerald-900/20 to-slate-950/90",
+  },
+  {
+    title: "Photoshoot Production",
+    badge: "Studio",
+    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+    description: "Producers, art directors and editors crafting shoots that feed performance creative for months.",
+    details: [
+      "Shot lists tied to funnel stages and ad specs",
+      "On-set automation for metadata, talent releases and asset tagging",
+      "Hybrid crews for product, lifestyle and motion capture",
+      "Delivery kits optimized for ads, ecommerce and PR drops",
+    ],
+    outcome: "One production fuels dozens of campaigns with zero guesswork.",
+    accent: "from-rose-500 via-orange-400 to-yellow-400",
+    overlay: "from-transparent via-rose-900/20 to-slate-950/90",
+  },
+  {
+    title: "Campaign Architecture",
+    badge: "Strategy",
+    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80",
+    description: "End-to-end launches connecting media, lifecycle, product, and CX teams around one drumbeat.",
+    details: [
+      "Narrative frameworks with hero, proof and community beats",
+      "Channel rollout maps showing who ships what and when",
+      "War-room dashboards monitoring health, spend and sentiment",
+      "Retro playbooks to capture learnings for the next release",
+    ],
+    outcome: "Campaigns that feel cinematic yet measurable to the board.",
+    accent: "from-indigo-500 via-blue-600 to-slate-700",
+    overlay: "from-transparent via-indigo-900/20 to-slate-950/90",
   },
 ];
 
-function HeroSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
+const fadeUp = {
+  initial: { opacity: 0, y: 32 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.3 },
+  transition: { duration: 0.6, ease: "easeOut" as const },
+};
 
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const heroY = useTransform(scrollYProgress, [0, 0.5], [0, 150]);
-  const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
-
+function ServicesHero() {
   return (
-    <div ref={containerRef} className="relative min-h-screen overflow-hidden">
-      {/* Animated Background with Multiple Layers */}
-      <motion.div
-        className="absolute inset-0"
-        style={{
-          background: "radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%)",
-        }}
-      >
-        <FloatingOrbs count={12} />
-        <Particles count={80} />
-      </motion.div>
+    <section className="relative overflow-hidden bg-gradient-to-br from-white via-violet-50 to-slate-50 px-6 py-28 text-slate-900">
+      <div className="absolute inset-0">
+        <div className="absolute -left-32 top-10 h-72 w-72 rounded-full bg-teal-400/30 blur-[120px]" />
+        <div className="absolute -right-16 top-1/3 h-96 w-96 rounded-full bg-purple-400/20 blur-[160px]" />
+        <div className="absolute inset-0 opacity-40" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(148,163,184,0.3) 1px, transparent 0)", backgroundSize: "48px 48px" }} />
+      </div>
 
-      {/* Animated Grid Pattern */}
-      <motion.div
-        className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.05)_1px,transparent_1px)] bg-[size:80px_80px]"
-        animate={{
-          backgroundPosition: ["0px 0px", "80px 80px"],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      />
+      <div className="relative mx-auto flex max-w-5xl flex-col gap-8 text-center">
+        <motion.span
+          {...fadeUp}
+          className="mx-auto inline-flex items-center gap-2 rounded-full border border-violet-200/60 bg-white/80 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-violet-700"
+        >
+          Services
+        </motion.span>
 
-      {/* Radial Gradient Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(2,6,23,0.8)_100%)]" />
+        <motion.h1
+          {...fadeUp}
+          transition={{ ...fadeUp.transition, delay: 0.1 }}
+          className="text-4xl font-bold leading-tight text-slate-900 sm:text-5xl md:text-6xl"
+        >
+          Digital marketing services built to embed.
+        </motion.h1>
 
-      {/* Hero Content */}
-      <motion.div
-        style={{ opacity: heroOpacity, y: heroY, scale: heroScale }}
-        className="relative z-10 flex min-h-screen items-center justify-center px-6 py-20"
-      >
-        <div className="mx-auto max-w-7xl text-center">
-          {/* Animated Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-8 inline-flex items-center gap-3"
+        <motion.p
+          {...fadeUp}
+          transition={{ ...fadeUp.transition, delay: 0.15 }}
+          className="mx-auto max-w-3xl text-lg text-slate-600 md:text-xl"
+        >
+          From performance strategy and brand systems to media buying, lifecycle, and production, our pods plug into your team so campaigns ship faster with measurable impact.
+        </motion.p>
+
+        <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.2 }} className="flex flex-wrap items-center justify-center gap-4">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-3 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg transition hover:-translate-y-0.5"
           >
-            <motion.div
-              animate={{
-                scale: [1, 1.3, 1],
-                opacity: [0.4, 1, 0.4],
-              }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="h-3 w-3 rounded-full bg-gradient-to-r from-teal-400 to-blue-400"
-            />
-            <span className="bg-gradient-to-r from-teal-300 via-blue-300 to-purple-300 bg-clip-text text-sm font-bold uppercase tracking-[0.4em] text-transparent">
-              Premium Services
-            </span>
-            <motion.div
-              animate={{
-                scale: [1, 1.3, 1],
-                opacity: [0.4, 1, 0.4],
-              }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1.25,
-              }}
-              className="h-3 w-3 rounded-full bg-gradient-to-r from-purple-400 to-pink-400"
-            />
-          </motion.div>
-
-          {/* Main Heading with Letter Animation */}
-          <motion.h1
-            className="mb-8 text-6xl font-bold leading-tight text-white sm:text-7xl md:text-8xl lg:text-9xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.4 }}
+            Book a session →
+          </Link>
+          <Link
+            href="/work"
+            className="inline-flex items-center gap-3 rounded-full border border-slate-300/60 bg-white/70 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-900 transition hover:-translate-y-0.5"
           >
-            <motion.span
-              className="block"
-              initial={{ opacity: 0, y: 60, rotateX: 90 }}
-              animate={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              <span className="bg-gradient-to-r from-white via-blue-50 to-teal-50 bg-clip-text text-transparent">
-                Exceptional
-              </span>
-            </motion.span>
-            <motion.span
-              className="block"
-              initial={{ opacity: 0, y: 60, rotateX: 90 }}
-              animate={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-            >
-              <span className="bg-gradient-to-r from-teal-200 via-blue-200 to-purple-200 bg-clip-text text-transparent">
-                Marketing Teams
-              </span>
-            </motion.span>
-            <motion.span
-              className="block text-5xl sm:text-6xl md:text-7xl"
-              initial={{ opacity: 0, y: 60, rotateX: 90 }}
-              animate={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-            >
-              <span className="bg-gradient-to-r from-purple-300 via-pink-300 to-orange-300 bg-clip-text text-transparent">
-                Built to Scale
-              </span>
-            </motion.span>
-          </motion.h1>
-
-          {/* Description with Reveal */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
-            className="mx-auto mb-16 max-w-4xl text-xl leading-relaxed text-slate-300 md:text-2xl"
-          >
-            Full-stack marketing pods that own{" "}
-            <motion.span
-              className="font-semibold text-teal-300"
-              animate={{
-                textShadow: [
-                  "0 0 20px rgba(45, 212, 191, 0.5)",
-                  "0 0 40px rgba(45, 212, 191, 0.8)",
-                  "0 0 20px rgba(45, 212, 191, 0.5)",
-                ],
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              strategy, execution, and reporting
-            </motion.span>{" "}
-            end to end. One unified squad to brief talent, deploy media, talk to sales, and answer to the board.
-          </motion.p>
-
-          {/* Stats Row with Counters */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.3 }}
-            className="mb-16 flex flex-wrap items-center justify-center gap-8 md:gap-12"
-          >
-            <AnimatedCounter value="6+" label="Service Offerings" gradient="from-teal-500 to-blue-500" />
-            <AnimatedCounter value="100%" label="Integrated Teams" gradient="from-purple-500 to-pink-500" />
-            <AnimatedCounter value="24/7" label="Campaign Support" gradient="from-orange-500 to-red-500" />
-          </motion.div>
-
-          {/* CTA Buttons with Enhanced Animation */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.5 }}
-            className="flex flex-wrap items-center justify-center gap-6"
-          >
-            <motion.div
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.95 }}
-              className="group relative"
-            >
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-teal-500 via-blue-500 to-purple-500 opacity-75 blur-lg transition-all duration-500 group-hover:opacity-100 group-hover:blur-xl" />
-              <a
-                href="/contact"
-                className="relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-teal-500 to-blue-500 px-10 py-5 text-base font-bold uppercase tracking-wider text-white shadow-2xl"
-              >
-                <span className="relative z-10">Get Started</span>
-                <motion.span
-                  className="relative z-10 text-xl"
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  →
-                </motion.span>
-                <div className="absolute inset-0 -z-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              </a>
-            </motion.div>
-
-            <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}>
-              <a
-                href="/work"
-                className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border-2 border-white/20 bg-white/5 px-10 py-5 text-base font-bold uppercase tracking-wider text-white backdrop-blur-xl transition-all duration-300 hover:border-white/40 hover:bg-white/10"
-              >
-                <span>See Our Work</span>
-                <motion.span
-                  animate={{ rotate: [0, 180, 360] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                >
-                  ✦
-                </motion.span>
-              </a>
-            </motion.div>
-          </motion.div>
-        </div>
-      </motion.div>
-
-      {/* Enhanced Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2.2 }}
-        className="absolute bottom-12 left-1/2 z-10 -translate-x-1/2"
-      >
-        <motion.div className="flex flex-col items-center gap-3">
-          <motion.span
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="text-xs font-medium uppercase tracking-wider text-slate-400"
-          >
-            Explore Services
-          </motion.span>
-          <motion.div
-            className="relative h-16 w-8 rounded-full border-2 border-white/30 backdrop-blur-sm"
-            whileHover={{ borderColor: "rgba(255,255,255,0.6)", scale: 1.1 }}
-          >
-            <motion.div
-              className="absolute left-1/2 top-3 h-3 w-3 -translate-x-1/2 rounded-full bg-gradient-to-r from-teal-400 to-blue-400"
-              animate={{ y: [0, 24, 0], opacity: [1, 0.3, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </motion.div>
+            View case studies
+          </Link>
         </motion.div>
-      </motion.div>
-    </div>
+      </div>
+    </section>
   );
 }
 
-function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+// Service cards are now showcased through the timeline section below.
+
+function ServicesTimelineSection() {
+  const timelineData = serviceCards.map((service) => ({
+    title: service.title,
+    content: (
+      <div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-white backdrop-blur">
+        <div className="relative mb-6 h-48 w-full overflow-hidden rounded-2xl">
+          <Image src={service.image} alt={service.title} fill className="object-cover" sizes="(max-width:768px) 100vw, 50vw" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-black/80" />
+          <div className="absolute bottom-3 left-3 inline-flex rounded-full border border-white/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em]">
+            {service.badge}
+          </div>
+        </div>
+        <p className="text-sm text-slate-200">{service.description}</p>
+        <ul className="mt-6 space-y-3 text-sm text-slate-100">
+          {service.details.map((detail) => (
+            <li key={detail} className="flex gap-3">
+              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-white/70" />
+              <span>{detail}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-100">
+          {service.outcome}
+        </div>
+      </div>
+    ),
+  }));
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 80 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay: index * 0.15 }}
-    >
-      <MagneticCard intensity={10}>
-        <div className="group relative h-full overflow-hidden rounded-[40px] border border-slate-200/50 bg-white p-10 shadow-2xl transition-all duration-500 hover:border-slate-300 hover:shadow-[0_35px_90px_-15px_rgba(0,0,0,0.3)] lg:p-12">
-          {/* Animated Background Gradient Glow */}
-          <motion.div
-            className={`absolute -right-24 -top-24 h-64 w-64 rounded-full bg-gradient-to-r ${service.gradient} blur-3xl`}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={isInView ? { opacity: 0.1, scale: 1 } : {}}
-            transition={{ duration: 1, delay: index * 0.15 + 0.3 }}
-            whileHover={{ opacity: 0.15, scale: 1.2 }}
-          />
-
-          {/* Animated Icon */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: index * 0.15 + 0.2 }}
-            className="mb-6"
-          >
-            <AnimatedIcon icon={service.icon} gradient={service.gradient} index={index} />
-          </motion.div>
-
-          {/* Capability Label with Animation */}
-          <motion.p
-            className="mb-2 text-xs font-bold uppercase tracking-[0.4em] text-slate-500"
-            initial={{ opacity: 0, x: -20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: index * 0.15 + 0.3 }}
-          >
-            Core Capability
-          </motion.p>
-
-          {/* Title with Split Animation */}
-          <motion.h3
-            className="mb-6 text-3xl font-bold text-slate-900 lg:text-4xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: index * 0.15 + 0.4 }}
-          >
-            {service.title}
-          </motion.h3>
-
-          {/* Description */}
-          <motion.p
-            className="mb-8 text-lg leading-relaxed text-slate-600"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: index * 0.15 + 0.5 }}
-          >
-            {service.copy}
-          </motion.p>
-
-          {/* Animated Bullets with Stagger */}
-          <ul className="mb-8 space-y-4">
-            {service.bullets.map((bullet, bulletIdx) => (
-              <motion.li
-                key={bullet}
-                initial={{ opacity: 0, x: -30 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: index * 0.15 + 0.6 + bulletIdx * 0.1 }}
-                className="flex items-center gap-4 text-slate-700"
-              >
-                <motion.div
-                  className={`flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br ${service.gradient} shadow-lg`}
-                  whileHover={{ rotate: 360, scale: 1.2 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <span className="text-sm text-white">✓</span>
-                </motion.div>
-                <span className="font-medium">{bullet}</span>
-              </motion.li>
-            ))}
-          </ul>
-
-          {/* Animated Progress Bar */}
-          <motion.div
-            className="relative h-2 overflow-hidden rounded-full bg-slate-100"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: index * 0.15 + 0.9 }}
-          >
-            <motion.div
-              className={`h-full rounded-full bg-gradient-to-r ${service.gradient}`}
-              initial={{ width: 0 }}
-              animate={isInView ? { width: "100%" } : {}}
-              transition={{ duration: 1.5, delay: index * 0.15 + 1, ease: "easeOut" }}
-            />
-            <motion.div
-              className={`absolute inset-0 bg-gradient-to-r ${service.gradient}`}
-              animate={{
-                x: ["-100%", "100%"],
-                opacity: [0, 0.5, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "linear",
-                delay: index * 0.15 + 2,
-              }}
-            />
-          </motion.div>
-
-          {/* Hover Border Effect */}
-          <motion.div
-            className={`absolute inset-0 rounded-[40px] bg-gradient-to-r ${service.gradient} opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-20`}
-            style={{ zIndex: -1 }}
-          />
-        </div>
-      </MagneticCard>
-    </motion.div>
+    <section className="bg-slate-950 px-6 pb-24">
+      <Timeline tone="dark" className="bg-transparent md:px-0" data={timelineData} />
+    </section>
   );
 }
 
 export default function ServicesPage() {
   return (
-    <div className="relative overflow-hidden bg-white">
-      {/* Hero Section */}
-      <HeroSection />
-
-      {/* Service Pods Section with Background */}
-      <section className="relative bg-gradient-to-b from-slate-50 to-white px-6 py-32">
-        {/* Decorative Background Elements */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <motion.div
-            className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-gradient-to-r from-teal-400/10 to-blue-400/10 blur-3xl"
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 90, 0],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-          <motion.div
-            className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-gradient-to-r from-purple-400/10 to-pink-400/10 blur-3xl"
-            animate={{
-              scale: [1, 1.3, 1],
-              rotate: [0, -90, 0],
-            }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8 }}
-          className="relative mx-auto mb-20 max-w-4xl space-y-6 text-center"
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2"
-          >
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-              className="text-xl"
-            >
-              ✦
-            </motion.div>
-            <p className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-sm font-bold uppercase tracking-[0.4em] text-transparent">
-              How We Work
-            </p>
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-              className="text-xl"
-            >
-              ✦
-            </motion.div>
-          </motion.div>
-
-          <h2 className="text-5xl font-bold text-slate-900 lg:text-6xl">
-            Specialized pods for{" "}
-            <motion.span
-              className="inline-block bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent"
-              animate={{
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-              }}
-              transition={{ duration: 5, repeat: Infinity }}
-              style={{ backgroundSize: "200% 200%" }}
-            >
-              every channel
-            </motion.span>
-          </h2>
-
-          <p className="mx-auto max-w-3xl text-xl text-slate-600">
-            Each service pod brings deep expertise in their domain—from website development to social media, SEO to influencer marketing. Scroll to explore the full stack.
-          </p>
-        </motion.div>
-
-        {/* Service Pod Cards */}
-        <div className="relative mx-auto max-w-7xl space-y-16">
-          {servicePodItems.map((item, index) => (
-            <motion.div
-              key={item.slug}
-              initial={{ opacity: 0, y: 80 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-            >
-              <WorkScrollCard item={item} priority={index === 0} />
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Core Capabilities Section */}
-      <section className="relative bg-gradient-to-b from-white via-slate-50 to-white px-6 py-32">
-        <Particles count={60} className="opacity-30" />
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8 }}
-          className="mx-auto mb-20 max-w-4xl space-y-6 text-center"
-        >
-          <motion.span
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, type: "spring", bounce: 0.5 }}
-            className="inline-block rounded-full bg-gradient-to-r from-teal-50 to-blue-50 px-8 py-3 text-sm font-bold uppercase tracking-[0.4em] text-teal-700 shadow-lg"
-          >
-            Core Capabilities
-          </motion.span>
-
-          <h2 className="text-5xl font-bold text-slate-900 lg:text-6xl">
-            Strategic capabilities that{" "}
-            <span className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">
-              amplify performance
-            </span>
-          </h2>
-
-          <p className="mx-auto max-w-3xl text-xl text-slate-600">
-            Advanced media, creative, automation, and analytics orchestrated to deliver compounding returns across your entire marketing ecosystem.
-          </p>
-        </motion.div>
-
-        {/* Service Cards Grid */}
-        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2">
-          {services.map((service, index) => (
-            <ServiceCard key={service.title} service={service} index={index} />
-          ))}
-        </div>
-      </section>
-
-      {/* Bottom CTA - Clean & Smooth */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8 }}
-        className="relative overflow-hidden bg-white px-6 py-32"
-      >
-        <motion.div
-          className="relative mx-auto max-w-6xl"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <motion.div
-            className="relative overflow-hidden rounded-[48px] border border-slate-200 bg-white p-16 shadow-lg lg:p-20"
-            whileHover={{ y: -5 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-          >
-            <div className="relative z-10 text-center">
-              <motion.h3
-                className="mb-6 text-4xl font-bold text-slate-900 md:text-5xl lg:text-6xl"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-              >
-                Ready to{" "}
-                <span className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">
-                  scale your growth
-                </span>
-                ?
-              </motion.h3>
-
-              <motion.p
-                className="mb-12 text-xl text-slate-600 lg:text-2xl"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-              >
-                Let&apos;s discuss how our integrated pods can accelerate your marketing outcomes.
-              </motion.p>
-
-              <motion.div
-                className="flex flex-wrap items-center justify-center gap-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-              >
-                <motion.a
-                  href="/contact"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-teal-500 to-blue-500 px-10 py-5 text-base font-bold uppercase tracking-wider text-white shadow-lg transition-shadow duration-300 hover:shadow-xl"
-                >
-                  Start Your Project
-                  <motion.span
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    →
-                  </motion.span>
-                </motion.a>
-
-                <motion.a
-                  href="/work"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-3 rounded-full border-2 border-slate-300 bg-white px-10 py-5 text-base font-bold uppercase tracking-wider text-slate-900 shadow-lg transition-all duration-300 hover:border-slate-400 hover:bg-slate-50 hover:shadow-xl"
-                >
-                  View Our Work
-                </motion.a>
-              </motion.div>
-            </div>
-          </motion.div>
-        </motion.div>
-      </motion.section>
+    <div className="bg-slate-950 text-white">
+      <ServicesHero />
+      <ServicesTimelineSection />
     </div>
   );
 }
