@@ -42,15 +42,79 @@ const inputClass =
   "w-full rounded-2xl border border-slate-200 bg-white/90 px-5 py-3.5 text-base text-slate-900 placeholder:text-slate-500 shadow-[0_12px_35px_-30px_rgba(15,23,42,0.9)] transition-all duration-300 focus:border-emerald-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-400/20 focus:shadow-[0_0_0_4px_rgba(52,211,153,0.1)] focus:scale-[1.01]";
 
 export function ContactSection() {
-  const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [phoneError, setPhoneError] = useState<string>("");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const validatePhone = (phone: string): boolean => {
+    const phoneRegex = /^[0-9]{10}$/;
+    return phoneRegex.test(phone);
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/\D/g, ""); // Remove non-digits
+    e.target.value = value.slice(0, 10); // Limit to 10 digits
+
+    if (value.length > 0 && value.length < 10) {
+      setPhoneError("Phone number must be 10 digits");
+    } else if (value.length === 10) {
+      setPhoneError("");
+    } else {
+      setPhoneError("");
+    }
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (status === "sending") return;
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const phone = formData.get("phone") as string;
+
+    // Validate phone number
+    if (!validatePhone(phone)) {
+      setPhoneError("Please enter a valid 10-digit phone number");
+      return;
+    }
+
     setStatus("sending");
-    setTimeout(() => {
-      setStatus("success");
-    }, 900);
+    setErrorMessage("");
+    setPhoneError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          phone: phone,
+          message: formData.get("message"),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus("success");
+        // Reset form using the captured reference
+        form.reset();
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setStatus("idle");
+        }, 5000);
+      } else {
+        setStatus("error");
+        setErrorMessage(data.error || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage("Network error. Please check your connection and try again.");
+      console.error("Contact form error:", error);
+    }
   };
 
   return (
@@ -190,7 +254,35 @@ export function ContactSection() {
                 transition={{ duration: 0.5, delay: 0.6, ease: [0.19, 1, 0.22, 1] }}
               >
                 <Field label="Phone number">
-                  <input type="tel" name="phone" id="phone" required placeholder="(+91) 9911 081 234" className={inputClass} />
+                  <div className="relative">
+                    <span className="absolute left-5 top-1/2 -translate-y-1/2 text-base text-slate-600 font-medium">
+                      +91
+                    </span>
+                    <input
+                      type="tel"
+                      name="phone"
+                      id="phone"
+                      required
+                      placeholder="9911081234"
+                      onChange={handlePhoneChange}
+                      className={cn(
+                        inputClass,
+                        "pl-16",
+                        phoneError && "border-red-400 focus:border-red-400 focus:ring-red-400/20"
+                      )}
+                      maxLength={10}
+                      pattern="[0-9]{10}"
+                    />
+                  </div>
+                  {phoneError && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="mt-2 text-sm text-red-600"
+                    >
+                      {phoneError}
+                    </motion.p>
+                  )}
                 </Field>
               </motion.div>
             </div>
@@ -241,6 +333,7 @@ export function ContactSection() {
                   </>
                 )}
               </motion.button>
+
               {status === "success" && (
                 <motion.p
                   initial={{ opacity: 0, x: -10 }}
@@ -249,6 +342,17 @@ export function ContactSection() {
                   className="text-sm text-emerald-600 font-medium"
                 >
                   ✓ Thanks! We&apos;ll reach out to you shortly.
+                </motion.p>
+              )}
+
+              {status === "error" && (
+                <motion.p
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="text-sm text-red-600 font-medium"
+                >
+                  ✕ {errorMessage}
                 </motion.p>
               )}
             </motion.div>
