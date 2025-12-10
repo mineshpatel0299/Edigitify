@@ -95,15 +95,15 @@ export default function HomePage() {
         {/* Partners Section - Enhanced with Magnetic Cards */}
         <motion.section
           ref={partnersRef}
-          initial={{ opacity: 0, y: isMobile ? 20 : 100 }}
+          initial={{ opacity: 0, y: isMobile ? 20 : 50 }}
           animate={partnersInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: isMobile ? 0.4 : 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: isMobile ? 0.4 : 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="relative overflow-hidden rounded-none md:rounded-[48px] border-0 md:border md:border-slate-200/80 bg-gradient-to-br from-white via-blue-50/40 to-purple-50/40 px-4 py-12 sm:px-12 sm:py-20 md:shadow-[0_20px_80px_-20px_rgba(59,130,246,0.3)]"
         >
           {/* Enhanced Floating Orbs - Hidden on mobile for performance */}
           <div className="hidden md:block">
-            <FloatingOrbs count={10} />
-            <Particles count={30} colors={["#3b82f6", "#8b5cf6", "#ec4899", "#14b8a6"]} />
+            <FloatingOrbs count={4} />
+            <Particles count={12} colors={["#3b82f6", "#8b5cf6", "#ec4899", "#14b8a6"]} />
           </div>
 
           <div className="relative z-10 space-y-12">
@@ -122,7 +122,7 @@ export default function HomePage() {
                 >
                   <motion.div
                     animate={isMobile ? {} : { rotate: [0, 360] }}
-                    transition={isMobile ? {} : { duration: 4, repeat: Infinity, ease: "linear" }}
+                    transition={isMobile ? {} : { duration: 8, repeat: Infinity, ease: "linear" }}
                     className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-500"
                   >
                     <Sparkles className="h-5 w-5 text-white" />
@@ -176,13 +176,13 @@ export default function HomePage() {
                 return (
                   <MagneticCard
                     key={stat.label}
-                    intensity={isMobile ? 0 : 15}
+                    intensity={isMobile ? 0 : 8}
                     className="h-full"
                   >
                     <motion.div
-                      initial={{ opacity: 0, y: isMobile ? 20 : 50 }}
+                      initial={{ opacity: 0, y: isMobile ? 20 : 30 }}
                       animate={partnersInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.4 + index * 0.05 : 0.9 + index * 0.1 }}
+                      transition={{ duration: isMobile ? 0.3 : 0.5, delay: isMobile ? 0.4 + index * 0.05 : 0.6 + index * 0.08 }}
                       className="group relative h-full overflow-hidden rounded-2xl md:rounded-[28px] border-0 md:border md:border-slate-200/80 bg-white/90 backdrop-blur-sm p-4 md:p-8 shadow-lg md:shadow-xl hover:shadow-2xl transition-shadow duration-500"
                     >
                       {/* Gradient Background */}
@@ -195,13 +195,12 @@ export default function HomePage() {
                         className={`absolute -inset-1 bg-gradient-to-r ${stat.gradient} opacity-0 group-hover:opacity-30 blur-2xl transition-opacity duration-500`}
                       />
 
-                      {/* Floating Icon */}
+                      {/* Floating Icon - Simplified */}
                       <motion.div
                         animate={isMobile ? {} : {
-                          y: [0, -8, 0],
-                          rotate: [0, 5, -5, 0],
+                          y: [0, -6, 0],
                         }}
-                        transition={isMobile ? {} : { duration: 4, repeat: Infinity }}
+                        transition={isMobile ? {} : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
                         className="absolute -right-4 -top-4 opacity-10 group-hover:opacity-20 transition-opacity"
                       >
                         <Icon className="h-24 w-24 text-slate-900" />
@@ -251,25 +250,20 @@ export default function HomePage() {
         {/* Selected Work Section - Enhanced */}
         <motion.section
           ref={workRef}
-          initial={{ opacity: 0, scale: isMobile ? 1 : 0.95 }}
+          initial={{ opacity: 0, scale: isMobile ? 1 : 0.98 }}
           animate={workInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: isMobile ? 0.4 : 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: isMobile ? 0.4 : 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="relative overflow-hidden rounded-none md:rounded-[48px] border-0 md:border md:border-emerald-200/60 bg-gradient-to-br from-white via-emerald-50/30 to-teal-50/30 px-4 py-12 sm:px-12 sm:py-20 md:shadow-[0_20px_80px_-20px_rgba(16,185,129,0.3)]"
         >
           {/* Enhanced Background Effects - Hidden on mobile for performance */}
           <div className="hidden md:block">
-            <FloatingOrbs count={8} />
-            <Particles count={40} colors={["#10b981", "#14b8a6", "#06b6d4", "#22c55e"]} />
+            <FloatingOrbs count={3} />
+            <Particles count={15} colors={["#10b981", "#14b8a6", "#06b6d4", "#22c55e"]} />
           </div>
 
-          {/* Decorative Elements */}
-          <motion.div
-            className="absolute -top-32 -right-32 h-64 w-64 rounded-full bg-gradient-to-br from-emerald-400/20 to-teal-400/20 blur-3xl"
-            animate={isMobile ? {} : {
-              scale: [1, 1.3, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={isMobile ? {} : { duration: 8, repeat: Infinity }}
+          {/* Decorative Elements - Removed infinite animation */}
+          <div
+            className="absolute -top-32 -right-32 h-64 w-64 rounded-full bg-gradient-to-br from-emerald-400/20 to-teal-400/20 blur-3xl opacity-40"
           />
 
           <div className="relative z-10">
@@ -288,10 +282,9 @@ export default function HomePage() {
                 >
                   <motion.div
                     animate={isMobile ? {} : {
-                      scale: [1, 1.2, 1],
-                      rotate: [0, 180, 360],
+                      rotate: [0, 360],
                     }}
-                    transition={isMobile ? {} : { duration: 4, repeat: Infinity }}
+                    transition={isMobile ? {} : { duration: 10, repeat: Infinity, ease: "linear" }}
                     className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-teal-500"
                   >
                     <Zap className="h-5 w-5 text-white" />
@@ -326,12 +319,7 @@ export default function HomePage() {
                   className="group inline-flex items-center gap-3 rounded-full border-2 border-emerald-500/30 bg-gradient-to-r from-emerald-50 to-teal-50 px-6 py-3 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-700 shadow-lg hover:border-emerald-500/60 hover:shadow-xl transition-all duration-300"
                 >
                   All projects
-                  <motion.div
-                    animate={isMobile ? {} : { x: [0, 5, 0] }}
-                    transition={isMobile ? {} : { duration: 1.5, repeat: Infinity }}
-                  >
-                    <ArrowRight className="h-4 w-4" />
-                  </motion.div>
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>
             </motion.div>
@@ -360,28 +348,24 @@ export default function HomePage() {
         {/* Container Scroll Pods - Enhanced */}
         <motion.section
           ref={podsRef}
-          initial={{ opacity: 0, y: isMobile ? 20 : 100 }}
+          initial={{ opacity: 0, y: isMobile ? 20 : 50 }}
           animate={podsInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: isMobile ? 0.4 : 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: isMobile ? 0.4 : 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="relative overflow-hidden rounded-none md:rounded-[48px] border-0 md:border md:border-violet-200/60 bg-gradient-to-br from-white via-violet-50/30 to-fuchsia-50/30 px-4 py-12 sm:px-12 sm:py-20 md:shadow-[0_20px_80px_-20px_rgba(139,92,246,0.3)]"
         >
           {/* Enhanced Background Effects - Hidden on mobile for performance */}
           <div className="hidden md:block">
-            <FloatingOrbs count={10} />
-            <Particles count={35} colors={["#8b5cf6", "#a855f7", "#d946ef", "#ec4899"]} />
+            <FloatingOrbs count={4} />
+            <Particles count={12} colors={["#8b5cf6", "#a855f7", "#d946ef", "#ec4899"]} />
           </div>
 
-          {/* Animated Pattern Background */}
-          <motion.div
+          {/* Static Pattern Background - Removed animation */}
+          <div
             className="absolute inset-0 opacity-20"
             style={{
               backgroundImage: "radial-gradient(circle at 2px 2px, rgba(168, 85, 247, 0.2) 1px, transparent 0)",
               backgroundSize: "40px 40px",
             }}
-            animate={isMobile ? {} : {
-              backgroundPosition: ["0px 0px", "40px 40px"],
-            }}
-            transition={isMobile ? {} : { duration: 4, repeat: Infinity, ease: "linear" }}
           />
 
           <div className="relative z-10">
@@ -398,13 +382,9 @@ export default function HomePage() {
                   transition={{ duration: isMobile ? 0.3 : 0.5, delay: isMobile ? 0.15 : 0.3 }}
                   className="inline-flex items-center gap-3"
                 >
-                  <motion.div
-                    animate={isMobile ? {} : { y: [0, -5, 0] }}
-                    transition={isMobile ? {} : { duration: 2, repeat: Infinity }}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500"
-                  >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500">
                     <TrendingUp className="h-5 w-5 text-white" />
-                  </motion.div>
+                  </div>
                   <p className="text-xs uppercase tracking-[0.45em] text-slate-500 font-semibold">Our Expertise</p>
                 </motion.div>
                 <motion.h2
@@ -465,25 +445,20 @@ export default function HomePage() {
         {/* Studio Section - Enhanced with Magnetic Cards */}
         <motion.section
           ref={studioRef}
-          initial={{ opacity: 0, scale: isMobile ? 1 : 0.95 }}
+          initial={{ opacity: 0, scale: isMobile ? 1 : 0.98 }}
           animate={studioInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: isMobile ? 0.4 : 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: isMobile ? 0.4 : 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="relative overflow-hidden rounded-none md:rounded-[48px] border-0 md:border md:border-amber-200/60 bg-gradient-to-br from-white via-amber-50/40 to-orange-50/40 px-4 py-12 sm:px-12 sm:py-20 md:shadow-[0_20px_80px_-20px_rgba(251,146,60,0.3)]"
         >
           {/* Enhanced Background Effects - Hidden on mobile for performance */}
           <div className="hidden md:block">
-            <FloatingOrbs count={12} />
-            <Particles count={40} colors={["#f59e0b", "#fb923c", "#f97316", "#ef4444"]} />
+            <FloatingOrbs count={4} />
+            <Particles count={15} colors={["#f59e0b", "#fb923c", "#f97316", "#ef4444"]} />
           </div>
 
-          {/* Animated gradient overlay */}
-          <motion.div
+          {/* Static gradient overlay - Removed animation */}
+          <div
             className="absolute inset-0 bg-gradient-to-r from-amber-400/5 via-orange-400/5 to-rose-400/5"
-            animate={isMobile ? {} : {
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            transition={isMobile ? {} : { duration: 10, repeat: Infinity, ease: "linear" }}
-            style={{ backgroundSize: "200% 200%" }}
           />
 
           <div className="relative z-10 grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
@@ -499,16 +474,9 @@ export default function HomePage() {
                 transition={{ duration: isMobile ? 0.3 : 0.5, delay: isMobile ? 0.15 : 0.3 }}
                 className="inline-flex items-center gap-3"
               >
-                <motion.div
-                  animate={isMobile ? {} : {
-                    rotate: [0, 10, -10, 0],
-                    scale: [1, 1.1, 1],
-                  }}
-                  transition={isMobile ? {} : { duration: 2, repeat: Infinity }}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-amber-500 to-orange-500"
-                >
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-amber-500 to-orange-500">
                   <Sparkles className="h-5 w-5 text-white" />
-                </motion.div>
+                </div>
                 <p className="text-xs uppercase tracking-[0.45em] text-slate-500 font-semibold">Studio</p>
               </motion.div>
               <motion.h3
@@ -536,15 +504,10 @@ export default function HomePage() {
               >
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-3 rounded-full border-2 border-amber-500/30 bg-gradient-to-r from-amber-50 to-orange-50 px-6 py-3 text-sm font-semibold uppercase tracking-[0.35em] text-amber-700 shadow-lg hover:border-amber-500/60 hover:shadow-xl transition-all duration-300"
+                  className="group inline-flex items-center gap-3 rounded-full border-2 border-amber-500/30 bg-gradient-to-r from-amber-50 to-orange-50 px-6 py-3 text-sm font-semibold uppercase tracking-[0.35em] text-amber-700 shadow-lg hover:border-amber-500/60 hover:shadow-xl transition-all duration-300"
                 >
                   Meet the team
-                  <motion.div
-                    animate={isMobile ? {} : { x: [0, 5, 0] }}
-                    transition={isMobile ? {} : { duration: 1.5, repeat: Infinity }}
-                  >
-                    <ArrowRight className="h-4 w-4" />
-                  </motion.div>
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>
             </motion.div>
@@ -556,7 +519,7 @@ export default function HomePage() {
               ].map((item, index) => (
                 <MagneticCard
                   key={item.title}
-                  intensity={isMobile ? 0 : 12}
+                  intensity={isMobile ? 0 : 6}
                   className="h-full"
                 >
                   <motion.div

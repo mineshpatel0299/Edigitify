@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 
 const quickLinks = [
   { label: "Work", href: "/work" },
-  { label: "Services", href: "/services" },
-  { label: "Insights", href: "/insights" },
   { label: "About", href: "/about" },
-  { label: "Vault", href: "/vault" },
+  { label: "Services", href: "/services" },
+  
+  { label: "Contact", href: "/contact" },
 ];
 
 const socials = [
