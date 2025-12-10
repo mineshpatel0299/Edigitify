@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Clock, Send, Sparkles } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -23,7 +23,7 @@ const contactMethods = [
   },
   {
     label: "Our Location",
-    value: "Delhi NCR · Dubai · Remote",
+    value: "Delhi NCR ·",
     href: "https://goo.gl/maps/JD5vF7nZQ62n4C7P7",
     icon: MapPin,
     helper: "We partner globally across timezones",
@@ -136,46 +136,6 @@ export function ContactSection() {
       />
 
       <div className="relative z-10 mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
-          className="mb-12 space-y-4 text-center text-slate-900 md:text-left"
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: [0.19, 1, 0.22, 1] }}
-            className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-1 text-xs uppercase tracking-[0.4em] text-slate-600 bg-white/80"
-          >
-            <motion.div
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            >
-              <Sparkles className="h-3.5 w-3.5 text-emerald-500" />
-            </motion.div>
-            Contact us
-          </motion.div>
-          <div className="grid gap-4 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:items-end">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.19, 1, 0.22, 1] }}
-              className="text-4xl font-semibold text-slate-900 md:text-5xl"
-            >
-              Let&apos;s Connect and Transform Your Digital Vision into Reality
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3, ease: [0.19, 1, 0.22, 1] }}
-              className="text-base text-slate-600"
-            >
-              Share your project details and we&apos;ll respond with a comprehensive plan within 12 business hours. Let&apos;s build something extraordinary together.
-            </motion.p>
-          </div>
-        </motion.div>
-
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1fr]">
           <motion.div
             initial={{ opacity: 0, x: -30 }}

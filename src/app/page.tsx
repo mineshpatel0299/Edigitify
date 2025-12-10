@@ -11,6 +11,7 @@ import { servicePodItems } from "@/data/service-pods";
 // Critical components - loaded immediately
 import { Hero } from "@/components/hero";
 import { LogoMarquee } from "@/components/marquee";
+import { WhatsAppFloat } from "@/components/whatsapp-float";
 
 // Lazy load heavy components with loading states
 const WorkCard = dynamic(() => import("@/components/work-card").then(mod => ({ default: mod.WorkCard })), {
@@ -86,6 +87,7 @@ export default function HomePage() {
   return (
     <div className="pb-32">
       <Hero />
+      <WhatsAppFloat />
 
       <div className="mx-auto flex w-full max-w-8xl flex-col gap-12 md:gap-32 pt-12 md:pt-20 pb-8 px-0 md:px-4 lg:px-12">
         {/* Partners Section - Enhanced with Magnetic Cards */}
