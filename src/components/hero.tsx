@@ -9,6 +9,7 @@ import ScrollExpandMedia from "@/components/ui/scroll-expansion-hero";
 import { FloatingOrbs } from "@/components/ui/floating-orbs";
 import { Particles } from "@/components/ui/particles";
 import { Spotlight } from "@/components/ui/spotlight";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 
 const heroHighlights = [
   {
@@ -51,6 +52,7 @@ const heroMedia = {
 };
 
 export function Hero() {
+  const isMobile = useIsMobile();
   const highlightsRef = useRef(null);
   const statsRef = useRef(null);
 
@@ -87,20 +89,20 @@ export function Hero() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-12 py-12 md:py-24">
           <motion.div
             ref={highlightsRef}
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: isMobile ? 20 : 60 }}
             animate={highlightsInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: isMobile ? 0.4 : 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="text-center mb-16"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={highlightsInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.1 : 0.2 }}
               className="inline-flex items-center gap-2 mb-6"
             >
               <motion.div
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                animate={isMobile ? {} : { rotate: [0, 360] }}
+                transition={isMobile ? {} : { duration: 4, repeat: Infinity, ease: "linear" }}
               >
                 <Sparkles className="h-5 w-5 text-cyan-400" />
               </motion.div>
@@ -110,18 +112,18 @@ export function Hero() {
             </motion.div>
 
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
               animate={highlightsInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.3 }}
+              transition={{ duration: isMobile ? 0.4 : 0.7, delay: isMobile ? 0.15 : 0.3 }}
               className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-white via-cyan-100 to-blue-100 bg-clip-text text-transparent mb-6"
             >
               White-Glove Digital Growth
             </motion.h2>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
               animate={highlightsInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.4 }}
+              transition={{ duration: isMobile ? 0.4 : 0.7, delay: isMobile ? 0.2 : 0.4 }}
               className="text-lg text-slate-400 max-w-2xl mx-auto"
             >
               Trusted by forward-thinking companies and clients, our story is rooted in delivering fully managed campaigns that exceed expectations in creativity, technology, and measurable outcomes.
@@ -134,27 +136,27 @@ export function Hero() {
               return (
                 <motion.div
                   key={highlight.title}
-                  initial={{ opacity: 0, y: 50, rotateX: -20 }}
+                  initial={{ opacity: 0, y: isMobile ? 20 : 50, rotateX: isMobile ? 0 : -20 }}
                   animate={highlightsInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
                   transition={{
-                    duration: 0.7,
-                    delay: 0.5 + index * 0.15,
+                    duration: isMobile ? 0.3 : 0.7,
+                    delay: isMobile ? 0.25 + index * 0.08 : 0.5 + index * 0.15,
                     ease: [0.22, 1, 0.36, 1]
                   }}
-                  whileHover={{
+                  whileHover={isMobile ? {} : {
                     y: -12,
                     scale: 1.03,
                     rotateY: 5,
                     transition: { duration: 0.3 }
                   }}
                   className="group relative overflow-hidden rounded-2xl md:rounded-3xl border-0 md:border md:border-slate-800/50 bg-gradient-to-br from-slate-900/90 via-slate-800/50 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 shadow-xl md:shadow-2xl"
-                  style={{ transformStyle: "preserve-3d" }}
+                  style={isMobile ? {} : { transformStyle: "preserve-3d" }}
                 >
                   {/* Animated gradient background */}
                   <motion.div
                     className={`absolute inset-0 bg-gradient-to-r ${highlight.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
                     initial={{ scale: 0, rotate: 0 }}
-                    whileHover={{ scale: 1.5, rotate: 180 }}
+                    whileHover={isMobile ? {} : { scale: 1.5, rotate: 180 }}
                     transition={{ duration: 0.6 }}
                   />
 
@@ -166,7 +168,7 @@ export function Hero() {
                   <div className="relative z-10">
                     <motion.div
                       className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${highlight.gradient} mb-6 shadow-lg`}
-                      whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
+                      whileHover={isMobile ? {} : { rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
                       transition={{ duration: 0.5 }}
                     >
                       <Icon className="h-8 w-8 text-white" />
@@ -188,9 +190,9 @@ export function Hero() {
           {/* Stats Section */}
           <motion.div
             ref={statsRef}
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: isMobile ? 20 : 60 }}
             animate={statsInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: isMobile ? 0.4 : 0.8, delay: isMobile ? 0.5 : 0.8 }}
             className="mt-12 md:mt-24 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 lg:gap-8"
           >
             {heroStats.map((stat, index) => {
@@ -200,8 +202,8 @@ export function Hero() {
                   key={stat.label}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={statsInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
-                  whileHover={{
+                  transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.55 + index * 0.05 : 1 + index * 0.1 }}
+                  whileHover={isMobile ? {} : {
                     scale: 1.05,
                     y: -8,
                     transition: { duration: 0.3 }
@@ -213,15 +215,15 @@ export function Hero() {
                   />
 
                   <motion.div
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    animate={isMobile ? {} : { rotate: [0, 360] }}
+                    transition={isMobile ? {} : { duration: 20, repeat: Infinity, ease: "linear" }}
                     className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl"
                   />
 
                   <div className="relative z-10">
                     <motion.div
-                      animate={{ y: [0, -5, 0] }}
-                      transition={{ duration: 2, repeat: Infinity }}
+                      animate={isMobile ? {} : { y: [0, -5, 0] }}
+                      transition={isMobile ? {} : { duration: 2, repeat: Infinity }}
                       className="inline-flex mb-4"
                     >
                       <Icon className="h-8 w-8 text-cyan-400" />

@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Sparkles, ArrowRight, Zap, TrendingUp, Star, Award, Users, Target } from "lucide-react";
 import { clientsData, workData } from "@/lib/content";
 import { servicePodItems } from "@/data/service-pods";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 
 // Critical components - loaded immediately
 import { Hero } from "@/components/hero";
@@ -74,6 +75,7 @@ const studioStats = [
 ] as const;
 
 export default function HomePage() {
+  const isMobile = useIsMobile();
   const partnersRef = useRef(null);
   const workRef = useRef(null);
   const podsRef = useRef(null);
@@ -93,9 +95,9 @@ export default function HomePage() {
         {/* Partners Section - Enhanced with Magnetic Cards */}
         <motion.section
           ref={partnersRef}
-          initial={{ opacity: 0, y: 100 }}
+          initial={{ opacity: 0, y: isMobile ? 20 : 100 }}
           animate={partnersInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: isMobile ? 0.4 : 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="relative overflow-hidden rounded-none md:rounded-[48px] border-0 md:border md:border-slate-200/80 bg-gradient-to-br from-white via-blue-50/40 to-purple-50/40 px-4 py-12 sm:px-12 sm:py-20 md:shadow-[0_20px_80px_-20px_rgba(59,130,246,0.3)]"
         >
           {/* Enhanced Floating Orbs - Hidden on mobile for performance */}
@@ -106,21 +108,21 @@ export default function HomePage() {
 
           <div className="relative z-10 space-y-12">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: isMobile ? 0 : -50 }}
               animate={partnersInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.1 : 0.2 }}
               className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
             >
               <div className="space-y-4">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={partnersInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 }}
+                  transition={{ duration: isMobile ? 0.3 : 0.5, delay: isMobile ? 0.15 : 0.3 }}
                   className="inline-flex items-center gap-3"
                 >
                   <motion.div
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                    animate={isMobile ? {} : { rotate: [0, 360] }}
+                    transition={isMobile ? {} : { duration: 4, repeat: Infinity, ease: "linear" }}
                     className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-500"
                   >
                     <Sparkles className="h-5 w-5 text-white" />
@@ -128,17 +130,17 @@ export default function HomePage() {
                   <p className="text-xs uppercase tracking-[0.45em] text-slate-500 font-semibold">Trusted Partners</p>
                 </motion.div>
                 <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
                   animate={partnersInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.4 }}
+                  transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.2 : 0.4 }}
                   className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-purple-900 bg-clip-text text-transparent"
                 >
                   Lean teams we build with
                 </motion.h2>
                 <motion.p
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
                   animate={partnersInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.5 }}
+                  transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.25 : 0.5 }}
                   className="text-base text-slate-600 max-w-xl"
                 >
                   A calm roster across India, Dubai & remote hubs, delivering world-class digital experiences.
@@ -147,13 +149,13 @@ export default function HomePage() {
               <motion.span
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={partnersInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                whileHover={{ scale: 1.05 }}
+                transition={{ duration: isMobile ? 0.3 : 0.5, delay: isMobile ? 0.3 : 0.6 }}
+                whileHover={isMobile ? {} : { scale: 1.05 }}
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-5 py-2.5 text-sm font-semibold text-slate-700 border border-blue-200/50"
               >
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  <span className={isMobile ? "relative inline-flex rounded-full h-2 w-2 bg-green-500" : "animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"}></span>
+                  {!isMobile && <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>}
                 </span>
                 Global · Remote
               </motion.span>
@@ -162,7 +164,7 @@ export default function HomePage() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={partnersInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.7, delay: 0.7 }}
+              transition={{ duration: isMobile ? 0.4 : 0.7, delay: isMobile ? 0.35 : 0.7 }}
               className="rounded-2xl md:rounded-[32px] border-0 md:border-2 md:border-slate-200/80 bg-white/80 backdrop-blur-xl px-3 md:px-6 py-3 md:py-4 md:shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
             >
               <LogoMarquee clients={clientsData} />
@@ -174,13 +176,13 @@ export default function HomePage() {
                 return (
                   <MagneticCard
                     key={stat.label}
-                    intensity={15}
+                    intensity={isMobile ? 0 : 15}
                     className="h-full"
                   >
                     <motion.div
-                      initial={{ opacity: 0, y: 50 }}
+                      initial={{ opacity: 0, y: isMobile ? 20 : 50 }}
                       animate={partnersInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: 0.6, delay: 0.9 + index * 0.1 }}
+                      transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.4 + index * 0.05 : 0.9 + index * 0.1 }}
                       className="group relative h-full overflow-hidden rounded-2xl md:rounded-[28px] border-0 md:border md:border-slate-200/80 bg-white/90 backdrop-blur-sm p-4 md:p-8 shadow-lg md:shadow-xl hover:shadow-2xl transition-shadow duration-500"
                     >
                       {/* Gradient Background */}
@@ -195,11 +197,11 @@ export default function HomePage() {
 
                       {/* Floating Icon */}
                       <motion.div
-                        animate={{
+                        animate={isMobile ? {} : {
                           y: [0, -8, 0],
                           rotate: [0, 5, -5, 0],
                         }}
-                        transition={{ duration: 4, repeat: Infinity }}
+                        transition={isMobile ? {} : { duration: 4, repeat: Infinity }}
                         className="absolute -right-4 -top-4 opacity-10 group-hover:opacity-20 transition-opacity"
                       >
                         <Icon className="h-24 w-24 text-slate-900" />
@@ -207,7 +209,7 @@ export default function HomePage() {
 
                       <div className="relative z-10 space-y-4">
                         <motion.div
-                          whileHover={{ rotate: 360, scale: 1.1 }}
+                          whileHover={isMobile ? {} : { rotate: 360, scale: 1.1 }}
                           transition={{ duration: 0.6 }}
                           className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${stat.gradient} shadow-lg`}
                         >
@@ -218,12 +220,12 @@ export default function HomePage() {
                           <CountUpNumber
                             end={stat.value}
                             suffix={stat.suffix}
-                            delay={1 + index * 0.1}
+                            delay={isMobile ? 0.5 + index * 0.05 : 1 + index * 0.1}
                             className="block text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent"
                           />
                           <motion.p
                             className="text-xs uppercase tracking-[0.3em] text-slate-500 font-semibold mt-2"
-                            whileHover={{ letterSpacing: "0.35em" }}
+                            whileHover={isMobile ? {} : { letterSpacing: "0.35em" }}
                           >
                             {stat.label}
                           </motion.p>
@@ -232,7 +234,7 @@ export default function HomePage() {
                         <motion.p
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
-                          transition={{ delay: 1.2 + index * 0.1 }}
+                          transition={{ delay: isMobile ? 0.6 + index * 0.05 : 1.2 + index * 0.1 }}
                           className="text-sm text-slate-600 leading-relaxed"
                         >
                           {stat.helper}
@@ -249,9 +251,9 @@ export default function HomePage() {
         {/* Selected Work Section - Enhanced */}
         <motion.section
           ref={workRef}
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: isMobile ? 1 : 0.95 }}
           animate={workInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: isMobile ? 0.4 : 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="relative overflow-hidden rounded-none md:rounded-[48px] border-0 md:border md:border-emerald-200/60 bg-gradient-to-br from-white via-emerald-50/30 to-teal-50/30 px-4 py-12 sm:px-12 sm:py-20 md:shadow-[0_20px_80px_-20px_rgba(16,185,129,0.3)]"
         >
           {/* Enhanced Background Effects - Hidden on mobile for performance */}
@@ -263,33 +265,33 @@ export default function HomePage() {
           {/* Decorative Elements */}
           <motion.div
             className="absolute -top-32 -right-32 h-64 w-64 rounded-full bg-gradient-to-br from-emerald-400/20 to-teal-400/20 blur-3xl"
-            animate={{
+            animate={isMobile ? {} : {
               scale: [1, 1.3, 1],
               opacity: [0.3, 0.5, 0.3],
             }}
-            transition={{ duration: 8, repeat: Infinity }}
+            transition={isMobile ? {} : { duration: 8, repeat: Infinity }}
           />
 
           <div className="relative z-10">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: isMobile ? 15 : 30 }}
               animate={workInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.1 : 0.2 }}
               className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-12"
             >
               <div className="space-y-4">
                 <motion.div
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: isMobile ? 0 : -20 }}
                   animate={workInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 }}
+                  transition={{ duration: isMobile ? 0.3 : 0.5, delay: isMobile ? 0.15 : 0.3 }}
                   className="inline-flex items-center gap-3"
                 >
                   <motion.div
-                    animate={{
+                    animate={isMobile ? {} : {
                       scale: [1, 1.2, 1],
                       rotate: [0, 180, 360],
                     }}
-                    transition={{ duration: 4, repeat: Infinity }}
+                    transition={isMobile ? {} : { duration: 4, repeat: Infinity }}
                     className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-teal-500"
                   >
                     <Zap className="h-5 w-5 text-white" />
@@ -297,27 +299,27 @@ export default function HomePage() {
                   <p className="text-xs uppercase tracking-[0.45em] text-slate-500 font-semibold">Our Portfolio</p>
                 </motion.div>
                 <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
                   animate={workInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.4 }}
+                  transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.2 : 0.4 }}
                   className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-900 via-emerald-900 to-teal-900 bg-clip-text text-transparent"
                 >
                   Projects that make an impact.
                 </motion.h2>
                 <motion.p
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
                   animate={workInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.5 }}
+                  transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.25 : 0.5 }}
                   className="text-base text-slate-600 max-w-xl"
                 >
                   Explore our featured work where design meets innovation to create exceptional digital experiences.
                 </motion.p>
               </div>
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
+                initial={{ opacity: 0, x: isMobile ? 0 : 20 }}
                 animate={workInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                whileHover={{ scale: 1.05 }}
+                transition={{ duration: isMobile ? 0.3 : 0.5, delay: isMobile ? 0.3 : 0.6 }}
+                whileHover={isMobile ? {} : { scale: 1.05 }}
               >
                 <Link
                   href="/work"
@@ -325,8 +327,8 @@ export default function HomePage() {
                 >
                   All projects
                   <motion.div
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
+                    animate={isMobile ? {} : { x: [0, 5, 0] }}
+                    transition={isMobile ? {} : { duration: 1.5, repeat: Infinity }}
                   >
                     <ArrowRight className="h-4 w-4" />
                   </motion.div>
@@ -337,16 +339,16 @@ export default function HomePage() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={workInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.7 }}
+              transition={{ duration: isMobile ? 0.4 : 0.8, delay: isMobile ? 0.35 : 0.7 }}
               className="grid gap-8 md:grid-cols-2"
             >
               {workData.slice(0, 2).map((item, index) => (
                 <motion.div
                   key={item.slug}
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: isMobile ? 20 : 50 }}
                   animate={workInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.7, delay: 0.8 + index * 0.2 }}
-                  whileHover={{ y: -8 }}
+                  transition={{ duration: isMobile ? 0.3 : 0.7, delay: isMobile ? 0.4 + index * 0.1 : 0.8 + index * 0.2 }}
+                  whileHover={isMobile ? {} : { y: -8 }}
                 >
                   <WorkCard item={item} index={index} />
                 </motion.div>
@@ -358,9 +360,9 @@ export default function HomePage() {
         {/* Container Scroll Pods - Enhanced */}
         <motion.section
           ref={podsRef}
-          initial={{ opacity: 0, y: 100 }}
+          initial={{ opacity: 0, y: isMobile ? 20 : 100 }}
           animate={podsInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: isMobile ? 0.4 : 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="relative overflow-hidden rounded-none md:rounded-[48px] border-0 md:border md:border-violet-200/60 bg-gradient-to-br from-white via-violet-50/30 to-fuchsia-50/30 px-4 py-12 sm:px-12 sm:py-20 md:shadow-[0_20px_80px_-20px_rgba(139,92,246,0.3)]"
         >
           {/* Enhanced Background Effects - Hidden on mobile for performance */}
@@ -376,29 +378,29 @@ export default function HomePage() {
               backgroundImage: "radial-gradient(circle at 2px 2px, rgba(168, 85, 247, 0.2) 1px, transparent 0)",
               backgroundSize: "40px 40px",
             }}
-            animate={{
+            animate={isMobile ? {} : {
               backgroundPosition: ["0px 0px", "40px 40px"],
             }}
-            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+            transition={isMobile ? {} : { duration: 4, repeat: Infinity, ease: "linear" }}
           />
 
           <div className="relative z-10">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: isMobile ? 1 : 0.9 }}
               animate={podsInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.1 : 0.2 }}
               className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-12"
             >
               <div className="space-y-4">
                 <motion.div
-                  initial={{ opacity: 0, rotate: -10 }}
+                  initial={{ opacity: 0, rotate: isMobile ? 0 : -10 }}
                   animate={podsInView ? { opacity: 1, rotate: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 }}
+                  transition={{ duration: isMobile ? 0.3 : 0.5, delay: isMobile ? 0.15 : 0.3 }}
                   className="inline-flex items-center gap-3"
                 >
                   <motion.div
-                    animate={{ y: [0, -5, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
+                    animate={isMobile ? {} : { y: [0, -5, 0] }}
+                    transition={isMobile ? {} : { duration: 2, repeat: Infinity }}
                     className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500"
                   >
                     <TrendingUp className="h-5 w-5 text-white" />
@@ -406,17 +408,17 @@ export default function HomePage() {
                   <p className="text-xs uppercase tracking-[0.45em] text-slate-500 font-semibold">Our Expertise</p>
                 </motion.div>
                 <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
                   animate={podsInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.4 }}
+                  transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.2 : 0.4 }}
                   className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-900 via-violet-900 to-fuchsia-900 bg-clip-text text-transparent"
                 >
                   Services that scale your vision.
                 </motion.h2>
                 <motion.p
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
                   animate={podsInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.5 }}
+                  transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.25 : 0.5 }}
                   className="max-w-xl text-base text-slate-600"
                 >
                   From strategy to execution, we deliver comprehensive solutions tailored to your unique needs and business goals.
@@ -425,8 +427,8 @@ export default function HomePage() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={podsInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                whileHover={{ scale: 1.05 }}
+                transition={{ duration: isMobile ? 0.3 : 0.5, delay: isMobile ? 0.3 : 0.6 }}
+                whileHover={isMobile ? {} : { scale: 1.05 }}
               >
                 <Link
                   href="/services"
@@ -439,17 +441,17 @@ export default function HomePage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: isMobile ? 20 : 50 }}
               animate={podsInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.7 }}
+              transition={{ duration: isMobile ? 0.4 : 0.8, delay: isMobile ? 0.35 : 0.7 }}
               className="space-y-12"
             >
               {featuredServicePods.map((item, index) => (
                 <motion.div
                   key={item.slug}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  initial={{ opacity: 0, x: isMobile ? 0 : (index % 2 === 0 ? -50 : 50) }}
                   animate={podsInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.7, delay: 0.8 + index * 0.2 }}
+                  transition={{ duration: isMobile ? 0.3 : 0.7, delay: isMobile ? 0.4 + index * 0.1 : 0.8 + index * 0.2 }}
                 >
                   <WorkScrollCard item={item} priority={index === 0} />
                 </motion.div>
@@ -463,9 +465,9 @@ export default function HomePage() {
         {/* Studio Section - Enhanced with Magnetic Cards */}
         <motion.section
           ref={studioRef}
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: isMobile ? 1 : 0.95 }}
           animate={studioInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: isMobile ? 0.4 : 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="relative overflow-hidden rounded-none md:rounded-[48px] border-0 md:border md:border-amber-200/60 bg-gradient-to-br from-white via-amber-50/40 to-orange-50/40 px-4 py-12 sm:px-12 sm:py-20 md:shadow-[0_20px_80px_-20px_rgba(251,146,60,0.3)]"
         >
           {/* Enhanced Background Effects - Hidden on mobile for performance */}
@@ -477,32 +479,32 @@ export default function HomePage() {
           {/* Animated gradient overlay */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-amber-400/5 via-orange-400/5 to-rose-400/5"
-            animate={{
+            animate={isMobile ? {} : {
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
-            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            transition={isMobile ? {} : { duration: 10, repeat: Infinity, ease: "linear" }}
             style={{ backgroundSize: "200% 200%" }}
           />
 
           <div className="relative z-10 grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: isMobile ? 0 : -50 }}
               animate={studioInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.1 : 0.2 }}
               className="space-y-6"
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={studioInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 }}
+                transition={{ duration: isMobile ? 0.3 : 0.5, delay: isMobile ? 0.15 : 0.3 }}
                 className="inline-flex items-center gap-3"
               >
                 <motion.div
-                  animate={{
+                  animate={isMobile ? {} : {
                     rotate: [0, 10, -10, 0],
                     scale: [1, 1.1, 1],
                   }}
-                  transition={{ duration: 2, repeat: Infinity }}
+                  transition={isMobile ? {} : { duration: 2, repeat: Infinity }}
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-amber-500 to-orange-500"
                 >
                   <Sparkles className="h-5 w-5 text-white" />
@@ -510,26 +512,26 @@ export default function HomePage() {
                 <p className="text-xs uppercase tracking-[0.45em] text-slate-500 font-semibold">Studio</p>
               </motion.div>
               <motion.h3
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
                 animate={studioInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.2 : 0.4 }}
                 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-900 via-amber-900 to-orange-900 bg-clip-text text-transparent"
               >
                 Small, senior, on-call.
               </motion.h3>
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
                 animate={studioInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.5 }}
+                transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.25 : 0.5 }}
                 className="text-base text-slate-600 leading-relaxed max-w-xl"
               >
                 Pods stay under eight people so calls stay calm and decisions move fast. No layers, just craft and excellence.
               </motion.p>
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
                 animate={studioInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                whileHover={{ scale: 1.05 }}
+                transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.3 : 0.6 }}
+                whileHover={isMobile ? {} : { scale: 1.05 }}
                 className="pt-4"
               >
                 <Link
@@ -538,8 +540,8 @@ export default function HomePage() {
                 >
                   Meet the team
                   <motion.div
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
+                    animate={isMobile ? {} : { x: [0, 5, 0] }}
+                    transition={isMobile ? {} : { duration: 1.5, repeat: Infinity }}
                   >
                     <ArrowRight className="h-4 w-4" />
                   </motion.div>
@@ -554,13 +556,13 @@ export default function HomePage() {
               ].map((item, index) => (
                 <MagneticCard
                   key={item.title}
-                  intensity={12}
+                  intensity={isMobile ? 0 : 12}
                   className="h-full"
                 >
                   <motion.div
-                    initial={{ opacity: 0, x: 50 }}
+                    initial={{ opacity: 0, x: isMobile ? 0 : 50 }}
                     animate={studioInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.5 + index * 0.15 }}
+                    transition={{ duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.35 + index * 0.1 : 0.5 + index * 0.15 }}
                     className="group relative h-full overflow-hidden rounded-2xl md:rounded-[28px] border-0 md:border md:border-slate-200/80 bg-white/90 backdrop-blur-sm p-4 md:p-8 shadow-lg md:shadow-xl hover:shadow-2xl transition-shadow duration-500"
                   >
                     {/* Gradient Background */}
@@ -577,28 +579,28 @@ export default function HomePage() {
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
                       initial={{ x: "-100%" }}
-                      whileHover={{ x: "100%" }}
+                      whileHover={isMobile ? {} : { x: "100%" }}
                       transition={{ duration: 0.8 }}
                     />
 
                     <div className="relative z-10 space-y-4">
                       <motion.p
                         className="text-xs uppercase tracking-[0.35em] text-slate-400 font-semibold"
-                        whileHover={{ letterSpacing: "0.4em" }}
+                        whileHover={isMobile ? {} : { letterSpacing: "0.4em" }}
                         transition={{ duration: 0.3 }}
                       >
                         Focus Area
                       </motion.p>
                       <motion.h4
                         className="text-2xl font-bold text-slate-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-amber-700 group-hover:to-orange-700 group-hover:bg-clip-text transition-all duration-300"
-                        whileHover={{ x: 5 }}
+                        whileHover={isMobile ? {} : { x: 5 }}
                       >
                         {item.title}
                       </motion.h4>
 
                       <motion.div
                         className={`h-1 w-16 rounded-full bg-gradient-to-r ${item.gradient}`}
-                        whileHover={{ width: "100%" }}
+                        whileHover={isMobile ? {} : { width: "100%" }}
                         transition={{ duration: 0.4 }}
                       />
                     </div>
