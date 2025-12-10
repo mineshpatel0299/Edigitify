@@ -122,17 +122,17 @@ const fadeUp = {
 
 function ServicesHero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-white via-violet-50 to-slate-50 px-6 py-28 text-slate-900">
+    <section className="relative overflow-hidden bg-gradient-to-br from-white via-violet-50 to-slate-50 px-5 py-20 text-slate-900 sm:px-6 sm:py-28">
       <div className="absolute inset-0">
         <div className="absolute -left-32 top-10 h-72 w-72 rounded-full bg-teal-400/30 blur-[120px]" />
         <div className="absolute -right-16 top-1/3 h-96 w-96 rounded-full bg-purple-400/20 blur-[160px]" />
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(148,163,184,0.3) 1px, transparent 0)", backgroundSize: "48px 48px" }} />
       </div>
 
-      <div className="relative mx-auto flex max-w-5xl flex-col gap-8 text-center">
+      <div className="relative mx-auto flex max-w-5xl flex-col gap-6 text-center sm:gap-8">
         <motion.span
           {...fadeUp}
-          className="mx-auto inline-flex items-center gap-2 rounded-full border border-violet-200/60 bg-white/80 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-violet-700"
+          className="mx-auto inline-flex items-center gap-2 rounded-full border border-violet-200/60 bg-white/80 px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.3em] text-violet-700 sm:px-5 sm:tracking-[0.35em]"
         >
           Services
         </motion.span>
@@ -140,7 +140,7 @@ function ServicesHero() {
         <motion.h1
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.1 }}
-          className="text-4xl font-bold leading-tight text-slate-900 sm:text-5xl md:text-6xl"
+          className="px-2 text-3xl font-bold leading-[1.2] text-slate-900 sm:text-4xl md:text-6xl md:leading-tight"
         >
           Digital marketing services built to embed.
         </motion.h1>
@@ -148,21 +148,21 @@ function ServicesHero() {
         <motion.p
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.15 }}
-          className="mx-auto max-w-3xl text-lg text-slate-600 md:text-xl"
+          className="mx-auto max-w-3xl px-2 text-base leading-relaxed text-slate-600 sm:text-lg md:text-xl"
         >
           From performance strategy and brand systems to media buying, lifecycle, and production, our pods plug into your team so campaigns ship faster with measurable impact.
         </motion.p>
 
-        <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.2 }} className="flex flex-wrap items-center justify-center gap-4">
+        <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.2 }} className="mt-2 flex flex-col items-center justify-center gap-3 sm:mt-0 sm:flex-row sm:flex-wrap sm:gap-4">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg transition hover:-translate-y-0.5"
+            className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-slate-900 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.25em] text-white shadow-lg transition hover:-translate-y-0.5 sm:w-auto sm:text-sm sm:tracking-[0.3em]"
           >
             Book a session →
           </Link>
           <Link
             href="/work"
-            className="inline-flex items-center gap-3 rounded-full border border-slate-300/60 bg-white/70 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-900 transition hover:-translate-y-0.5"
+            className="inline-flex w-full items-center justify-center gap-3 rounded-full border border-slate-300/60 bg-white/70 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.25em] text-slate-900 transition hover:-translate-y-0.5 sm:w-auto sm:text-sm sm:tracking-[0.3em]"
           >
             View case studies
           </Link>
@@ -178,24 +178,24 @@ function ServicesTimelineSection() {
   const timelineData = serviceCards.map((service) => ({
     title: service.title,
     content: (
-      <div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-white backdrop-blur">
-        <div className="relative mb-6 h-48 w-full overflow-hidden rounded-2xl">
+      <div className="rounded-none bg-white/5 p-6 text-white backdrop-blur sm:rounded-3xl sm:border sm:border-white/10 sm:p-6">
+        <div className="relative mb-5 h-64 w-full overflow-hidden rounded-none sm:mb-6 sm:h-48 sm:rounded-2xl">
           <Image src={service.image} alt={service.title} fill className="object-cover" sizes="(max-width:768px) 100vw, 50vw" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-black/80" />
-          <div className="absolute bottom-3 left-3 inline-flex rounded-full border border-white/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em]">
+          <div className="absolute bottom-4 left-4 inline-flex rounded-full border border-white/20 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.3em] sm:bottom-3 sm:left-3 sm:px-4 sm:text-xs sm:tracking-[0.35em]">
             {service.badge}
           </div>
         </div>
-        <p className="text-sm text-slate-200">{service.description}</p>
-        <ul className="mt-6 space-y-3 text-sm text-slate-100">
+        <p className="text-sm leading-relaxed text-slate-200 sm:leading-normal">{service.description}</p>
+        <ul className="mt-8 space-y-4 text-sm leading-relaxed text-slate-100 sm:mt-6 sm:space-y-3 sm:leading-normal">
           {service.details.map((detail) => (
             <li key={detail} className="flex gap-3">
-              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-white/70" />
+              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white/70 sm:mt-1" />
               <span>{detail}</span>
             </li>
           ))}
         </ul>
-        <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-100">
+        <div className="mt-8 rounded-none bg-white/5 p-5 text-sm leading-relaxed text-slate-100 sm:mt-6 sm:rounded-2xl sm:border sm:border-white/10 sm:p-4 sm:leading-normal">
           {service.outcome}
         </div>
       </div>
@@ -203,7 +203,7 @@ function ServicesTimelineSection() {
   }));
 
   return (
-    <section className="bg-slate-950 px-6 pb-24">
+    <section className="bg-slate-950 pb-20 sm:px-6 sm:pb-24">
       <Timeline tone="dark" className="bg-transparent md:px-0" data={timelineData} />
     </section>
   );
