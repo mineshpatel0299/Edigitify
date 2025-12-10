@@ -43,8 +43,8 @@ const quickContacts = [
   {
     icon: Mail,
     label: "Email",
-    value: "info@edigitify.com",
-    href: "mailto:info@edigitify.com",
+    value: "info@edigitify.in",
+    href: "mailto:info@edigitify.in",
     color: "blue",
   },
   {
