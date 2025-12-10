@@ -26,6 +26,26 @@ const config: Config = {
         "grid-fade":
           "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
       },
+      keyframes: {
+        fadeInUp: {
+          from: {
+            opacity: "0",
+            transform: "translateY(30px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        shine: {
+          to: {
+            transform: "translateX(200%)",
+          },
+        },
+      },
+      animation: {
+        shine: "shine 0.7s",
+      },
     },
   },
   plugins: [],
