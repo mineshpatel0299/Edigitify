@@ -10,15 +10,13 @@ const teamMembers = [
     name: "Hardik Gandhi",
     role: "Director & Founder",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
-    bio: "Visionary entrepreneur with over a decade of experience in digital strategy and business transformation. Hardik founded Edigitify with the mission to revolutionize how businesses approach digital marketing, combining strategic thinking with innovative execution to deliver exceptional results.",
     color: "from-teal-500 to-blue-500",
   },
   {
     id: 2,
     name: "Shravya",
     role: "Graphc Designer",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
-    bio: "Versatile marketing professional with expertise spanning content creation, project management, client relations, and strategic planning. CS brings adaptability and comprehensive skills that ensure seamless project execution and exceptional client satisfaction across all touchpoints.",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80",
     color: "from-orange-500 to-red-500",
   },
   {
@@ -26,19 +24,15 @@ const teamMembers = [
     name: "Ankita",
     role: "Social Media Strategist",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=800&q=80",
-    bio: "Expert social media strategist who transforms brands into engaging digital experiences. Ankita crafts data-driven campaigns that resonate with target audiences, drive meaningful engagement, and build lasting community connections across all major social platforms.",
     color: "from-purple-500 to-pink-500",
   },
-  
   {
     id: 4,
     name: "Minesh",
     role: "SDE-1",
     image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80",
-    bio: "Talented software engineer specializing in building robust, scalable digital solutions. Minesh combines technical expertise with creative problem-solving to develop cutting-edge platforms, automation tools, and web applications that power modern marketing campaigns.",
     color: "from-emerald-500 to-teal-500",
   },
-  
 ];
 
 function TeamMemberCard({
@@ -111,12 +105,9 @@ function TeamMemberCard({
         </div>
 
         {/* Info Section */}
-        <div className="relative flex h-[200px] flex-col p-6">
+        <div className="relative flex flex-col p-6">
           {/* Name */}
           <h3 className="mb-2 text-2xl font-bold text-slate-900">{member.name}</h3>
-
-          {/* Bio */}
-          <p className="mb-4 flex-1 text-slate-600 line-clamp-5">{member.bio}</p>
 
           {/* Animated Bottom Line */}
           <motion.div

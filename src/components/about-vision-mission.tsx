@@ -10,19 +10,19 @@ const sections = [
     title: "Vision",
     icon: "👁️",
     tagline: "Pioneering the future of digital excellence",
-    description: "We envision a digital landscape where technology and creativity converge to create authentic, impactful brand experiences. Our vision extends beyond traditional marketing—we're building a future where data-driven insights, innovative automation, and human creativity work in perfect harmony to deliver exceptional value for businesses and meaningful experiences for their customers.",
+    description: "A digital landscape where technology and creativity converge to create authentic, impactful brand experiences that deliver exceptional value.",
     points: [
       {
         title: "Industry Leadership",
-        detail: "To be recognized as the leading digital marketing partner that consistently sets new standards for innovation, quality, and client satisfaction. We aim to shape industry best practices through thought leadership, continuous innovation, and unwavering commitment to excellence in every project we undertake.",
+        detail: "Setting new standards for innovation, quality, and client satisfaction through thought leadership and unwavering commitment to excellence.",
       },
       {
         title: "Global Digital Transformation",
-        detail: "Empowering businesses worldwide to harness the full potential of digital marketing through cutting-edge strategies, advanced technologies, and creative excellence. We believe in democratizing access to world-class marketing expertise, enabling companies of all sizes to compete effectively in the digital economy.",
+        detail: "Empowering businesses worldwide to harness the full potential of digital marketing through cutting-edge strategies and creative excellence.",
       },
       {
         title: "Sustainable Innovation",
-        detail: "Building marketing ecosystems that deliver consistent, measurable results while adapting to evolving market dynamics. We prioritize long-term success over short-term gains, creating strategies that scale sustainably and build lasting competitive advantages for our clients in an ever-changing digital landscape.",
+        detail: "Building marketing ecosystems that deliver consistent, measurable results while adapting to evolving market dynamics.",
       },
     ],
     gradient: "from-teal-500 via-blue-500 to-purple-500",
@@ -32,19 +32,19 @@ const sections = [
     title: "Mission",
     icon: "🚀",
     tagline: "Empowering brands to achieve unprecedented digital success",
-    description: "Our mission is to deliver exceptional digital marketing services that surpass industry standards through integrated expertise, innovative strategies, and meticulous execution. We are committed to being more than just a service provider—we are your strategic partner, dedicated to understanding your unique challenges, amplifying your brand voice, and driving measurable results that contribute directly to your business objectives and long-term growth.",
+    description: "Delivering exceptional digital marketing services through integrated expertise, innovative strategies, and meticulous execution as your strategic partner.",
     points: [
       {
         title: "Client-Centric Excellence",
-        detail: "We deliver premium, white-glove service that treats every client partnership with the utmost care and attention. From initial consultation through strategy development, implementation, and ongoing optimization, we provide personalized attention that ensures your specific needs are met with precision, creativity, and unwavering dedication to your success.",
+        detail: "Premium service treating every partnership with utmost care, providing personalized attention from consultation through optimization.",
       },
       {
         title: "Integrated Team Approach",
-        detail: "Our cross-functional pods bring together strategists, creative directors, developers, content specialists, and analytics experts under one unified framework. This integrated approach eliminates communication silos, accelerates project timelines, ensures consistency across all touchpoints, and delivers cohesive campaigns that amplify your brand message across every channel.",
+        detail: "Cross-functional teams of strategists, creatives, developers, and analysts delivering cohesive campaigns that amplify your brand message.",
       },
       {
         title: "Innovation Through Technology",
-        detail: "We harness cutting-edge marketing technologies and automation platforms to create efficient, scalable campaigns that deliver personalized experiences at scale. By combining advanced tools with strategic thinking and creative excellence, we free our team to focus on high-impact initiatives while ensuring consistent execution, optimal performance, and continuous improvement across all marketing activities.",
+        detail: "Harnessing cutting-edge marketing technologies to create efficient, scalable campaigns with personalized experiences at scale.",
       },
     ],
     gradient: "from-orange-500 via-pink-500 to-red-500",
@@ -54,19 +54,19 @@ const sections = [
     title: "Values",
     icon: "💎",
     tagline: "Core principles that define who we are",
-    description: "Our values are the cornerstone of everything we do at Edigitify. They guide our decisions, shape our culture, and define how we interact with clients, partners, and each other. These aren't just aspirational statements—they're the lived principles that drive our daily actions and long-term strategy, ensuring we consistently deliver exceptional results while maintaining the highest standards of integrity and professionalism.",
+    description: "The lived principles that guide our decisions, shape our culture, and drive our daily actions to deliver exceptional results with integrity.",
     points: [
       {
         title: "Integrity & Transparency",
-        detail: "We operate with complete honesty and openness in all our interactions. From transparent pricing and clear communication to honest performance reporting, we believe trust is built through consistent integrity. We share both successes and challenges openly, provide realistic timelines, and never over-promise. Our clients always know where they stand, how their investments are being utilized, and what results to expect.",
+        detail: "Complete honesty and openness in all interactions. From transparent pricing to honest reporting, we build trust through consistent integrity.",
       },
       {
         title: "Excellence & Continuous Improvement",
-        detail: "We are committed to delivering nothing less than exceptional quality in every project. Excellence isn't a destination—it's a continuous journey of learning, refining, and pushing boundaries. We invest heavily in professional development, stay ahead of industry trends, embrace new technologies, and constantly seek ways to improve our processes, strategies, and outcomes. Mediocrity has no place in our work.",
+        detail: "Committed to exceptional quality in every project through continuous learning, staying ahead of trends, and pushing boundaries.",
       },
       {
         title: "Client Success & Partnership",
-        detail: "Your success is our success. We measure our achievements not by awards or accolades, but by the tangible results we deliver for our clients. We approach every engagement as a true partnership, investing deeply in understanding your business, aligning our strategies with your objectives, and working tirelessly to ensure you achieve and exceed your goals. We celebrate your victories as our own and remain committed to your long-term growth.",
+        detail: "Your success is our success. We measure achievements by tangible results, investing deeply in your business and long-term growth.",
       },
     ],
     gradient: "from-emerald-500 via-teal-500 to-cyan-500",
