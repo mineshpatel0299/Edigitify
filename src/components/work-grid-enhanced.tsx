@@ -99,31 +99,6 @@ export function WorkGridEnhanced({ items }: { items: WorkItem[] }) {
                             ))}
                           </div>
                         </motion.div>
-
-                        {/* Metrics Overlay */}
-                        {item.metrics && item.metrics.length > 0 && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: idx * 0.05 + 0.3 }}
-                            className="absolute bottom-4 left-4 right-4"
-                          >
-                            <div className="flex gap-3">
-                              {item.metrics.slice(0, 2).map((metric) => (
-                                <div
-                                  key={metric.label}
-                                  className="flex-1 rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-md"
-                                >
-                                  <div className="mb-1 text-2xl font-bold text-white">
-                                    {metric.value}
-                                  </div>
-                                  <div className="text-xs text-white/80">{metric.label}</div>
-                                </div>
-                              ))}
-                            </div>
-                          </motion.div>
-                        )}
                       </motion.div>
                     </div>
 
