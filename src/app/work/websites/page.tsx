@@ -102,16 +102,16 @@ export default function WorkWebsitesPage() {
                 {/* Footer section */}
                 <div className="relative z-10 mt-auto">
                   <div className="mb-4 h-px w-full bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
-                  <div className="flex items-center justify-between">
-                    <div className="flex flex-col gap-1.5">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex flex-col gap-1.5 min-w-0 flex-1">
                       <span className="text-[11px] font-bold uppercase tracking-widest text-slate-500">
                         Visit Website
                       </span>
-                      <span className="text-base font-bold text-slate-900 transition-all duration-300 group-hover:text-cyan-600">
+                      <span className="text-sm sm:text-base font-bold text-slate-900 transition-all duration-300 group-hover:text-cyan-600 truncate">
                         {domain}
                       </span>
                     </div>
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-cyan-200 to-indigo-200 text-xl text-slate-900 backdrop-blur-xl ring-1 ring-cyan-300/40 transition-all duration-300 group-hover:scale-110 group-hover:from-cyan-300 group-hover:to-indigo-300 group-hover:ring-2 group-hover:ring-cyan-500/50">
+                    <div className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-gradient-to-br from-cyan-200 to-indigo-200 text-xl text-slate-900 backdrop-blur-xl ring-1 ring-cyan-300/40 transition-all duration-300 group-hover:scale-110 group-hover:from-cyan-300 group-hover:to-indigo-300 group-hover:ring-2 group-hover:ring-cyan-500/50 shrink-0">
                       <span className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                         ↗
                       </span>
