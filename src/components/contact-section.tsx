@@ -23,7 +23,7 @@ const contactMethods = [
   },
   {
     label: "Our Location",
-    value: "Delhi NCR ·",
+    value: " New Delhi ·",
     href: "https://goo.gl/maps/JD5vF7nZQ62n4C7P7",
     icon: MapPin,
     helper: "We partner globally across timezones",
