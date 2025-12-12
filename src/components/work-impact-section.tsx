@@ -57,20 +57,8 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   return <span ref={ref}>0{suffix}</span>;
 }
 
-const industries = [
-  "Real Estate",
-  "Healthcare",
-  "Travel",
-  "D2C",
-  "SaaS",
-  "Fintech",
-  "E-commerce",
-  "B2B",
-  "Education",
-  "Hospitality",
-  "Manufacturing",
-  "Professional Services",
-];
+
+
 
 export function WorkImpactSection() {
   return (
@@ -176,38 +164,7 @@ export function WorkImpactSection() {
         </div>
 
         {/* Industries Served */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center"
-        >
-          <h3 className="mb-8 text-2xl font-bold text-slate-900 md:text-3xl">
-            Industries We Serve
-          </h3>
-
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            {industries.map((industry, idx) => (
-              <motion.div
-                key={industry}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.05 }}
-                whileHover={{ scale: 1.1, y: -5 }}
-                className="group relative"
-              >
-                <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white px-6 py-3 shadow-md transition-all duration-300 hover:border-teal-300 hover:shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-r from-teal-500/5 to-blue-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <span className="relative z-10 text-sm font-medium text-slate-700 transition-colors duration-300 group-hover:text-teal-600">
-                    {industry}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+     
       </div>
     </section>
   );
