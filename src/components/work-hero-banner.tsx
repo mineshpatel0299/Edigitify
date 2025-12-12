@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useRef, useState } from "react";
 
 const categories = [
@@ -24,7 +24,6 @@ const floatingElements = [
 
 export function WorkHeroBanner({ onFilterChange }: { onFilterChange?: (filter: string) => void }) {
   const [activeFilter, setActiveFilter] = useState("all");
-  const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -37,16 +36,14 @@ export function WorkHeroBanner({ onFilterChange }: { onFilterChange?: (filter: s
 
   const handleFilterClick = (filterId: string) => {
     if (filterId === "website-development") {
-      setActiveFilter(filterId);
-      router.push("/work/websites");
-      return;
+      return; // Will be handled by Link component
     }
     setActiveFilter(filterId);
     onFilterChange?.(filterId);
   };
 
   return (
-    <div ref={containerRef} className="relative min-h-[85vh] overflow-hidden">
+    <div ref={containerRef} className="relative min-h-[85vh] overflow-hidden rounded-3xl md:rounded-[40px]">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100">
         <motion.div
@@ -161,57 +158,85 @@ export function WorkHeroBanner({ onFilterChange }: { onFilterChange?: (filter: s
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-wrap items-center justify-center gap-4"
           >
-            {categories.map((category, idx) => (
-              <motion.button
-                key={category.id}
-                onClick={() => handleFilterClick(category.id)}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.9 + idx * 0.1 }}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className={`group relative overflow-hidden rounded-2xl border-2 px-6 py-4 transition-all duration-300 ${
-                  activeFilter === category.id
-                    ? "border-slate-900 bg-slate-900 shadow-xl shadow-slate-900/20"
-                    : "border-slate-200 bg-white hover:border-slate-300 hover:shadow-lg"
-                }`}
-              >
-                {/* Active Background Gradient */}
-                {activeFilter === category.id && (
-                  <motion.div
-                    layoutId="activeFilterBg"
-                    className="absolute inset-0 bg-gradient-to-r from-slate-900 to-slate-800"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
+            {categories.map((category, idx) => {
+              const isWebsiteDev = category.id === "website-development";
+              const ButtonContent = (
+                <>
+                  {/* Active Background Gradient */}
+                  {activeFilter === category.id && (
+                    <motion.div
+                      layoutId="activeFilterBg"
+                      className="absolute inset-0 bg-gradient-to-r from-slate-900 to-slate-800"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
 
-                {/* Content */}
-                <div className="relative z-10 flex items-center gap-3">
-                  <span className={`text-2xl transition-transform duration-300 group-hover:scale-110 ${
-                    activeFilter === category.id ? "" : "grayscale"
-                  }`}>
-                    {category.icon}
-                  </span>
-                  <div className="text-left">
-                    <div className={`text-sm font-semibold ${
-                      activeFilter === category.id ? "text-white" : "text-slate-900"
+                  {/* Content */}
+                  <div className="relative z-10 flex items-center gap-3">
+                    <span className={`text-2xl transition-transform duration-300 group-hover:scale-110 ${
+                      activeFilter === category.id ? "" : "grayscale"
                     }`}>
-                      {category.label}
-                    </div>
-                    <div className={`text-xs ${
-                      activeFilter === category.id ? "text-slate-300" : "text-slate-500"
-                    }`}>
-                      {category.count} projects
+                      {category.icon}
+                    </span>
+                    <div className="text-left">
+                      <div className={`text-sm font-semibold ${
+                        activeFilter === category.id ? "text-white" : "text-slate-900"
+                      }`}>
+                        {category.label}
+                      </div>
+                      <div className={`text-xs ${
+                        activeFilter === category.id ? "text-slate-300" : "text-slate-500"
+                      }`}>
+                        {category.count} projects
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Hover Glow */}
-                <motion.div
-                  className="absolute inset-0 -z-10 bg-gradient-to-r from-teal-500/10 to-blue-500/10 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100"
-                />
-              </motion.button>
-            ))}
+                  {/* Hover Glow */}
+                  <motion.div
+                    className="absolute inset-0 -z-10 bg-gradient-to-r from-teal-500/10 to-blue-500/10 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100"
+                  />
+                </>
+              );
+
+              const buttonClasses = `group relative overflow-hidden rounded-2xl border-2 px-6 py-4 transition-all duration-300 ${
+                activeFilter === category.id
+                  ? "border-slate-900 bg-slate-900 shadow-xl shadow-slate-900/20"
+                  : "border-slate-200 bg-white hover:border-slate-300 hover:shadow-lg"
+              }`;
+
+              if (isWebsiteDev) {
+                return (
+                  <Link key={category.id} href="/work/websites">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: 0.9 + idx * 0.1 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={buttonClasses}
+                    >
+                      {ButtonContent}
+                    </motion.div>
+                  </Link>
+                );
+              }
+
+              return (
+                <motion.button
+                  key={category.id}
+                  onClick={() => handleFilterClick(category.id)}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.9 + idx * 0.1 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={buttonClasses}
+                >
+                  {ButtonContent}
+                </motion.button>
+              );
+            })}
           </motion.div>
 
           {/* Stats Row */}

@@ -15,20 +15,21 @@ const teamMembers = [
   },
   {
     id: 2,
-    name: "Ankita Jii",
+    name: "Shravya",
+    role: "Graphc Designer",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
+    bio: "Versatile marketing professional with expertise spanning content creation, project management, client relations, and strategic planning. CS brings adaptability and comprehensive skills that ensure seamless project execution and exceptional client satisfaction across all touchpoints.",
+    color: "from-orange-500 to-red-500",
+  },
+  {
+    id: 3,
+    name: "Ankita",
     role: "Social Media Strategist",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=800&q=80",
     bio: "Expert social media strategist who transforms brands into engaging digital experiences. Ankita crafts data-driven campaigns that resonate with target audiences, drive meaningful engagement, and build lasting community connections across all major social platforms.",
     color: "from-purple-500 to-pink-500",
   },
-  {
-    id: 3,
-    name: "CS Maccha",
-    role: "All Rounder",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
-    bio: "Versatile marketing professional with expertise spanning content creation, project management, client relations, and strategic planning. CS brings adaptability and comprehensive skills that ensure seamless project execution and exceptional client satisfaction across all touchpoints.",
-    color: "from-orange-500 to-red-500",
-  },
+  
   {
     id: 4,
     name: "Minesh",
@@ -37,14 +38,7 @@ const teamMembers = [
     bio: "Talented software engineer specializing in building robust, scalable digital solutions. Minesh combines technical expertise with creative problem-solving to develop cutting-edge platforms, automation tools, and web applications that power modern marketing campaigns.",
     color: "from-emerald-500 to-teal-500",
   },
-  {
-    id: 5,
-    name: "Veer",
-    role: "Creative Lead",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80",
-    bio: "Award-winning creative director who transforms brand visions into captivating visual narratives. Veer's innovative designs blend aesthetic excellence with strategic purpose, creating memorable experiences that elevate brand identity and drive user engagement.",
-    color: "from-blue-500 to-cyan-500",
-  },
+  
 ];
 
 function TeamMemberCard({

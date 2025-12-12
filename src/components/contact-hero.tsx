@@ -58,7 +58,7 @@ const quickContacts = [
 
 export function ContactHero() {
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden rounded-3xl md:rounded-[40px]">
       {/* Floating Background Elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {floatingIcons.map((item, idx) => (

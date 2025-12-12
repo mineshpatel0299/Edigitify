@@ -17,7 +17,7 @@ export function WorkDetailHero({ work }: { work: WorkCaseStudy }) {
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
 
   return (
-    <div ref={containerRef} className="relative min-h-screen overflow-hidden">
+    <div ref={containerRef} className="relative min-h-screen overflow-hidden rounded-3xl md:rounded-[40px]">
       {/* Background Image with Parallax */}
       <motion.div style={{ y, scale }} className="absolute inset-0">
         <Image

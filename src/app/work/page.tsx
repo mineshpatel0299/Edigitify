@@ -1,15 +1,8 @@
-import type { Metadata } from "next";
 import { workData } from "@/lib/content";
 import { WorkHeroBanner } from "@/components/work-hero-banner";
 import { WorkFeaturedShowcase } from "@/components/work-featured-showcase";
 import { WorkGridEnhanced } from "@/components/work-grid-enhanced";
 import { WorkImpactSection } from "@/components/work-impact-section";
-
-export const metadata: Metadata = {
-  title: "Work - Edigitify | Campaign Systems & Case Studies",
-  description:
-    "Explore Edigitify campaign systems across paid media, creative automation, CRM, and revenue ops. Real results from real partnerships.",
-};
 
 export default function WorkPage() {
   // Get featured work item (first one or specific slug)

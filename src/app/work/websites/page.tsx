@@ -1,12 +1,8 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
 
 import { websiteProjects } from "@/lib/website-projects";
-
-export const metadata: Metadata = {
-  title: "Website Development - Edigitify",
-  description: "Browse a curated collection of high-converting websites crafted by the Edigitify team.",
-};
 
 const badgeIcons: Record<string, string> = {
   "Web Platform": "🏢",
@@ -30,6 +26,16 @@ export default function WorkWebsitesPage() {
       </div>
 
       <section className="relative z-10 mx-auto flex max-w-6xl flex-col items-center px-6 pb-16 pt-32 text-center">
+        <div className="mb-8 w-full flex justify-start">
+          <Link
+            href="/work"
+            className="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-5 py-2.5 shadow-lg shadow-slate-500/10 backdrop-blur-xl transition-all duration-300 hover:border-cyan-300 hover:shadow-xl hover:shadow-cyan-500/20 hover:-translate-x-1"
+          >
+            <span className="text-lg transition-transform duration-300 group-hover:-translate-x-1">←</span>
+            <span className="text-sm font-semibold text-slate-700 group-hover:text-cyan-600">Back to Work</span>
+          </Link>
+        </div>
+
         <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-cyan-200 bg-white/80 px-6 py-2 shadow-lg shadow-cyan-500/10 backdrop-blur-xl">
           <span className="text-sm">✦</span>
           <span className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-700">Website Development</span>

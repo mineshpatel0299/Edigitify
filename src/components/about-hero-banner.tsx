@@ -23,7 +23,7 @@ export function AboutHeroBanner() {
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
   return (
-    <div ref={containerRef} className="relative min-h-[90vh] overflow-hidden">
+    <div ref={containerRef} className="relative min-h-[90vh] overflow-hidden rounded-3xl md:rounded-[40px]">
       {/* Animated Background Gradient */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"

@@ -118,7 +118,7 @@ export function ContactSection() {
   };
 
   return (
-    <section className="relative overflow-hidden rounded-[48px] border border-white/30 bg-white/70 p-8 shadow-[0_60px_140px_-80px_rgba(15,23,42,1)] backdrop-blur-2xl sm:p-12">
+    <section className="relative overflow-hidden rounded-[48px] border border-white/30 bg-white/70 p-8  backdrop-blur-2xl sm:p-12">
       <motion.span
         className={cn(beamBase, "inset-y-8 left-12 hidden w-44 bg-emerald-400/25 sm:block")}
         animate={{ y: [0, 60, -40, 0] }}

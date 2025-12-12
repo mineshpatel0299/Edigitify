@@ -60,7 +60,7 @@ export function Hero() {
   const statsInView = useInView(statsRef, { once: true, margin: "-100px" });
 
   return (
-    <section className="relative left-1/2 -mt-24 w-screen max-w-none -translate-x-1/2 overflow-hidden md:-mt-32">
+    <section className="relative left-1/2 -mt-24 w-screen max-w-none -translate-x-1/2 overflow-hidden rounded-3xl md:-mt-32 md:rounded-[40px]">
       {/* Spotlight Effects */}
       <Spotlight className="top-0 left-0 md:left-20 md:-top-40" fill="#60A5FA" />
       <Spotlight className="top-20 right-0 md:right-20" fill="#A78BFA" />
