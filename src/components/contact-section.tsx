@@ -16,8 +16,8 @@ const contactMethods = [
   },
   {
     label: "Email Us",
-    value: "info@edigitify.com",
-    href: "mailto:info@edigitify.com",
+    value: "info@edigitify.in",
+    href: "mailto:info@edigitify.in",
     icon: Mail,
     helper: "We will response you ASAP to your mail",
   },
