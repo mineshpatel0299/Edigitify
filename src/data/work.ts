@@ -143,7 +143,7 @@ const work: WorkCaseStudy[] = [
     tags: ["Fitness", "Social Media", "Product Marketing", "Paid Ads"],
     summary:
       "Gymtex is a premium gym flooring brand known for durability, anti-slip technology, and heavy-duty performance. EDigitify manages their social media presence, Meta ads, creative design, photoshoots, and video shoots—crafting a bold, energetic, and product-centric digital identity that reflects the strength of the brand.",
-    image: "https://images.unsplash.com/photo-1529429617124-aee711a70412?auto=format&fit=crop&w=1600&q=80",
+    image: "/work/gymtex-flooring.jpg",
     problem:
       "Gymtex is a trusted gym flooring solutions brand offering products built for safety, stability, and high-intensity performance. Despite having a solid product, their digital identity didn't fully capture the quality and toughness of their flooring. They needed a brand presence that speaks the language of fitness—bold, confident, modern, and powerful.",
     solution:
